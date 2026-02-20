@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OPS Lab — Farmers Market Bakery, Bentonville | IN-KluSo</title>
+<style>
+  :root {
+    --cream: #FAF6EE;
+    --black: #1A1A1A;
+    --orange: #E8540A;
+    --gray: #6B6B6B;
+    --light: #F0EBE1;
+    --green: #2D6A4F;
+    --red: #C0392B;
+    --blue: #1A3A5C;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); color: var(--black); font-family: 'Georgia', serif; line-height: 1.7; }
+  .stripe { height: 5px; background: var(--orange); }
+  nav {
+    display: flex; align-items: center; gap: 2rem;
+    padding: 1.2rem 3rem; border-bottom: 1px solid #ddd;
+    font-family: 'Arial', sans-serif; font-size: 0.85rem;
+  }
+  nav .brand { font-weight: 700; font-size: 1rem; text-decoration: none; color: var(--black); margin-right: auto; }
+  nav .brand span { color: var(--orange); }
+  nav a { color: var(--gray); text-decoration: none; }
+  nav a:hover { color: var(--black); }
+  .container { max-width: 860px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+  .meta { font-family: Arial, sans-serif; font-size: 0.78rem; color: var(--orange); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.6rem; }
+  h1 { font-size: 2.4rem; line-height: 1.2; margin-bottom: 0.5rem; font-weight: normal; }
+  h1 em { font-style: italic; color: var(--orange); }
+  .byline { font-family: Arial, sans-serif; font-size: 0.85rem; color: var(--gray); margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid #ddd; }
+  .section { margin: 3rem 0; }
+  .section-tag {
+    font-family: Arial, sans-serif; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    background: var(--black); color: white;
+    padding: 0.25rem 0.65rem; display: inline-block; margin-bottom: 1rem;
+  }
+  .section-tag.orange { background: var(--orange); }
+  .section-tag.green { background: var(--green); }
+  .section-tag.blue { background: var(--blue); }
+  .section-tag.red { background: var(--red); }
+  h2 { font-size: 1.45rem; font-weight: normal; margin-bottom: 1rem; }
+  p { margin-bottom: 1rem; color: var(--black); }
+  .lead { font-size: 1.1rem; color: var(--gray); font-style: italic; margin-bottom: 1.5rem; }
+  .track { border-left: 4px solid var(--orange); padding: 1.5rem; margin: 1.5rem 0; background: white; }
+  .track.structural { border-left-color: var(--blue); }
+  .track.defensive { border-left-color: var(--green); }
+  .track-label { font-family: Arial, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.4rem; }
+  .track.structural .track-label { color: var(--blue); }
+  .track.defensive .track-label { color: var(--green); }
+  .track h3 { font-size: 1.1rem; margin-bottom: 0.6rem; font-weight: normal; }
+  .track ul { padding-left: 1.2rem; }
+  .track ul li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+  .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+  .metric-box { background: white; padding: 1.2rem; border-top: 3px solid var(--orange); }
+  .metric-box .label { font-family: Arial, sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray); margin-bottom: 0.3rem; }
+  .metric-box .value { font-size: 1.05rem; font-weight: bold; }
+  .first-step { background: var(--black); color: white; padding: 2rem; margin: 2rem 0; }
+  .first-step .label { font-family: Arial, sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--orange); margin-bottom: 0.6rem; }
+  .first-step p { color: white; margin: 0; font-size: 1.05rem; }
+  .risk-row { display: flex; gap: 1rem; align-items: flex-start; padding: 0.8rem 0; border-bottom: 1px solid #ddd; }
+  .risk-row:last-child { border-bottom: none; }
+  .risk-tag { font-family: Arial, sans-serif; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; padding: 0.2rem 0.5rem; white-space: nowrap; }
+  .risk-tag.high { background: #fde8e8; color: var(--red); }
+  .risk-tag.med { background: #fef3e2; color: #b7600a; }
+  .risk-tag.low { background: #e8f4ec; color: var(--green); }
+  .audit-box { background: var(--light); padding: 1.5rem; margin-top: 1.5rem; font-family: Arial, sans-serif; font-size: 0.85rem; }
+  .audit-box strong { display: block; margin-bottom: 0.5rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; }
+  footer { text-align: center; padding: 2rem; font-family: Arial, sans-serif; font-size: 0.8rem; color: var(--gray); border-top: 1px solid #ddd; }
+  @media (max-width: 600px) { .metrics-grid { grid-template-columns: 1fr; } nav { padding: 1rem; gap: 1rem; } }
+</style>
+</head>
+<body>
+<div class="stripe"></div>
+<nav>
+  <a href="../../../../index.html" class="brand">IN-<span>KluSo</span> Tools</a>
+  <a href="../../../../tools/ops.html">OPS Lab</a>
+  <a href="../../../../outputs/README.md">Outputs</a>
+</nav>
+<div class="container">
+  <div class="meta">OPS Lab — Run ID: farmers-market-bakery-bentonville-demand-20260220-2bnjbk</div>
+  <h1>Farmers Market Bakery<br><em>Bentonville, AR — 90-Day Demand Plan</em></h1>
+  <div class="byline">Produced by Juan Camilo Echeverri &amp; Camilo Osorio · IN-KluSo / Xtatik · February 20, 2026 · Revenue range: $5k–$20k/mo · Risk tolerance: Medium</div>
+  <div class="section">
+    <div class="section-tag">Problem Summary</div>
+    <h2>The gap between great product and reliable revenue</h2>
+    <p class="lead">A bakery with farmers market distribution is not yet a business — it is a recurring pop-up. The core problem is not product quality; it is demand architecture.</p>
+    <p>Farmers market bakeries in the $5k–$20k monthly revenue band share a structural ceiling: revenue is episodic (market days only), audience capture is zero-sum (browsers, not subscribers), and repeat buyers exist but are never systematically converted. The result is a business that is perpetually starting over each week.</p>
+    <p>Bentonville-specific context: the city has an unusually dense concentration of high-income, food-literate households tied to Walmart HQ, supplier networks, and the Crystal Bridges/Momentary cultural ecosystem. Demand exists. The problem is access architecture, not appetite.</p>
+  </div>
+  <div class="section">
+    <div class="section-tag orange">Diagnosis</div>
+    <h2>Mechanism: Single-channel, zero-capture distribution</h2>
+    <p>The current model captures transaction but not relationship. Each market day resets to zero: no pre-committed buyers, no predictable volume, no ability to plan production efficiently. This produces three compounding failures:</p>
+    <ul style="padding-left:1.4rem; margin-bottom:1rem;">
+      <li style="margin-bottom:0.5rem;"><strong>Production inefficiency:</strong> Baking to speculative demand means systematic over or under-production. Both are expensive.</li>
+      <li style="margin-bottom:0.5rem;"><strong>Revenue variance:</strong> Weather, competing events, and market attendance fluctuations outside your control set your revenue ceiling each week.</li>
+      <li style="margin-bottom:0.5rem;"><strong>Zero compounding:</strong> Satisfied customers leave without a mechanism to return on a committed schedule. Word-of-mouth exists; repeat purchase architecture does not.</li>
+    </ul>
+    <p>The 90-day intervention target is converting this from a transactional pop-up into a demand-predictable micro-distribution system with at least two revenue streams.</p>
+  </div>
+  <div class="section">
+    <div class="section-tag">Constraints</div>
+    <h2>What the plan must respect</h2>
+    <ul style="padding-left:1.4rem;">
+      <li style="margin-bottom:0.5rem;"><strong>Capital:</strong> Medium risk tolerance, no assumed capital injection. Interventions funded from operating cash flow.</li>
+      <li style="margin-bottom:0.5rem;"><strong>Production capacity:</strong> All interventions must stay within current production ceiling.</li>
+      <li style="margin-bottom:0.5rem;"><strong>Regulatory:</strong> Arkansas cottage food law allows direct-to-consumer sales with revenue caps; B2B wholesale requires commercial kitchen licensing.</li>
+      <li style="margin-bottom:0.5rem;"><strong>Time:</strong> 90-day window. No interventions requiring more than 30 days of setup before first revenue signal.</li>
+    </ul>
+  </div>
+  <div class="section">
+    <div class="section-tag orange">Intervention Tracks</div>
+    <h2>Three parallel moves, sequenced by capital risk</h2>
+    <div class="track">
+      <div class="track-label">Track 1 — Low Capital</div>
+      <h3>Pre-order subscription: convert browsers into committed buyers</h3>
+      <p>Launch a weekly pre-order system before the next market cycle. Buyers commit by Wednesday for Saturday pickup. Start with 2–3 box configurations (e.g., $28 bread box, $38 pastry mix, $55 full-week box). Target 20 committed orders in the first 30 days.</p>
+      <ul>
+        <li>Tools: Google Forms or Square (both free tier sufficient at this scale)</li>
+        <li>Capture emails at market with a physical sign-up sheet, first order discount</li>
+        <li>Send a weekly SMS/email reminder Wednesday with that week's menu</li>
+        <li>Benefit: predictable production volume by Wednesday, zero food waste on committed items</li>
+        <li>First irreversible commitment: printing sign-up materials (~$20)</li>
+      </ul>
+    </div>
+    <div class="track structural">
+      <div class="track-label">Track 2 — Structural</div>
+      <h3>B2B micro-channel: one wholesale account in 60 days</h3>
+      <p>Bentonville has a high concentration of boutique coffee shops, coworking spaces, and corporate campus cafeterias that source locally as a brand signal. One B2B account at $400–$800/week represents a 20–40% revenue floor stabilizer.</p>
+      <ul>
+        <li>Target: 3–5 outreach conversations in weeks 3–4; close 1 account by day 60</li>
+        <li>Regulatory check required: confirm Arkansas cottage food law revenue cap before outreach</li>
+        <li>Pricing logic: wholesale at 60–65% of retail maintains margin</li>
+        <li>Candidate targets: Onyx Coffee Lab, local coworking spaces, Crystal Bridges member events</li>
+      </ul>
+    </div>
+    <div class="track defensive">
+      <div class="track-label">Track 3 — Defensive</div>
+      <h3>Cost floor and waste reduction: stabilize before scaling</h3>
+      <p>Eliminate cost leakage before expanding revenue channels. Know your exact break-even at $5k, $10k, and $15k monthly revenue before committing to any Track 2 contracts.</p>
+      <ul>
+        <li>Recipe standardization: document cost-per-unit for every item currently sold</li>
+        <li>Waste log: track unsold inventory per market day for 4 weeks</li>
+        <li>Pricing audit: compare to comparable Bentonville market vendors</li>
+        <li>Cash buffer target: 30-day operating expenses in reserve before signing any B2B contract</li>
+      </ul>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-tag">Metrics</div>
+    <h2>What signals confirm the plan is working</h2>
+    <div class="metrics-grid">
+      <div class="metric-box"><div class="label">30-Day Target</div><div class="value">20 pre-orders/week</div></div>
+      <div class="metric-box"><div class="label">60-Day Target</div><div class="value">1 B2B account signed</div></div>
+      <div class="metric-box"><div class="label">90-Day Revenue Floor</div><div class="value">$8k/mo minimum</div></div>
+      <div class="metric-box"><div class="label">Waste Reduction</div><div class="value">&lt;10% unsold per market day</div></div>
+      <div class="metric-box"><div class="label">Email List</div><div class="value">150 subscribers by day 60</div></div>
+      <div class="metric-box"><div class="label">Contribution Margin</div><div class="value">&gt;55% on all SKUs</div></div>
+    </div>
+  </div>
+  <div class="first-step">
+    <div class="label">First Irreversible Step</div>
+    <p>At your next market day, place a physical sign-up sheet on your table with three pre-order box options and a price for each. Collect 10 email addresses before you pack up. If 10 people sign up, you have validated demand. If fewer than 5 do, the offer needs adjustment before you invest in any infrastructure.</p>
+  </div>
+  <div class="section">
+    <div class="section-tag red">Risks</div>
+    <h2>What this plan does not guarantee</h2>
+    <div class="risk-row"><span class="risk-tag high">High</span><div><strong>Regulatory exposure on B2B wholesale</strong><br>Arkansas cottage food law restricts wholesale without commercial kitchen certification. Confirm status with the Arkansas Department of Health before signing any wholesale contract.</div></div>
+    <div class="risk-row"><span class="risk-tag med">Medium</span><div><strong>Pre-order adoption rate may be slow</strong><br>Farmers market buyers are habituated to impulse purchase. Plan for 4–6 weeks of friction before subscription behavior normalizes.</div></div>
+    <div class="risk-row"><span class="risk-tag med">Medium</span><div><strong>Production capacity ceiling</strong><br>If pre-orders and B2B demand exceed kitchen capacity simultaneously, fulfillment quality degrades. Set a production cap before launching both tracks.</div></div>
+    <div class="risk-row"><span class="risk-tag low">Low</span><div><strong>Seasonal demand fluctuation</strong><br>Bentonville farmers markets typically run March–November. B2B channels are less seasonal and provide a partial hedge.</div></div>
+  </div>
+  <div class="audit-box">
+    <strong>Scope &amp; Safety Notes</strong>
+    This plan provides operational frameworks and directional options only. It does not constitute legal, tax, or financial advice. Consult a licensed professional before entering any wholesale contract or regulatory compliance decision.
+  </div>
+</div>
+<footer>IN-KluSo Tools / OPS Lab &nbsp;·&nbsp; Juan Camilo Echeverri &amp; Camilo Osorio &nbsp;·&nbsp; Xtatik</footer>
+</body>
+</html>
