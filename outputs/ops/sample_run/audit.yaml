@@ -1,0 +1,30 @@
+run_id: restaurant-bentonville-ar-competition-90d-20250120-8r3t1z
+tool: ops_lab
+generated_at: "2025-01-20T14:45:00Z"
+
+scope_limits:
+  - "This plan addresses operational and strategic options only. Not legal advice."
+  - "Not financial advice. Revenue projections are directional, not guaranteed."
+  - "Does not address HR, employment law, or regulatory compliance requirements."
+  - "Does not account for lease terms, landlord negotiations, or fixed cost structure changes."
+
+assumptions:
+  - "40% cover decline is primarily competitive in nature"
+  - "Food cost at 38% is an accurate current figure"
+  - "Operator has basic customer tracking capability or can implement it"
+  - "Business can sustain operations for 60+ days without immediate intervention"
+
+uncertainty_notes:
+  - "Actual food cost reduction from menu compression depends on specific items removed"
+  - "Catering demand in Bentonville corporate sector is estimated, not verified for this operator"
+  - "Repeat customer rate baseline is unknown; must be established before Track B can be measured"
+  - "Competitor pricing and positioning not analyzed; competitive response assumed but not modeled"
+
+safety_notes:
+  - legal_advice_given: false
+  - medical_advice_given: false
+  - guaranteed_outcomes_stated: false
+  - measurable_indicators_included: true
+  - first_irreversible_step_identified: true
+  - downside_risks_documented: true
+  - professional_referral_included: true

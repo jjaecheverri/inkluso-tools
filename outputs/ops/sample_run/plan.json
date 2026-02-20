@@ -1,0 +1,102 @@
+{
+  "run_id": "restaurant-bentonville-ar-competition-90d-20250120-8r3t1z",
+  "tool": "ops_lab",
+  "generated_at": "2025-01-20T14:45:00Z",
+  "classification": {
+    "business_type": "Restaurant",
+    "city": "Bentonville, AR",
+    "primary_pressure": "competition",
+    "secondary_constraint": "margin",
+    "revenue_range": "5k-20k",
+    "time_horizon": "90d",
+    "risk_tolerance": "medium"
+  },
+  "assumptions": [
+    "40% cover decline is primarily attributable to competitive entry, not seasonal variation",
+    "Food cost at 38% is a structural constraint, not a temporary spike",
+    "The operator has at least a small base of returning customers that can be identified",
+    "Monthly revenue is sufficient to sustain operations for 60+ days without intervention"
+  ],
+  "interventions": [
+    {
+      "track": "A",
+      "label": "Low-capital",
+      "name": "Compress the Menu, Own a Time Slot",
+      "actions": [
+        "Reduce lunch menu to 5-7 highest-margin items",
+        "Remove lowest-margin dishes (target 3 cuts)",
+        "Identify one underserved lunch time slot",
+        "Build $12-15 lunch special without discounting"
+      ],
+      "reversibility": "high",
+      "estimated_cost": 0,
+      "timeline_days": 7
+    },
+    {
+      "track": "B",
+      "label": "Structural",
+      "name": "Build a Repeat Customer Layer",
+      "actions": [
+        "Launch simple punch card or digital loyalty program",
+        "Identify top 20% of covers by frequency",
+        "Map what high-frequency customers order and when",
+        "Create a standing reason to return specifically for lunch"
+      ],
+      "reversibility": "medium",
+      "estimated_cost": 50,
+      "timeline_days": 21
+    },
+    {
+      "track": "C",
+      "label": "Defensive",
+      "name": "Shift Revenue Mix Away from Lunch",
+      "actions": [
+        "If lunch covers remain depressed after 45 days, pivot kitchen capacity",
+        "Identify 3-5 local corporate offices for direct catering outreach",
+        "Target $800-1,200 per catering event",
+        "Set 15% catering revenue target within 90 days"
+      ],
+      "reversibility": "high (outreach) / low (operational restructure)",
+      "estimated_cost": 100,
+      "timeline_days": 45,
+      "trigger_condition": "Lunch cover count fails to recover 15% after 45 days"
+    }
+  ],
+  "metrics": [
+    { "name": "Food cost %", "frequency": "weekly", "target": "Below 35% within 30 days" },
+    { "name": "Lunch cover count", "frequency": "daily", "target": "Baseline established; compare week-over-week" },
+    { "name": "Repeat customer rate", "frequency": "bi-weekly", "target": "Increase from current baseline" },
+    { "name": "Revenue per cover", "frequency": "weekly", "target": "Flat or improving after menu compression" },
+    { "name": "Catering revenue", "frequency": "monthly", "target": "15% of total revenue by day 90" }
+  ],
+  "first_irreversible_step": {
+    "action": "Remove the 3 lowest-margin lunch items from the menu",
+    "timeline": "This week",
+    "cost": 0,
+    "reversibility": "high",
+    "rationale": "Only move that immediately improves structural position without spending money or making external commitments"
+  },
+  "risks": [
+    {
+      "type": "assumption_failure",
+      "description": "Cover decline has additional causes beyond competitive entry (parking, reviews, service issues)",
+      "mitigation": "Survey returning customers before making menu changes"
+    },
+    {
+      "type": "customer_reaction",
+      "description": "Menu compression may disappoint existing customers expecting prior options",
+      "mitigation": "Communicate changes directly; highlight what's staying"
+    },
+    {
+      "type": "capacity",
+      "description": "Catering pivot requires operational capacity not currently deployed",
+      "mitigation": "Do not pursue Track C until Track A shows measurable results"
+    }
+  ],
+  "decision_window": "45 days. If lunch cover count has not recovered 15% and food cost has not dropped below 35% by day 45, escalate to Track C.",
+  "safety_notes": [
+    "This plan does not constitute legal or financial advice",
+    "Consult a licensed accountant before restructuring cost categories or cash allocation",
+    "No revenue projections are guaranteed; all figures are directional"
+  ]
+}

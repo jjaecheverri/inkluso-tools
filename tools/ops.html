@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OPS Lab — IN-KluSo</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-brand">IN-<span>KluSo</span> Tools</a>
+  <a href="../index.html">Home</a>
+  <a href="index.html">Tools</a>
+  <a href="ci.html">CI Tool</a>
+  <a href="ops.html" class="active">OPS Lab</a>
+  <a href="../outputs/README.md">Outputs</a>
+</nav>
+<div class="stripe"></div>
+
+<div class="container">
+  <div class="hero">
+    <p class="hero-kicker">IN-KluSo / OPS Lab</p>
+    <h1>Small Business <em>Problem Solver</em></h1>
+    <p>Describe your situation. We diagnose the mechanism, build three intervention tracks, and identify your first irreversible step.</p>
+  </div>
+
+  <div style="padding: 3rem 0">
+    <div class="section-header">
+      <span class="section-tag">Request Form</span>
+      <hr>
+    </div>
+
+    <div class="tool-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="biz_type">Business Type <span style="color:var(--orange)">*</span></label>
+          <div class="field-hint">e.g. "Restaurant", "Retail boutique", "Food truck"</div>
+          <input type="text" id="biz_type" placeholder="Restaurant" required>
+        </div>
+        <div class="form-group">
+          <label for="city">City or Region <span style="color:var(--orange)">*</span></label>
+          <div class="field-hint">Where the business operates</div>
+          <input type="text" id="city" placeholder="Bentonville, AR" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="problem">Core Problem <span style="color:var(--orange)">*</span></label>
+        <div class="field-hint">Describe what's happening in your own words. Be specific.</div>
+        <textarea id="problem" placeholder="e.g. Lunch covers dropped 40% after a new competitor opened two blocks away. We can't lower prices further without losing margin on food cost already at 38%."></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="revenue">Monthly Revenue Range</label>
+          <select id="revenue">
+            <option value="under-5k">Under $5k</option>
+            <option value="5k-20k" selected>$5k – $20k</option>
+            <option value="20k-50k">$20k – $50k</option>
+            <option value="50k-150k">$50k – $150k</option>
+            <option value="150k-plus">$150k+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="pressure">Primary Pressure</label>
+          <select id="pressure">
+            <option value="demand" selected>Demand</option>
+            <option value="margin">Margin</option>
+            <option value="rent">Rent</option>
+            <option value="labor">Labor</option>
+            <option value="inventory">Inventory</option>
+            <option value="regulation">Regulation</option>
+            <option value="competition">Competition</option>
+            <option value="operations">Operations</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="horizon">Time Horizon</label>
+          <select id="horizon">
+            <option value="30d">Under 30 days</option>
+            <option value="90d" selected>90 days</option>
+            <option value="6m">6 months</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="risk">Risk Tolerance</label>
+          <select id="risk">
+            <option value="low">Low — preserve cash</option>
+            <option value="medium" selected>Medium — measured bets</option>
+            <option value="high">High — commit to change</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="budget">Available Budget (optional, USD)</label>
+        <div class="field-hint">Leave blank if unknown or not applicable.</div>
+        <input type="number" id="budget" placeholder="e.g. 3000" min="0">
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btn-generate">Generate Request Packet</button>
+        <button class="btn btn-secondary" id="btn-download" disabled>Download JSON</button>
+        <button class="btn btn-outline" id="btn-copy" disabled>Copy to Clipboard</button>
+        <span class="copy-notice" id="copy-notice">Copied.</span>
+      </div>
+    </div>
+
+    <div class="output-box" id="output-box">
+      <div class="output-label">Request Packet Preview</div>
+      <pre></pre>
+    </div>
+
+    <div class="how-it-works">
+      <h3>How it works</h3>
+      <ol>
+        <li><strong>Fill the form</strong> and click Generate. Your request packet appears below.</li>
+        <li><strong>Download or copy</strong> the JSON packet.</li>
+        <li><strong>Paste it into Tasklet</strong> with the prompt: <em>"Run this OPS request."</em></li>
+        <li>Tasklet diagnoses the <strong>mechanism behind your pressure</strong>, not just the symptom.</li>
+        <li>Output includes <strong>three intervention tracks</strong> (Low-capital / Structural / Defensive) with metrics and risk flags.</li>
+        <li>Plan is <strong>committed to the repo</strong> under <code>/outputs/ops/&lt;run_id&gt;/</code> and published.</li>
+      </ol>
+      <a href="../outputs/ops/sample_run/plan.html" class="sample-link">View a sample OPS output →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>IN-KluSo Tools</strong> — A research layer by <strong>Xtatik</strong><br>
+  Juan Camilo Echeverri &amp; Camilo Osorio
+</footer>
+
+<script src="../assets/shared.js"></script>
+<script src="../assets/ops.js"></script>
+</body>
+</html>

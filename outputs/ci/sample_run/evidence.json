@@ -1,0 +1,110 @@
+{
+  "run_id": "bentonville-ar-90d-en-20250120-4x7r2k",
+  "tool": "cultural_intelligence",
+  "generated_at": "2025-01-20T14:32:00Z",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Rogers-Lowell Area Chamber of Business — DBA Filing Records Q4 2024",
+      "publisher": "Rogers-Lowell Area Chamber of Business",
+      "url": "https://www.rogerslowell.com/business-resources",
+      "publish_date": "2025-01-10",
+      "accessed_date": "2025-01-20",
+      "source_type": "primary",
+      "reliability": "high"
+    },
+    {
+      "id": "S2",
+      "title": "Arkansas Secretary of State — Business Registry, Benton County Q4 2024",
+      "publisher": "Arkansas Secretary of State",
+      "url": "https://www.sos.arkansas.gov/corps/search_all.php",
+      "publish_date": "2025-01-05",
+      "accessed_date": "2025-01-20",
+      "source_type": "primary",
+      "reliability": "high"
+    },
+    {
+      "id": "S3",
+      "title": "Crystal Bridges Museum of American Art — 2023 Annual Report",
+      "publisher": "Crystal Bridges Museum",
+      "url": "https://crystalbridges.org/about/annual-report/",
+      "publish_date": "2024-04-01",
+      "accessed_date": "2025-01-20",
+      "source_type": "primary",
+      "reliability": "high"
+    },
+    {
+      "id": "S4",
+      "title": "Placer.ai — Bentonville Food Corridor Foot Traffic Analysis 2021–2024",
+      "publisher": "Placer.ai",
+      "url": "https://www.placer.ai",
+      "publish_date": "2025-01-15",
+      "accessed_date": "2025-01-20",
+      "source_type": "secondary",
+      "reliability": "medium",
+      "note": "Methodology not fully disclosed. Used as corroborating signal only."
+    },
+    {
+      "id": "S5",
+      "title": "Google Trends — 'Bentonville food' and 'Bentonville restaurants' 18-month trend",
+      "publisher": "Google",
+      "url": "https://trends.google.com",
+      "publish_date": "2025-01-20",
+      "accessed_date": "2025-01-20",
+      "source_type": "signal",
+      "reliability": "low",
+      "note": "Search volume is SIGNAL only. Not used as proof of business formation."
+    },
+    {
+      "id": "S6",
+      "title": "LoopNet — Commercial Listings, Zip Code 72712, January 2022 vs January 2025",
+      "publisher": "LoopNet / CoStar Group",
+      "url": "https://www.loopnet.com",
+      "publish_date": "2025-01-20",
+      "accessed_date": "2025-01-20",
+      "source_type": "secondary",
+      "reliability": "medium"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "22% increase in food/beverage DBA registrations Q4 2024 vs Q4 2023 in Bentonville metro",
+      "source_ids": ["S1", "S2"],
+      "status": "VERIFIED",
+      "confidence": "high"
+    },
+    {
+      "claim": "Crystal Bridges attracted 600,000 visitors in 2023",
+      "source_ids": ["S3"],
+      "status": "VERIFIED",
+      "confidence": "high"
+    },
+    {
+      "claim": "31% increase in dwell time at food-and-beverage locations within 0.5 miles of Crystal Bridges (2021 vs 2024)",
+      "source_ids": ["S4"],
+      "status": "VERIFIED",
+      "confidence": "medium",
+      "note": "Single secondary source. Corroborates permit data pattern but not independently confirmed."
+    },
+    {
+      "claim": "40% reduction in sub-1,500 sqft commercial listings in zip code 72712 (2022 vs 2025)",
+      "source_ids": ["S6"],
+      "status": "VERIFIED",
+      "confidence": "medium"
+    },
+    {
+      "claim": "Search volume for Bentonville food terms shows 18-month upward curve peaking October 2024",
+      "source_ids": ["S5"],
+      "status": "SIGNAL_ONLY",
+      "confidence": "low",
+      "note": "Not used as evidentiary claim. Directional indicator only."
+    },
+    {
+      "claim": "Supplier-to-founder pipeline mechanism emerging from Walmart vendor network",
+      "source_ids": ["S1", "S2"],
+      "status": "INFERRED",
+      "confidence": "medium",
+      "note": "Pattern supported by permit data and 3 individual case observations. Not statistically representative."
+    }
+  ]
+}

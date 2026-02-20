@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CI Tool — IN-KluSo</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-brand">IN-<span>KluSo</span> Tools</a>
+  <a href="../index.html">Home</a>
+  <a href="index.html">Tools</a>
+  <a href="ci.html" class="active">CI Tool</a>
+  <a href="ops.html">OPS Lab</a>
+  <a href="../outputs/README.md">Outputs</a>
+</nav>
+<div class="stripe"></div>
+
+<div class="container">
+  <div class="hero">
+    <p class="hero-kicker">IN-KluSo / Cultural Intelligence</p>
+    <h1>Ground Signal <em>CI Request</em></h1>
+    <p>Fill in the parameters below. Generate your request packet. Paste it into Tasklet — we handle the research, verification, and publication.</p>
+  </div>
+
+  <div style="padding: 3rem 0">
+    <div class="section-header">
+      <span class="section-tag">Request Form</span>
+      <hr>
+    </div>
+
+    <div class="tool-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="city">City or Region <span style="color:var(--orange)">*</span></label>
+          <div class="field-hint">e.g. "Bentonville, AR" or "Northwest Arkansas"</div>
+          <input type="text" id="city" placeholder="Bentonville, AR" required>
+        </div>
+        <div class="form-group">
+          <label for="window_days">Time Window (days) <span style="color:var(--orange)">*</span></label>
+          <div class="field-hint">How far back to look. Default: 90 days.</div>
+          <input type="number" id="window_days" value="90" min="30" max="730">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="neighborhood">Neighborhood or Corridor</label>
+        <div class="field-hint">Optional. Narrows focus to a specific area.</div>
+        <input type="text" id="neighborhood" placeholder="e.g. Downtown Bentonville, The Ledger District">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="language">Language Preference</label>
+          <select id="language">
+            <option value="en" selected>English only</option>
+            <option value="es">Spanish only</option>
+            <option value="both">Both</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="strictness">Evidence Strictness</label>
+          <select id="strictness">
+            <option value="strict" selected>Strict — primary sources preferred</option>
+            <option value="standard">Standard — mixed sources acceptable</option>
+            <option value="exploratory">Exploratory — signals and leads included</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="topic_gravity">Topic Gravity</label>
+        <div class="field-hint">Optional. Comma-separated areas of focus. e.g. "housing, retail migration, food culture"</div>
+        <input type="text" id="topic_gravity" placeholder="housing, retail migration, food culture">
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btn-generate">Generate Request Packet</button>
+        <button class="btn btn-secondary" id="btn-download" disabled>Download JSON</button>
+        <button class="btn btn-outline" id="btn-copy" disabled>Copy to Clipboard</button>
+        <span class="copy-notice" id="copy-notice">Copied.</span>
+      </div>
+    </div>
+
+    <div class="output-box" id="output-box">
+      <div class="output-label">Request Packet Preview</div>
+      <pre></pre>
+    </div>
+
+    <div class="how-it-works">
+      <h3>How it works</h3>
+      <ol>
+        <li><strong>Fill the form</strong> and click Generate. Your request packet appears below.</li>
+        <li><strong>Download or copy</strong> the JSON packet.</li>
+        <li><strong>Paste it into Tasklet</strong> with the prompt: <em>"Run this CI request."</em></li>
+        <li>Tasklet runs the <strong>5-stage GS-CI research workflow</strong>: Region Scope → Hunt → Screen → Verify → Build Dossier.</li>
+        <li>Output files are <strong>committed to the repo</strong> under <code>/outputs/ci/&lt;run_id&gt;/</code> and published.</li>
+        <li>You receive a link to the <strong>live branded article</strong>.</li>
+      </ol>
+      <a href="../outputs/ci/sample_run/article.html" class="sample-link">View a sample CI output →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>IN-KluSo Tools</strong> — A research layer by <strong>Xtatik</strong><br>
+  Juan Camilo Echeverri &amp; Camilo Osorio
+</footer>
+
+<script src="../assets/shared.js"></script>
+<script src="../assets/ci.js"></script>
+</body>
+</html>
