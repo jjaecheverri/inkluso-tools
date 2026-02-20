@@ -1,0 +1,38 @@
+run_id: farmers-market-bakery-bentonville-demand-20260220-2bnjbk
+produced: "2026-02-20"
+tool: IN-KluSo OPS Lab
+authors: Juan Camilo Echeverri, Camilo Osorio
+
+scope_limits:
+  - "Analysis covers operational and demand-side interventions only."
+  - "Revenue projections are directional benchmarks, not financial forecasts."
+  - "No legal or tax advice is provided. Regulatory references are directional; operator must verify with Arkansas Department of Health."
+  - "Plan does not account for personal financial obligations of the operator."
+
+assumptions:
+  - id: A1
+    statement: "Product quality is not the primary constraint"
+    basis: "Operator framed the problem as profitability and consistency, not product performance"
+    confidence: medium
+  - id: A2
+    statement: "Current operation falls within Arkansas cottage food law limits"
+    basis: "Revenue range and market-only distribution are consistent with cottage food parameters"
+    confidence: medium
+    flag: "Must be verified before B2B wholesale outreach"
+  - id: A3
+    statement: "Bentonville farmers market operates weekly with consistent foot traffic"
+    confidence: high
+  - id: A4
+    statement: "At least one local B2B account is accessible without cold outreach infrastructure"
+    confidence: medium
+
+uncertainty_notes:
+  - "Pre-order adoption rate is variable; 20 orders/week at day 30 is optimistic without an existing email list"
+  - "B2B wholesale pricing at 60-65% of retail assumes retail prices are already at market rate"
+  - "Seasonal demand data not independently verified for this run"
+
+safety_notes:
+  - "No guaranteed outcomes are stated or implied"
+  - "The first irreversible step is low-cost and reversible; all higher-commitment actions are gated behind validation checkpoints"
+  - "The B2B track includes an explicit regulatory compliance gate"
+  - "This plan does not constitute financial, legal, or medical advice"

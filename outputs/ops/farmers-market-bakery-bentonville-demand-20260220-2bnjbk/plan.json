@@ -1,0 +1,75 @@
+{
+  "run_id": "farmers-market-bakery-bentonville-demand-20260220-2bnjbk",
+  "classification": {
+    "business_type": "Farmers market bakery",
+    "city_or_region": "Bentonville, AR",
+    "primary_pressure": "demand",
+    "revenue_range": "5k-20k",
+    "time_horizon": "90d",
+    "risk_tolerance": "medium"
+  },
+  "assumptions": [
+    "Current production operates within Arkansas cottage food law limits",
+    "No commercial kitchen lease currently active",
+    "Operator attends at least one farmers market per week",
+    "Product quality is not the primary constraint (assumed from problem statement framing)",
+    "Operator can commit 2-3 hours/week to subscription management in addition to baking",
+    "No significant capital injection planned within 90-day window"
+  ],
+  "interventions": [
+    {
+      "track": "Low-capital",
+      "name": "Pre-order subscription system",
+      "timeline_days": "0-30",
+      "capital_required": "< $50",
+      "reversible": true,
+      "actions": [
+        "Design 2-3 weekly box configurations with fixed pricing",
+        "Create order capture system (Google Forms or Square free tier)",
+        "Place physical sign-up at market table next market day",
+        "Launch Wednesday email/SMS reminder cadence",
+        "Target: 20 committed orders/week by day 30"
+      ]
+    },
+    {
+      "track": "Structural",
+      "name": "B2B micro-channel — one wholesale account",
+      "timeline_days": "21-60",
+      "capital_required": "< $200",
+      "reversible": false,
+      "notes": "Confirm Arkansas cottage food law compliance before outreach."
+    },
+    {
+      "track": "Defensive",
+      "name": "Cost floor and waste reduction",
+      "timeline_days": "0-90",
+      "capital_required": "$0",
+      "reversible": true
+    }
+  ],
+  "metrics": [
+    { "name": "Pre-orders per week", "target": 20, "window": "day 30" },
+    { "name": "B2B accounts signed", "target": 1, "window": "day 60" },
+    { "name": "Monthly revenue floor", "target": "$8,000", "window": "day 90" },
+    { "name": "Unsold rate per market day", "target": "< 10%", "window": "day 30" },
+    { "name": "Email subscriber list", "target": 150, "window": "day 60" },
+    { "name": "Contribution margin", "target": "> 55%", "window": "all SKUs, day 45" }
+  ],
+  "first_irreversible_step": {
+    "action": "Place physical pre-order sign-up sheet at next market day with 3 box options and prices",
+    "cost": "~$20 printing",
+    "reversible": true,
+    "validation_signal": "10+ sign-ups = validated demand; fewer than 5 = offer adjustment needed",
+    "deadline": "Next market day"
+  },
+  "risks": [
+    { "id": "R1", "severity": "high", "description": "Regulatory exposure on B2B wholesale under Arkansas cottage food law" },
+    { "id": "R2", "severity": "medium", "description": "Pre-order adoption friction" },
+    { "id": "R3", "severity": "medium", "description": "Production capacity ceiling" },
+    { "id": "R4", "severity": "low", "description": "Seasonal demand gap Nov-Feb" }
+  ],
+  "decision_window": {
+    "go_no_go_checkpoint": "Day 30",
+    "criteria": "If fewer than 10 pre-orders/week by day 30, reassess offer structure before B2B outreach"
+  }
+}
