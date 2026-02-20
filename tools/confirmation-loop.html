@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>IN-KluSo — Confirmation Loop</title>
+  <style>
+    :root{
+      --bg:#0b0c10; --fg:#eaf0ff; --muted:rgba(234,240,255,.78);
+      --line:rgba(255,255,255,.10); --card:rgba(255,255,255,.03);
+      --pill:rgba(255,255,255,.06); --shadow:0 12px 28px rgba(0,0,0,.35);
+    }
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:var(--bg);color:var(--fg)}
+    header{padding:20px 18px;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;background:rgba(11,12,16,.92);backdrop-filter:blur(8px);z-index:5}
+    .wrap{max-width:1060px;margin:0 auto;padding:22px 18px}
+    nav a{color:var(--fg);text-decoration:none;margin-right:14px;opacity:.8}
+    nav a:hover{opacity:1}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:start}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+    .card{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--card);box-shadow:var(--shadow)}
+    .kicker{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:var(--pill);font-size:12px;letter-spacing:.3px}
+    h1{margin:10px 0 8px 0;font-size:34px;line-height:1.05}
+    p{margin:8px 0;color:var(--muted);line-height:1.5}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .tag{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:var(--pill);font-size:12px;opacity:.9}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);
+      background:rgba(255,255,255,.06);color:var(--fg);text-decoration:none;font-weight:650}
+    .btn:hover{background:rgba(255,255,255,.09)}
+    .btn.primary{background:rgba(255,255,255,.12)}
+    .btn.primary:hover{background:rgba(255,255,255,.16)}
+    .mini{font-size:12px;color:rgba(234,240,255,.65)}
+    .step{display:flex;gap:12px;align-items:flex-start}
+    .num{width:26px;height:26px;border-radius:8px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:var(--pill);font-weight:700}
+    .hr{height:1px;background:var(--line);margin:14px 0}
+    .switch{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .chip{cursor:pointer;user-select:none;border:1px solid var(--line);border-radius:999px;padding:7px 10px;background:var(--pill);font-size:12px;opacity:.85}
+    .chip.active{opacity:1;background:rgba(255,255,255,.12)}
+    .hidden{display:none}
+    code{background:rgba(0,0,0,.25);padding:2px 6px;border-radius:8px;border:1px solid rgba(255,255,255,.08)}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:14px">
+      <div style="font-weight:800">IN-KluSo Tools</div>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="ci.html">CI Request</a>
+        <a href="ops.html">OPS Lab</a>
+        <a href="confirmation-loop.html" style="opacity:1;font-weight:700">Confirmation Loop</a>
+        <a href="../priority.html" style="color:#f97316;font-weight:700">⚡ Priority</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <section class="card">
+      <span class="kicker">Human-verified intelligence layer • accountable outputs</span>
+      <h1>Confirmation is the moat.</h1>
+      <p>
+        AI can generate. Anyone can summarize. But only a disciplined system can <b>confirm</b> what's real,
+        <b>lock the mechanism</b>, and publish a defensible artifact.
+      </p>
+      <div class="switch" id="brandSwitch">
+        <div class="chip active" data-target="opt1">Option A — IN-KluSo Loop</div>
+        <div class="chip" data-target="opt2">Option B — Ground Signal Loop</div>
+        <div class="chip" data-target="opt3">Option C — Mechanism Lock</div>
+      </div>
+
+      <div class="hr"></div>
+
+      <div id="opt1">
+        <div class="tag">IN-KluSo Confirmation Loop™</div>
+        <p><b>Positioning:</b> "We don't generate reports. We confirm signals."</p>
+        <p class="mini">Best when you want the brand to feel like a system.</p>
+      </div>
+
+      <div id="opt2" class="hidden">
+        <div class="tag">Ground Signal Loop™</div>
+        <p><b>Positioning:</b> "Street-level signals → verified mechanism → published artifact."</p>
+        <p class="mini">Best when you want the cultural intelligence identity front-and-center.</p>
+      </div>
+
+      <div id="opt3" class="hidden">
+        <div class="tag">Mechanism Lock™ Standard</div>
+        <p><b>Positioning:</b> "Every claim must survive a mechanism test and source triangulation."</p>
+        <p class="mini">Best when you want it to feel like verification engineering, not editorial vibes.</p>
+      </div>
+
+      <div class="hr"></div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn primary" href="ci.html">Start a CI Request</a>
+        <a class="btn primary" href="ops.html">Start an OPS Request</a>
+        <a class="btn" href="#standard">View the Standard</a>
+      </div>
+      <p class="mini" style="margin-top:10px">
+        Outputs ship as <code>HTML</code> + <code>JSON</code> + <code>YAML</code> with a visible verification mark.
+      </p>
+    </section>
+
+    <aside class="card">
+      <div class="tag">Verification Mark</div>
+      <h2 style="margin:10px 0 8px 0">Put this on every report</h2>
+      <p style="margin:0 0 8px 0;color:var(--muted)">
+        A small, consistent badge that says: "a human actually checked this."
+      </p>
+      <div class="hr"></div>
+      <div class="card" style="box-shadow:none">
+        <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
+          <div>
+            <div style="font-weight:800">Verified under IN-KluSo Loop</div>
+            <div class="mini">Human Confirmed • Mechanism Locked • Versioned</div>
+          </div>
+          <div class="tag">Loop v1.0</div>
+        </div>
+      </div>
+      <div class="hr"></div>
+      <p class="mini">
+        When you publish this consistently, it becomes a trust primitive — the opposite of "AI slop."
+      </p>
+      <div class="hr"></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn primary" href="../priority.html" style="color:#f97316;border-color:rgba(249,115,22,.3);background:rgba(249,115,22,.08)">⚡ Priority access — same day</a>
+      </div>
+    </aside>
+  </div>
+
+  <section class="card" id="standard" style="margin-top:18px">
+    <h2 style="margin:0 0 10px 0">The Confirmation Standard (v1.0)</h2>
+    <div class="grid">
+      <div class="step">
+        <div class="num">1</div>
+        <div>
+          <div style="font-weight:800">Signal Candidate</div>
+          <p class="mini">Define the micro-claim, time window, and why it matters.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div>
+          <div style="font-weight:800">Source Triangulation</div>
+          <p class="mini">At least 2 independent sources or 1 primary + strong corroboration.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div>
+          <div style="font-weight:800">Mechanism Test</div>
+          <p class="mini">Explain what changed, how, and why — beyond vibes.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <div>
+          <div style="font-weight:800">Human Confirmation</div>
+          <p class="mini">A human reviewer validates claims, citations, and framing.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">5</div>
+        <div>
+          <div style="font-weight:800">Artifact Publication</div>
+          <p class="mini">Ship HTML + JSON + YAML with version stamp & verification mark.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">6</div>
+        <div>
+          <div style="font-weight:800">Residue Review</div>
+          <p class="mini">Optional 30-day check: did the mechanism hold up or drift?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" style="margin-top:18px">
+    <h2 style="margin:0 0 10px 0">Partner-Friendly Pitch (copy/paste)</h2>
+    <p style="margin:0;color:var(--muted)">
+      We're not selling "AI reports." We're selling a <b>human confirmation layer</b>.
+      AI accelerates discovery; humans lock what's real; IN-KluSo publishes versioned artifacts.
+      In a world of probabilistic answers, confirmation becomes infrastructure.
+    </p>
+  </section>
+
+  <p class="mini" style="margin:18px 0 0 0;opacity:.7">
+    IN-KluSo Tools • Confirmation Loop • Loop v1.0
+  </p>
+</main>
+
+<script>
+  (function(){
+    const chips = document.querySelectorAll('#brandSwitch .chip');
+    const panes = ['opt1','opt2','opt3'].map(id => document.getElementById(id));
+    chips.forEach(ch => ch.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      ch.classList.add('active');
+      const target = ch.getAttribute('data-target');
+      panes.forEach(p => p.classList.add('hidden'));
+      document.getElementById(target).classList.remove('hidden');
+    }));
+  })();
+</script>
+
+</body>
+</html>
