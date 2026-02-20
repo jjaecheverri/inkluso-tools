@@ -15,6 +15,8 @@
 .tier-card p { font-size: 0.9rem; color: var(--gray); margin: 0 0 0.75rem; }
 .tier-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.78rem; font-weight: 600; background: var(--warm-gray); color: var(--black); }
 .tier-badge.premium { background: var(--orange); color: #fff; }
+.tier-cta { display: inline-block; margin-top: 0.75rem; font-size: 0.82rem; color: var(--orange); font-weight: 600; text-decoration: none; }
+.tier-cta:hover { text-decoration: underline; }
 @media (max-width: 600px) { .tier-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
@@ -22,10 +24,9 @@
 <nav>
   <a href="index.html" class="nav-brand">IN-<span>KluSo</span> Tools</a>
   <a href="index.html" class="active">Home</a>
-  <a href="tools/index.html">Tools</a>
   <a href="tools/ci.html">CI Tool</a>
   <a href="tools/ops.html">OPS Lab</a>
-  <a href="outputs/README.md">Outputs</a>
+  <a href="priority.html" style="color: var(--orange); font-weight: 600;">⚡ Priority</a>
 </nav>
 <div class="stripe"></div>
 
@@ -84,7 +85,8 @@
         <div class="tier-label premium">⚡ Priority</div>
         <h4>Priority Review</h4>
         <p>Same-day research and publication. Your request goes to the front of the queue.</p>
-        <span class="tier-badge premium">Same day</span>
+        <span class="tier-badge premium">Same day</span><br>
+        <a href="priority.html" class="tier-cta">Learn more →</a>
       </div>
     </div>
   </div>

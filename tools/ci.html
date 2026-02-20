@@ -12,6 +12,8 @@
 .turnaround-item { font-size: 0.82rem; }
 .turnaround-item strong { display: block; color: var(--black); }
 .turnaround-item span { color: var(--gray); }
+.turnaround-item a { color: var(--orange); font-size: 0.8rem; font-weight: 600; text-decoration: none; }
+.turnaround-item a:hover { text-decoration: underline; }
 .badge-priority { display: inline-block; background: var(--orange); color: #fff; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 10px; margin-left: 0.4rem; vertical-align: middle; letter-spacing: 0.05em; }
 </style>
 </head>
@@ -19,10 +21,9 @@
 <nav>
   <a href="../index.html" class="nav-brand">IN-<span>KluSo</span> Tools</a>
   <a href="../index.html">Home</a>
-  <a href="index.html">Tools</a>
   <a href="ci.html" class="active">CI Tool</a>
   <a href="ops.html">OPS Lab</a>
-  <a href="../outputs/README.md">Outputs</a>
+  <a href="../priority.html" style="color: var(--orange); font-weight: 600;">⚡ Priority</a>
 </nav>
 <div class="stripe"></div>
 
@@ -98,7 +99,7 @@
     </div>
 
     <div class="submit-section" id="submit-section" style="display:none">
-      <p>Your packet is ready. Download it, then submit to IN-KluSo — we handle the rest.</p>
+      <p>Your packet is ready. Submit to IN-KluSo — we handle the rest.</p>
       <div class="btn-row" style="margin:0">
         <button class="btn btn-primary" id="btn-submit">Submit to IN-KluSo →</button>
       </div>
@@ -108,8 +109,9 @@
           <span>Published within 48–72 hours</span>
         </div>
         <div class="turnaround-item">
-          <strong>Priority Review <span class="badge-priority">⚡ Premium</span></strong>
-          <span>Same-day publishing — contact us to request</span>
+          <strong>Priority Review <span class="badge-priority">⚡</span></strong>
+          <span>Same-day publishing</span><br>
+          <a href="../priority.html">Request priority access →</a>
         </div>
       </div>
     </div>
