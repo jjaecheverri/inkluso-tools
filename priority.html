@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Priority Access — IN-KluSo Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #FAF6EE;
+      --orange: #E8541A;
+      --orange-light: #FF6B35;
+      --black: #1A1A1A;
+      --gray: #6B6B6B;
+      --gray-light: #E8E4DC;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--black);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 48px;
+      border-bottom: 1px solid var(--gray-light);
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gray);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .nav-links a:hover { color: var(--black); }
+
+    .hero {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 100px 32px 60px;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      margin-bottom: 24px;
+      color: var(--black);
+    }
+    .hero h1 em { font-style: italic; color: var(--orange); }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 560px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+    }
+
+    .stripe {
+      width: 80px;
+      height: 4px;
+      background: repeating-linear-gradient(-45deg, var(--orange), var(--orange) 4px, transparent 4px, transparent 8px);
+      margin: 0 auto 48px;
+    }
+
+    .comparison {
+      max-width: 860px;
+      margin: 0 auto 80px;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .tier-card {
+      background: #fff;
+      border: 1px solid var(--gray-light);
+      padding: 40px 36px;
+      border-radius: 4px;
+    }
+    .tier-card.priority {
+      border: 2px solid var(--orange);
+      position: relative;
+    }
+    .tier-card.priority::before {
+      content: '⚡ PRIORITY';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 16px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+    .tier-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    .tier-card.priority .tier-label { color: var(--orange); }
+    .tier-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+    }
+    .tier-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 0.92rem;
+    }
+    .tier-feature .icon { color: var(--gray); flex-shrink: 0; }
+    .tier-card.priority .tier-feature .icon { color: var(--orange); }
+    .tier-turnaround {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-light);
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+    .tier-turnaround strong { color: var(--black); font-size: 1.1rem; display: block; margin-bottom: 4px; }
+    .tier-card.priority .tier-turnaround strong { color: var(--orange); }
+
+    .cta-section {
+      max-width: 640px;
+      margin: 0 auto 100px;
+      padding: 0 32px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .cta-section p { color: var(--gray); margin-bottom: 36px; font-size: 0.95rem; line-height: 1.7; }
+    .cta-primary {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      padding: 16px 40px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .cta-primary:hover { background: var(--orange-light); }
+    .cta-note { margin-top: 20px; font-size: 0.8rem; color: var(--gray); }
+
+    .how { background: var(--black); color: #fff; padding: 80px 32px; }
+    .how-inner { max-width: 860px; margin: 0 auto; }
+    .how-inner h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; margin-bottom: 56px; text-align: center; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .step-num { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--orange); margin-bottom: 16px; }
+    .step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .step p { font-size: 0.88rem; color: #999; line-height: 1.6; }
+
+    .fine {
+      max-width: 640px;
+      margin: 60px auto 40px;
+      padding: 0 32px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    footer {
+      border-top: 1px solid var(--gray-light);
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+    footer a { color: var(--gray); text-decoration: none; }
+    footer a:hover { color: var(--black); }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .comparison { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; gap: 32px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/inkluso-tools/">IN<span>—</span>KluSo</a>
+    <div class="nav-links">
+      <a href="/inkluso-tools/">Tools</a>
+      <a href="/inkluso-tools/tools/ci.html">Cultural Intelligence</a>
+      <a href="/inkluso-tools/tools/ops.html">OPS Lab</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <span class="hero-tag">⚡ Priority Access</span>
+    <h1>Your request.<br /><em>Same day.</em></h1>
+    <div class="stripe"></div>
+    <p>Standard requests are reviewed in the order received — 48 to 72 hours. Priority members move to the front. One team, finite capacity, real work.</p>
+  </section>
+
+  <section class="comparison">
+    <div class="tier-card">
+      <div class="tier-label">Standard</div>
+      <div class="tier-name">Open Access</div>
+      <div class="tier-feature"><span class="icon">→</span> Cultural Intelligence reports</div>
+      <div class="tier-feature"><span class="icon">→</span> OPS Lab business diagnosis</div>
+      <div class="tier-feature"><span class="icon">→</span> Structured evidence logs</div>
+      <div class="tier-feature"><span class="icon">→</span> Full IN-KluSo branded output</div>
+      <div class="tier-turnaround">
+        <strong>48–72 hours</strong>
+        Queue-based delivery
+      </div>
+    </div>
+    <div class="tier-card priority">
+      <div class="tier-label">Priority</div>
+      <div class="tier-name">Priority Access</div>
+      <div class="tier-feature"><span class="icon">→</span> Everything in Standard</div>
+      <div class="tier-feature"><span class="icon">→</span> Same-day turnaround</div>
+      <div class="tier-feature"><span class="icon">→</span> Direct response thread</div>
+      <div class="tier-feature"><span class="icon">→</span> Revision window (24 hrs)</div>
+      <div class="tier-turnaround">
+        <strong>Same day</strong>
+        Priority queue, guaranteed response
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Request Priority Access</h2>
+    <p>We keep priority slots limited. Send us a note — what you're working on, what you need, and how fast. We'll confirm availability and next steps directly.</p>
+    <a class="cta-primary" href="mailto:hello@inkluso.co?subject=Priority%20Access%20Request&body=Hi%2C%0A%0AHere%27s%20what%20I%27m%20working%20on%3A%0A%0A%5Bdescribe%20your%20project%20or%20request%5D%0A%0ATimeline%20I%20need%3A%0A%0A%5Bwhen%20do%20you%20need%20it%5D">
+      Request Priority Access →
+    </a>
+    <p class="cta-note">We respond within a few hours. No forms, no subscriptions — just a conversation.</p>
+  </section>
+
+  <section class="how">
+    <div class="how-inner">
+      <h2>How it works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Send a note</h3>
+          <p>Tell us what you're trying to understand or solve. City, sector, timeline. The more specific, the better the output.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>We confirm and run it</h3>
+          <p>Our team reviews your request, confirms scope, and runs the diagnosis. You'll hear back same day with your branded report.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Published output</h3>
+          <p>You receive a permanent link to your report — structured, sourced, and ready to share or act on. Your idea. Our output.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="fine">
+    Priority access is subject to slot availability. We don't overcommit. If we can't take your request same-day, we'll tell you upfront before you commit.
+  </p>
+
+  <footer>
+    <span>© 2026 IN-KluSo Intelligence</span>
+    <div style="display:flex; gap:24px;">
+      <a href="/inkluso-tools/">Tools Home</a>
+      <a href="https://jjaecheverri.github.io/inkluso-magazine/">Magazine</a>
+    </div>
+  </footer>
+
+</body>
+</html>
