@@ -1,5 +1,7 @@
 // IN-KluSo Tools — OPS Lab Request Generator
 
+const SUBMIT_EMAIL = 'jjaecheverri@gmail.com';
+
 function buildOPSRequest() {
   const biz_type = document.getElementById('biz_type').value.trim();
   const city = document.getElementById('city').value.trim();
@@ -50,10 +52,18 @@ function buildOPSRequest() {
       "Distinguish between actions that are reversible and actions that commit capital or contracts.",
       "Do not recommend actions that require regulatory compliance without flagging the requirement explicitly."
     ],
-    execution_notes: "Paste this packet into Tasklet. Run OPS Lab diagnosis workflow. Produce all three output files and commit to repo under output_contract paths. Notify requester when published."
+    execution_notes: "IN-KluSo OPS Lab request. Run diagnosis workflow. Produce all three output files and commit to repo under output_contract paths."
   };
 
   return { request, run_id };
+}
+
+function buildSubmitMailto(request) {
+  const subject = encodeURIComponent(`IN-KluSo OPS Request — ${request.run_id}`);
+  const body = encodeURIComponent(
+    `OPS Lab request submitted.\n\nRun ID: ${request.run_id}\nBusiness: ${request.inputs.business_type}\nCity: ${request.inputs.city_or_region}\nPressure: ${request.inputs.primary_pressure}\nHorizon: ${request.inputs.time_horizon}\n\n— Packet below —\n\n${JSON.stringify(request, null, 2)}`
+  );
+  return `mailto:${SUBMIT_EMAIL}?subject=${subject}&body=${body}`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -66,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showPreview('output-box', lastRequest);
     document.getElementById('btn-download').disabled = false;
     document.getElementById('btn-copy').disabled = false;
+    document.getElementById('submit-section').style.display = 'block';
   });
 
   document.getElementById('btn-download').addEventListener('click', () => {
@@ -76,5 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('btn-copy').addEventListener('click', () => {
     if (!lastRequest) return;
     copyToClipboard(JSON.stringify(lastRequest, null, 2), 'copy-notice');
+  });
+
+  document.getElementById('btn-submit').addEventListener('click', () => {
+    if (!lastRequest) return;
+    window.location.href = buildSubmitMailto(lastRequest);
   });
 });
