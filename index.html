@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IN-KluSo Tools</title>
 <link rel="stylesheet" href="assets/styles.css">
+<style>
+.tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+.tier-card { border: 1.5px solid var(--warm-gray); border-radius: 6px; padding: 1.75rem; background: #fff; }
+.tier-card.premium { border-color: var(--orange); background: #fff9f5; }
+.tier-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: var(--gray); margin-bottom: 0.5rem; }
+.tier-label.premium { color: var(--orange); }
+.tier-card h4 { font-family: 'DM Serif Display', serif; font-size: 1.25rem; margin: 0 0 0.5rem; }
+.tier-card p { font-size: 0.9rem; color: var(--gray); margin: 0 0 0.75rem; }
+.tier-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.78rem; font-weight: 600; background: var(--warm-gray); color: var(--black); }
+.tier-badge.premium { background: var(--orange); color: #fff; }
+@media (max-width: 600px) { .tier-grid { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
 <nav>
@@ -21,7 +33,7 @@
   <div class="hero">
     <p class="hero-kicker">IN-KluSo / Research Layer</p>
     <h1>Your idea.<br><em>Our output.</em></h1>
-    <p>Two tools that let you submit a structured intelligence request and receive a published, branded IN-KluSo report — researched, verified, and committed to this repository.</p>
+    <p>Two tools that let you submit a structured intelligence request and receive a published, branded IN-KluSo report — researched, verified, and live within 48–72 hours.</p>
   </div>
 
   <div style="padding: 4rem 0 2rem">
@@ -30,7 +42,7 @@
       <hr>
     </div>
     <p style="color: var(--gray); max-width: 580px; margin-bottom: 2.5rem;">
-      This is a human-in-the-loop system. You define the request. We run the research. The output lands back here — verified, sourced, and formatted to IN-KluSo editorial standards.
+      This is a human-review system. You define the request. We run the research. The output lands back here — verified, sourced, and formatted to IN-KluSo editorial standards.
     </p>
     <div class="workflow-strip">
       <div class="workflow-step">
@@ -40,18 +52,39 @@
       </div>
       <div class="workflow-step">
         <div class="step-num">Step 02</div>
-        <strong>Generate request</strong>
-        <p>Download or copy your structured JSON packet.</p>
+        <strong>Generate your packet</strong>
+        <p>Download your structured request file with one click.</p>
       </div>
       <div class="workflow-step">
         <div class="step-num">Step 03</div>
-        <strong>Paste into Tasklet</strong>
-        <p>Hand off the packet to the Tasklet execution engine.</p>
+        <strong>Submit to IN-KluSo</strong>
+        <p>Send your packet. We take it from there — no follow-up needed.</p>
       </div>
       <div class="workflow-step">
         <div class="step-num">Step 04</div>
-        <strong>Output published</strong>
-        <p>Your branded report appears in <code>/outputs/</code> and goes live.</p>
+        <strong>Report published</strong>
+        <p>Your branded report goes live. We send you the link.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 1rem 0 3rem">
+    <div class="section-header">
+      <span class="section-tag">Turnaround</span>
+      <hr>
+    </div>
+    <div class="tier-grid">
+      <div class="tier-card">
+        <div class="tier-label">Standard</div>
+        <h4>Open Access</h4>
+        <p>Submit any request. We review and publish your branded report within 48–72 hours.</p>
+        <span class="tier-badge">48–72 hours</span>
+      </div>
+      <div class="tier-card premium">
+        <div class="tier-label premium">⚡ Priority</div>
+        <h4>Priority Review</h4>
+        <p>Same-day research and publication. Your request goes to the front of the queue.</p>
+        <span class="tier-badge premium">Same day</span>
       </div>
     </div>
   </div>

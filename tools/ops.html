@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OPS Lab — IN-KluSo</title>
 <link rel="stylesheet" href="../assets/styles.css">
+<style>
+.submit-section { margin-top: 1.5rem; padding: 1.5rem; background: #fff9f5; border: 1.5px solid var(--orange); border-radius: 6px; }
+.submit-section p { font-size: 0.88rem; color: var(--gray); margin: 0 0 1rem; }
+.turnaround-note { display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap; }
+.turnaround-item { font-size: 0.82rem; }
+.turnaround-item strong { display: block; color: var(--black); }
+.turnaround-item span { color: var(--gray); }
+.badge-priority { display: inline-block; background: var(--orange); color: #fff; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 10px; margin-left: 0.4rem; vertical-align: middle; letter-spacing: 0.05em; }
+</style>
 </head>
 <body>
 <nav>
@@ -21,7 +30,7 @@
   <div class="hero">
     <p class="hero-kicker">IN-KluSo / OPS Lab</p>
     <h1>Small Business <em>Problem Solver</em></h1>
-    <p>Describe your situation. We diagnose the mechanism, build three intervention tracks, and identify your first irreversible step.</p>
+    <p>Describe your situation. We diagnose the mechanism, build three intervention tracks, and identify your first irreversible step. Report published within 48–72 hours.</p>
   </div>
 
   <div style="padding: 3rem 0">
@@ -114,15 +123,31 @@
       <pre></pre>
     </div>
 
+    <div class="submit-section" id="submit-section" style="display:none">
+      <p>Your packet is ready. Download it, then submit to IN-KluSo — we handle the rest.</p>
+      <div class="btn-row" style="margin:0">
+        <button class="btn btn-primary" id="btn-submit">Submit to IN-KluSo →</button>
+      </div>
+      <div class="turnaround-note">
+        <div class="turnaround-item">
+          <strong>Standard</strong>
+          <span>Published within 48–72 hours</span>
+        </div>
+        <div class="turnaround-item">
+          <strong>Priority Review <span class="badge-priority">⚡ Premium</span></strong>
+          <span>Same-day publishing — contact us to request</span>
+        </div>
+      </div>
+    </div>
+
     <div class="how-it-works">
       <h3>How it works</h3>
       <ol>
         <li><strong>Fill the form</strong> and click Generate. Your request packet appears below.</li>
-        <li><strong>Download or copy</strong> the JSON packet.</li>
-        <li><strong>Paste it into Tasklet</strong> with the prompt: <em>"Run this OPS request."</em></li>
-        <li>Tasklet diagnoses the <strong>mechanism behind your pressure</strong>, not just the symptom.</li>
+        <li><strong>Download</strong> the JSON packet and click <strong>Submit to IN-KluSo</strong>.</li>
+        <li>We diagnose the <strong>mechanism behind your pressure</strong>, not just the symptom.</li>
         <li>Output includes <strong>three intervention tracks</strong> (Low-capital / Structural / Defensive) with metrics and risk flags.</li>
-        <li>Plan is <strong>committed to the repo</strong> under <code>/outputs/ops/&lt;run_id&gt;/</code> and published.</li>
+        <li>Your branded plan is <strong>published and linked back to you</strong> within 48–72 hours.</li>
       </ol>
       <a href="../outputs/ops/sample_run/plan.html" class="sample-link">View a sample OPS output →</a>
     </div>
