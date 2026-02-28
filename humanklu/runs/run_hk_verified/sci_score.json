@@ -1,0 +1,34 @@
+{
+  "report_id": "HK-2026-VERIF1",
+  "generated_at": "2026-02-28T20:20:17.760815Z",
+  "pipeline_version": "HKP-2.0",
+  "dimensions": {
+    "EVID": {
+      "score": 7.5,
+      "rationale": "Multiple government documents and industry filings cited."
+    },
+    "MECH": {
+      "score": 7.2,
+      "rationale": "Export licensing mechanism clearly described with BIS rule references."
+    },
+    "INC": {
+      "score": 7.0,
+      "rationale": "Incentives for circumvention documented via court filings."
+    },
+    "RISK": {
+      "score": 7.1,
+      "rationale": "Supply chain disruption risks quantified in analyst reports."
+    },
+    "SPEC": {
+      "score": 7.0,
+      "rationale": "Specific chip models (H100, A100), companies, and dates referenced."
+    }
+  },
+  "hci": 7.16,
+  "verdict": "VERIFIED",
+  "certification_level": "HK-VERIFIED",
+  "inferred_ratio": 0.5,
+  "evid_ceiling_applied": null,
+  "hallucination_flags": [],
+  "absence_assertion_flags": []
+}

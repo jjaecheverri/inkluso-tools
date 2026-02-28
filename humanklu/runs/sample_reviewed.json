@@ -1,0 +1,53 @@
+{
+  "title": "Are Carbon Offsets Slowing Real Emissions Cuts?",
+  "topic": "Climate Policy / Corporate Accountability",
+  "summary": "A critical look at how voluntary carbon offset markets may be reducing pressure on corporations to cut direct emissions, based largely on analyst commentary and secondary reporting.",
+  "author": { "model_version": "gpt-4o-2024-05", "org": "HumanKlu Research" },
+  "hallucination_flags": [],
+  "dimensions": {
+    "EVID": { "score": 6.2, "rationale": "Mostly secondary sources; no primary audit data." },
+    "MECH": { "score": 6.5, "rationale": "Offset accounting mechanism explained at surface level." },
+    "INC":  { "score": 6.0, "rationale": "Corporate incentive structure referenced but not quantified." },
+    "RISK": { "score": 6.1, "rationale": "Risk framed qualitatively; no scenario modeling." },
+    "SPEC": { "score": 6.0, "rationale": "Claims reference industry trends without specific companies or figures." }
+  },
+  "claims": [
+    {
+      "claim_id": "CLM-001",
+      "text": "Many large corporations are purchasing offsets instead of reducing operational emissions.",
+      "evidence_type": "INFERRED",
+      "confidence": 0.65,
+      "notes": "Based on industry trend reporting, no named entities."
+    },
+    {
+      "claim_id": "CLM-002",
+      "text": "Carbon offset quality verification varies widely across registries.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "PUBLISHED_REPORT",
+        "uri": "https://carbonmarketwatch.org/2023/registry-review",
+        "title": "Registry Quality Review 2023",
+        "retrieved_at": "2026-02-01T00:00:00Z",
+        "excerpt": "Verification standards differ significantly across the four major registries."
+      },
+      "confidence": 0.80,
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-003",
+      "text": "There is no audit trail linking offset purchases to measurable emissions reductions at source.",
+      "evidence_type": "INFERRED",
+      "confidence": 0.55,
+      "notes": "Absence claim — no source URI provided.",
+      "source": null
+    },
+    {
+      "claim_id": "CLM-004",
+      "text": "No evidence found that voluntary offset programs have been independently assessed in 2024.",
+      "evidence_type": "INFERRED",
+      "confidence": 0.50,
+      "notes": "Absence assertion without documentation.",
+      "source": null
+    }
+  ]
+}

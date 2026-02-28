@@ -1,0 +1,29 @@
+{
+  "report_id": "HK-2026-EV7LX2",
+  "generated_at": "2026-02-28T19:27:56.401191Z",
+  "dimensions": {
+    "EVID": {
+      "score": 7.5,
+      "rationale": "2 of 5 claims are externally verified with named sources (Reuters, IEA). 3 are model inferences clearly labeled. No fabricated citations detected."
+    },
+    "MECH": {
+      "score": 8.0,
+      "rationale": "Causal chain from water litigation \u2192 output curtailment \u2192 supply gap \u2192 price shock \u2192 sales delay is explicitly articulated with intermediate steps."
+    },
+    "INC": {
+      "score": 7.0,
+      "rationale": "OEM incentive to suppress risk is identified and named (capex protection, stock valuation). Analyst incentive structure not fully explored."
+    },
+    "RISK": {
+      "score": 6.5,
+      "rationale": "Downside scenario quantified. Upside (new refining capacity, substitution) acknowledged but not fully modeled. Timeline uncertainty is wide."
+    },
+    "SPEC": {
+      "score": 8.5,
+      "rationale": "Specific percentages, named deposits, named companies, date ranges, and dollar figures provided throughout. Distinguishes verified vs. inferred specifics."
+    }
+  },
+  "hci": 7.5,
+  "verdict": "VERIFIED",
+  "hallucination_flags": []
+}

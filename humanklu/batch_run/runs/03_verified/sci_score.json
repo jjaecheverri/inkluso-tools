@@ -1,0 +1,36 @@
+{
+  "report_id": "HK-2026-PUSHRZ",
+  "generated_at": "2026-02-28T21:19:49.200917Z",
+  "pipeline_version": "HKP-1.1",
+  "dimensions": {
+    "EVID": {
+      "score": 7.4,
+      "rationale": "Multiple auditor reports and public datasets cited."
+    },
+    "MECH": {
+      "score": 7.5,
+      "rationale": "Mechanism from mine to battery cell clearly traced."
+    },
+    "INC": {
+      "score": 7.2,
+      "rationale": "OEM incentive alignment documented."
+    },
+    "RISK": {
+      "score": 7.3,
+      "rationale": "ESG regulatory risk quantified by jurisdiction."
+    },
+    "SPEC": {
+      "score": 6.8,
+      "rationale": "Claim-level specificity moderate; some aggregate figures."
+    }
+  },
+  "evid_raw": 7.4,
+  "evid_effective": 7.4,
+  "hci": 7.24,
+  "inferred_ratio": 0.4,
+  "certification_level": "HK-REVIEWED",
+  "evid_ceiling_applied": null,
+  "flags": [],
+  "hallucination_flags": [],
+  "absence_assertion_flags": []
+}

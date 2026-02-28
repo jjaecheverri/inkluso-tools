@@ -1,0 +1,34 @@
+{
+  "report_id": "HK-2026-INST01",
+  "generated_at": "2026-02-28T20:20:26.077781Z",
+  "pipeline_version": "HKP-2.0",
+  "dimensions": {
+    "EVID": {
+      "score": 8.8,
+      "rationale": "EPA UCMR5 survey data, peer-reviewed NIEHS studies, and state PWS compliance records all cited."
+    },
+    "MECH": {
+      "score": 8.4,
+      "rationale": "Bioaccumulation, renal clearance, and point-source contamination mechanisms documented with primary literature."
+    },
+    "INC": {
+      "score": 8.0,
+      "rationale": "Regulatory delay incentives (lobbying disclosures, manufacturer indemnity clauses) documented in congressional records."
+    },
+    "RISK": {
+      "score": 8.3,
+      "rationale": "Dose-response estimates from EPA risk assessment; Monte Carlo range cited."
+    },
+    "SPEC": {
+      "score": 8.5,
+      "rationale": "Named facilities, PFOA/PFOS concentrations in ppt, specific counties, enforcement dates."
+    }
+  },
+  "hci": 8.4,
+  "verdict": "VERIFIED",
+  "certification_level": "HK-INSTITUTIONAL",
+  "inferred_ratio": 0.0,
+  "evid_ceiling_applied": null,
+  "hallucination_flags": [],
+  "absence_assertion_flags": []
+}

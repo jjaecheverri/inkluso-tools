@@ -1,0 +1,6 @@
+run_id,input_file,title,report_id,certification_level,hci,evid_effective,inferred_ratio,flags
+01_rejected,01_rejected.json,Unverified Supply Chain Claims in Fast Fashion,HK-2026-NKT1H9,HK-REJECTED,4.88,5.2,1.0,ABSENCE_ASSERTION
+02_reviewed,02_reviewed.json,AI in Radiology: Cautious Adoption Trends,HK-2026-S61IWS,HK-REVIEWED,6.2,6.4,0.6667,
+03_verified,03_verified.json,EV Battery Mineral Sourcing: DRC Cobalt Audit Findings,HK-2026-PUSHRZ,HK-REVIEWED,7.24,7.4,0.4,
+04_pro,04_pro.json,Federal Reserve Forward Guidance: Rate Path Analysis Q3 2024,HK-2026-BINBRM,HK-VERIFIED,7.72,7.9,0.0,
+05_institutional,05_institutional.json,Global Semiconductor Capacity 2024: TSMC Node-Level Production Data,HK-2026-ESWK1N,HK-INSTITUTIONAL,8.58,8.5,0.0,

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HumanKlu™ System Specification — HKP v1.0</title>
+  <style>
+    :root {
+      --bg: #0F1117; --surface: #1A1D27; --surface2: #20243A;
+      --border: #2A2D3E; --text: #E8EAF0; --muted: #8B8FA8;
+      --accent: #6C63FF; --green: #2ECC71; --yellow: #F39C12; --red: #E74C3C;
+      --code-bg: #12151F;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.7; font-size: 15px;
+    }
+
+    /* ── LAYOUT ── */
+    .layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+
+    /* ── SIDEBAR ── */
+    nav {
+      position: sticky; top: 0; height: 100vh; overflow-y: auto;
+      background: var(--surface); border-right: 1px solid var(--border);
+      padding: 2rem 1.25rem;
+    }
+    .nav-brand {
+      font-size: 0.95rem; font-weight: 900; color: var(--accent);
+      letter-spacing: 0.05em; margin-bottom: 0.2rem;
+    }
+    .nav-version { font-size: 0.72rem; color: var(--muted); margin-bottom: 1.75rem; }
+    nav ul { list-style: none; }
+    nav ul li { margin-bottom: 0.1rem; }
+    nav a {
+      display: block; padding: 0.35rem 0.6rem; border-radius: 5px;
+      color: var(--muted); text-decoration: none; font-size: 0.82rem;
+      transition: all 0.15s;
+    }
+    nav a:hover { color: var(--text); background: var(--surface2); }
+    .nav-section {
+      font-size: 0.68rem; font-weight: 700; color: var(--accent);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 1.25rem 0.6rem 0.4rem; margin-top: 0.25rem;
+    }
+
+    /* ── MAIN ── */
+    main { padding: 3rem 3.5rem; max-width: 820px; }
+    section { margin-bottom: 4rem; scroll-margin-top: 2rem; }
+
+    /* ── TYPOGRAPHY ── */
+    h1 { font-size: 2.2rem; font-weight: 900; line-height: 1.2; margin-bottom: 0.5rem; }
+    h2 {
+      font-size: 1.3rem; font-weight: 800; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem; margin-top: 0.5rem;
+    }
+    h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin: 1.25rem 0 0.6rem; }
+    p { margin-bottom: 0.9rem; color: var(--text); }
+    a { color: var(--accent); }
+
+    /* ── CODE ── */
+    pre {
+      background: var(--code-bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.25rem 1.5rem;
+      overflow-x: auto; font-size: 0.78rem; line-height: 1.6;
+      margin: 0.75rem 0 1.25rem; color: #A8B2D8;
+    }
+    code {
+      font-family: 'Fira Code', 'Cascadia Code', monospace;
+      font-size: 0.82rem; color: var(--accent);
+      background: var(--code-bg); padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+    }
+    pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.25rem 1.5rem; margin-bottom: 1rem;
+    }
+    .card-title {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.5rem;
+    }
+
+    /* ── VERDICT CHIPS ── */
+    .chip {
+      display: inline-block; padding: 0.2rem 0.75rem; border-radius: 999px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+    }
+    .chip-v { background: #2ECC7122; color: var(--green); border: 1px solid #2ECC7144; }
+    .chip-r { background: #F39C1222; color: var(--yellow); border: 1px solid #F39C1244; }
+    .chip-x { background: #E74C3C22; color: var(--red); border: 1px solid #E74C3C44; }
+
+    /* ── TABLES ── */
+    table { width: 100%; border-collapse: collapse; margin: 0.75rem 0 1.5rem; font-size: 0.85rem; }
+    th { background: var(--surface2); color: var(--muted); font-size: 0.72rem;
+         text-transform: uppercase; letter-spacing: 0.09em; padding: 0.6rem 0.75rem;
+         text-align: left; font-weight: 700; }
+    td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    .mono { font-family: monospace; font-size: 0.8rem; color: var(--accent); }
+
+    /* ── FOLDER TREE ── */
+    .tree {
+      background: var(--code-bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.25rem 1.5rem; font-family: monospace;
+      font-size: 0.8rem; line-height: 1.9; color: #A8B2D8;
+    }
+    .tree .dir { color: #6C63FF; }
+    .tree .file { color: #E8EAF0; }
+    .tree .comment { color: #4A5080; font-style: italic; }
+
+    /* ── CALLOUT ── */
+    .callout {
+      border-left: 3px solid var(--accent); background: var(--surface2);
+      padding: 0.85rem 1.25rem; border-radius: 0 8px 8px 0;
+      font-size: 0.88rem; margin: 1rem 0;
+    }
+    .callout.warn { border-color: var(--yellow); }
+    .callout.good { border-color: var(--green); }
+
+    /* ── ARTIFACT GRID ── */
+    .artifact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .artifact-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1rem;
+    }
+    .artifact-name { font-weight: 700; font-size: 0.88rem; margin-bottom: 0.25rem; }
+    .artifact-desc { color: var(--muted); font-size: 0.8rem; }
+
+    /* ── SCORE VIZ ── */
+    .score-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem; }
+    .score-label { font-size: 0.82rem; font-weight: 700; width: 3.5rem; }
+    .score-bar-wrap { flex: 1; background: var(--surface2); border-radius: 4px; height: 8px; }
+    .score-bar { height: 8px; border-radius: 4px; background: var(--green); }
+    .score-val { font-size: 0.82rem; font-weight: 700; width: 2.5rem; text-align: right; }
+
+    /* ── BADGE PREVIEW ── */
+    .badge-demo {
+      display: inline-flex; align-items: center; gap: 0;
+      font-family: system-ui; font-size: 0.78rem; font-weight: 700;
+      border-radius: 6px; overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.4); text-decoration: none;
+    }
+    .bd-l { background: #1A1D27; color: #8B8FA8; padding: .35rem .7rem; }
+    .bd-m { padding: .35rem .75rem; }
+    .bd-r { padding: .35rem .6rem; background: rgba(0,0,0,0.25); }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 4rem; padding: 1.5rem 0; border-top: 1px solid var(--border);
+      color: var(--muted); font-size: 0.78rem;
+      display: flex; justify-content: space-between;
+    }
+
+    @media (max-width: 768px) {
+      .layout { grid-template-columns: 1fr; }
+      nav { position: relative; height: auto; }
+      main { padding: 1.5rem; }
+      .artifact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+
+<!-- ── SIDEBAR ── -->
+<nav>
+  <div class="nav-brand">HumanKlu™</div>
+  <div class="nav-version">HKP v1.0 · System Specification</div>
+  <ul>
+    <li class="nav-section">Overview</li>
+    <li><a href="#overview">What is HumanKlu?</a></li>
+    <li><a href="#protocol">Calibration Protocol</a></li>
+    <li><a href="#verdict">Verdict Rules</a></li>
+
+    <li class="nav-section">Artifacts</li>
+    <li><a href="#artifacts">5 Artifacts</a></li>
+    <li><a href="#schemas">JSON Schemas</a></li>
+
+    <li class="nav-section">Implementation</li>
+    <li><a href="#folder">Folder Structure</a></li>
+    <li><a href="#validation">Validation Logic</a></li>
+    <li><a href="#pipeline">Pipeline Script</a></li>
+
+    <li class="nav-section">Examples</li>
+    <li><a href="#sample">Sample Run</a></li>
+    <li><a href="#badge">Badge Rendering</a></li>
+    <li><a href="#run">Run Instructions</a></li>
+  </ul>
+</nav>
+
+<!-- ── MAIN ── -->
+<main>
+
+  <!-- HERO -->
+  <section id="overview">
+    <a class="badge-demo" style="margin-bottom:1.5rem;display:inline-flex;" href="#">
+      <span class="bd-l">HumanKlu™</span>
+      <span class="bd-m" style="background:#2ECC71;color:#0a2e1a">SYSTEM SPEC</span>
+      <span class="bd-r" style="background:#27AE60;color:#d4f5e2">HKP v1.0</span>
+    </a>
+    <h1>Human Calibration Standard<br>for AI-Generated Intelligence</h1>
+    <p style="color:var(--muted);font-size:1rem;margin-top:0.75rem;">
+      A deterministic artifact pipeline that scores, verifies, and permanently logs the
+      epistemic quality of AI-generated intelligence reports — so readers know exactly
+      what to trust and why.
+    </p>
+
+    <div class="callout good" style="margin-top:1.5rem;">
+      <strong>Core idea:</strong> Every AI-generated report produces a co-equal set of
+      machine-readable artifacts that expose its evidence chain, score its signal quality,
+      and append an immutable reputation entry. The report and its credentials travel together.
+    </div>
+
+    <h3>Design Principles</h3>
+    <table>
+      <tr><th>Principle</th><th>What it means</th></tr>
+      <tr><td><strong>Deterministic over subjective</strong></td><td>Same input always produces same structure. Scores are bounded, labeled, and explained.</td></tr>
+      <tr><td><strong>Artifacts over UI</strong></td><td>5 files tell the whole story. No dashboard required to use the system.</td></tr>
+      <tr><td><strong>VERIFIED vs INFERRED</strong></td><td>Every claim carries an explicit epistemic label. No unmarked inferences.</td></tr>
+      <tr><td><strong>Append-only ledger</strong></td><td>No artifact is deleted. Revisions and overrides are new ledger entries.</td></tr>
+      <tr><td><strong>Human override preserved</strong></td><td>Human reviewers can override any machine verdict. Override is logged, not silent.</td></tr>
+    </table>
+  </section>
+
+  <!-- PROTOCOL -->
+  <section id="protocol">
+    <h2>HumanKlu Calibration Protocol (HKP v1.0)</h2>
+    <p>The <strong>Signal Confidence Index (SCI)</strong> scores a report across five
+    dimensions, each rated 0–10:</p>
+
+    <table>
+      <tr><th>Code</th><th>Dimension</th><th>What is being scored</th></tr>
+      <tr>
+        <td class="mono">EVID</td><td><strong>Evidence Integrity</strong></td>
+        <td>Are sources real, retrievable, non-circular, and current? Are VERIFIED claims distinguished from INFERRED?</td>
+      </tr>
+      <tr>
+        <td class="mono">MECH</td><td><strong>Mechanism Clarity</strong></td>
+        <td>Is the causal chain explicit, step-by-step, and falsifiable? Or is it hand-wavy correlation?</td>
+      </tr>
+      <tr>
+        <td class="mono">INC</td><td><strong>Incentive Decode</strong></td>
+        <td>Are the incentives of all named actors identified and accounted for in the analysis?</td>
+      </tr>
+      <tr>
+        <td class="mono">RISK</td><td><strong>Risk Realism</strong></td>
+        <td>Are downside scenarios modeled with realistic parameters? Is uncertainty range stated?</td>
+      </tr>
+      <tr>
+        <td class="mono">SPEC</td><td><strong>Specificity</strong></td>
+        <td>Are claims anchored to specific dates, entities, quantities, and named sources — not vague generalities?</td>
+      </tr>
+    </table>
+
+    <div class="card">
+      <div class="card-title">HCI Formula</div>
+      <pre style="margin:0;font-size:0.88rem;"><code>HCI = ( EVID + MECH + INC + RISK + SPEC ) / 5</code></pre>
+    </div>
+  </section>
+
+  <!-- VERDICT -->
+  <section id="verdict">
+    <h2>Verdict Rules</h2>
+    <table>
+      <tr><th>Verdict</th><th>Condition</th><th>Meaning</th></tr>
+      <tr>
+        <td><span class="chip chip-v">VERIFIED</span></td>
+        <td><code>EVID ≥ 7 AND HCI ≥ 7</code> AND no hallucination flags</td>
+        <td>Strong, multi-sourced evidence. Causal chain is coherent. Safe to cite.</td>
+      </tr>
+      <tr>
+        <td><span class="chip chip-r">REVIEWED</span></td>
+        <td><code>HCI between 5.5 and 6.9</code></td>
+        <td>Directionally sound but requires human review before high-stakes use.</td>
+      </tr>
+      <tr>
+        <td><span class="chip chip-x">REJECTED</span></td>
+        <td><code>EVID &lt; 6</code> OR any hallucination flag detected</td>
+        <td>Evidence insufficient or fabrication detected. Do not cite.</td>
+      </tr>
+    </table>
+
+    <div class="callout warn">
+      <strong>HCI below 5.5 also triggers REJECTED</strong> — even if no individual
+      hallucination flag fires. Systemic weakness across dimensions is itself a failure signal.
+    </div>
+
+    <h3>Hallucination Flag Types</h3>
+    <table>
+      <tr><th>Flag</th><th>Triggered when</th></tr>
+      <tr><td class="mono">FABRICATED_SOURCE</td><td>Cited URL or DOI returns 404 or does not match the claimed claim text</td></tr>
+      <tr><td class="mono">CONTRADICTS_EVIDENCE</td><td>A VERIFIED claim directly contradicts a cited source's content</td></tr>
+      <tr><td class="mono">IMPOSSIBLE_DATE</td><td>Event is dated before the source exists or after the generation timestamp</td></tr>
+      <tr><td class="mono">CIRCULAR_REASONING</td><td>Source and claim are logically identical — no independent support</td></tr>
+      <tr><td class="mono">NUMERIC_DRIFT</td><td>Numbers in the text differ from numbers in the cited source by &gt;5%</td></tr>
+    </table>
+  </section>
+
+  <!-- ARTIFACTS -->
+  <section id="artifacts">
+    <h2>The 5 Artifacts</h2>
+    <div class="artifact-grid">
+      <div class="artifact-card">
+        <div class="artifact-name">📄 report.html</div>
+        <div class="artifact-desc">Human-readable intelligence article with embedded SCI scorecard, claim ledger, and badge. Self-contained single file.</div>
+      </div>
+      <div class="artifact-card">
+        <div class="artifact-name">🔍 evidence.json</div>
+        <div class="artifact-desc">Claim-level evidence log. Every claim tagged VERIFIED or INFERRED with source URI, confidence score, and flags.</div>
+      </div>
+      <div class="artifact-card">
+        <div class="artifact-name">📊 sci_score.json</div>
+        <div class="artifact-desc">Full SCI scoring object. Includes per-dimension rationale, HCI, verdict, and any hallucination flags detected.</div>
+      </div>
+      <div class="artifact-card">
+        <div class="artifact-name">🔒 humanklu_audit.json</div>
+        <div class="artifact-desc">Tamper-detection artifact. SHA-256 hashes of all 3 siblings, badge, pipeline version, and optional human reviewer override.</div>
+      </div>
+      <div class="artifact-card" style="grid-column: 1 / -1;">
+        <div class="artifact-name">📜 ledger.jsonl</div>
+        <div class="artifact-desc">Append-only JSONL reputation ledger. One line per event (CREATED, REVIEWED_HUMAN, VERDICT_OVERRIDE, RETRACTED, AMENDED). Chain-linked via prev_entry_id. Never mutated — only appended.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEMAS -->
+  <section id="schemas">
+    <h2>JSON Schemas (Condensed)</h2>
+
+    <h3>evidence.json — Entry Shape</h3>
+    <pre><code>{
+  "report_id":    "HK-2026-EV7LX2",
+  "generated_at": "2026-02-28T19:27:59Z",
+  "entries": [
+    {
+      "claim_id":      "CLM-001",
+      "claim_text":    "Chile's Atacama operations face 3 active water-rights lawsuits...",
+      "evidence_type": "VERIFIED",          // or "INFERRED"
+      "source": {
+        "type":         "URL",              // URL | DOI | INTERNAL_DB | MODEL_REASONING | ...
+        "uri":          "https://...",
+        "title":        "Reuters: Chilean courts...",
+        "retrieved_at": "2026-02-01T00:00:00Z",
+        "excerpt":      "Three separate indigenous water rights suits..."
+      },
+      "confidence": 0.82,                   // 0.0–1.0
+      "flags":      [],                     // STALE_SOURCE | SINGLE_SOURCE | PAYWALLED | ...
+      "notes":      "Cross-referenced with S&P Global Q4 2025."
+    }
+  ]
+}</code></pre>
+
+    <h3>sci_score.json — Core Shape</h3>
+    <pre><code>{
+  "report_id":    "HK-2026-EV7LX2",
+  "generated_at": "2026-02-28T19:27:59Z",
+  "dimensions": {
+    "EVID": { "score": 7.5, "rationale": "2 of 5 claims externally verified..." },
+    "MECH": { "score": 8.0, "rationale": "Causal chain explicitly articulated..." },
+    "INC":  { "score": 7.0, "rationale": "OEM incentives identified and named..." },
+    "RISK": { "score": 6.5, "rationale": "Downside modeled; upside not fully..." },
+    "SPEC": { "score": 8.5, "rationale": "Specific percentages, names, dates..." }
+  },
+  "hci":               7.5,
+  "verdict":           "VERIFIED",
+  "hallucination_flags": []
+}</code></pre>
+
+    <h3>humanklu_audit.json — Core Shape</h3>
+    <pre><code>{
+  "audit_id":        "AUD-2026-5LBMWFWD",
+  "report_id":       "HK-2026-EV7LX2",
+  "created_at":      "2026-02-28T19:27:59Z",
+  "pipeline_version": "HKP-1.0",
+  "artifact_hashes": {
+    "report_html":    "a3f9...64-char-sha256",
+    "evidence_json":  "b72c...64-char-sha256",
+    "sci_score_json": "e01d...64-char-sha256"
+  },
+  "sci_summary": { "EVID":7.5,"MECH":8.0,"INC":7.0,"RISK":6.5,"SPEC":8.5,"HCI":7.5 },
+  "verdict":         "VERIFIED",
+  "human_reviewer":  null,
+  "badge": {
+    "label":       "HumanKlu™ VERIFIED",
+    "color":       "#2ECC71",
+    "hci_display": "7.5/10"
+  }
+}</code></pre>
+
+    <h3>ledger.jsonl — Single Line Shape</h3>
+    <pre><code>{"entry_id":"LED-1772306879069-SR0C","timestamp":"2026-02-28T19:27:59Z",
+ "report_id":"HK-2026-EV7LX2","audit_id":"AUD-2026-5LBMWFWD",
+ "event_type":"CREATED","verdict":"VERIFIED","hci":7.5,
+ "author_model":"tasklet-advanced-v1","human_reviewer":null,
+ "notes":"Initial pipeline run.","prev_entry_id":null}</code></pre>
+
+    <p>Full schemas live in <code>schemas/</code> — 5 separate JSON Schema draft-07 files, one per artifact.</p>
+  </section>
+
+  <!-- FOLDER STRUCTURE -->
+  <section id="folder">
+    <h2>Folder Structure</h2>
+    <div class="tree">
+<span class="dir">humanklu/</span>
+├── <span class="dir">schemas/</span>                      <span class="comment"># JSON Schema draft-07 definitions</span>
+│   ├── <span class="file">report_schema.json</span>
+│   ├── <span class="file">evidence_schema.json</span>
+│   ├── <span class="file">sci_score_schema.json</span>
+│   ├── <span class="file">humanklu_audit_schema.json</span>
+│   └── <span class="file">ledger_schema.json</span>
+│
+├── <span class="dir">scripts/</span>
+│   └── <span class="file">pipeline.py</span>              <span class="comment"># Main artifact generator</span>
+│
+├── <span class="dir">badges/</span>
+│   └── <span class="file">badge.html</span>               <span class="comment"># Badge rendering examples + copy-paste snippet</span>
+│
+├── <span class="dir">runs/</span>                         <span class="comment"># One subfolder per pipeline run</span>
+│   ├── <span class="file">sample_input.json</span>        <span class="comment"># Input template / example</span>
+│   └── <span class="dir">sample_run_001/</span>
+│       ├── <span class="file">report.html</span>          <span class="comment"># ← Human-readable article</span>
+│       ├── <span class="file">evidence.json</span>        <span class="comment"># ← Claim evidence log</span>
+│       ├── <span class="file">sci_score.json</span>       <span class="comment"># ← SCI structural score</span>
+│       └── <span class="file">humanklu_audit.json</span>  <span class="comment"># ← Tamper-evident audit</span>
+│
+├── <span class="file">ledger.jsonl</span>                 <span class="comment"># Append-only global reputation ledger</span>
+└── <span class="file">SPEC.html</span>                    <span class="comment"># This document</span>
+    </div>
+
+    <div class="callout" style="margin-top:1rem;">
+      <strong>Convention:</strong> Each run gets its own directory named after the run ID
+      (or a timestamp). The <code>ledger.jsonl</code> lives at the project root and accumulates
+      entries across all runs. Never delete or edit it.
+    </div>
+  </section>
+
+  <!-- VALIDATION -->
+  <section id="validation">
+    <h2>Validation Logic</h2>
+    <p>This is the pseudocode for the pipeline's core decision engine. The Python
+    implementation in <code>scripts/pipeline.py</code> follows this exactly.</p>
+
+    <h3>HCI Computation</h3>
+    <pre><code>FUNCTION compute_hci(dimensions):
+  scores = [dimensions[d].score FOR d IN [EVID, MECH, INC, RISK, SPEC]]
+  RETURN round(mean(scores), 2)</code></pre>
+
+    <h3>Verdict Determination</h3>
+    <pre><code>FUNCTION determine_verdict(dimensions, hci, hallucination_flags):
+
+  // Hard rejection gates — checked first
+  IF hallucination_flags is not empty:
+    RETURN "REJECTED"
+
+  IF dimensions.EVID.score < 6:
+    RETURN "REJECTED"
+
+  IF hci < 5.5:
+    RETURN "REJECTED"
+
+  // Positive verification gate
+  IF dimensions.EVID.score >= 7 AND hci >= 7:
+    RETURN "VERIFIED"
+
+  // Middle band
+  IF 5.5 <= hci <= 6.9:
+    RETURN "REVIEWED"
+
+  // Fallback (e.g. EVID=6.x, HCI=7+ but EVID not high enough to VERIFY)
+  RETURN "REVIEWED"</code></pre>
+
+    <h3>Artifact Integrity Check</h3>
+    <pre><code>FUNCTION verify_run_integrity(run_dir):
+  audit = parse_json(run_dir / "humanklu_audit.json")
+  
+  FOR artifact_name, expected_hash IN audit.artifact_hashes:
+    actual_hash = sha256_file(run_dir / artifact_name)
+    IF actual_hash != expected_hash:
+      RAISE IntegrityError(f"{artifact_name} hash mismatch — artifact tampered")
+  
+  RETURN "INTEGRITY_OK"</code></pre>
+
+    <h3>Ledger Chain Verification</h3>
+    <pre><code>FUNCTION verify_ledger_chain(ledger_path):
+  entries = read_jsonl(ledger_path)
+  prev_id = null
+  
+  FOR entry IN entries:
+    IF entry.prev_entry_id != prev_id:
+      RAISE ChainError(f"Chain broken at {entry.entry_id}")
+    prev_id = entry.entry_id
+  
+  RETURN f"CHAIN_OK — {len(entries)} entries verified"</code></pre>
+
+    <h3>Evidence Classification Completeness</h3>
+    <pre><code>FUNCTION validate_evidence_coverage(evidence_json, sci_score_json):
+  evidence_ids  = {e.claim_id FOR e IN evidence_json.entries}
+  report_ids    = {c.claim_id FOR c IN report.claims}
+  
+  uncovered = report_ids - evidence_ids
+  IF uncovered:
+    WARN(f"Claims without evidence entries: {uncovered}")
+  
+  // Flag if > 50% of claims are INFERRED and EVID score > 7
+  inferred_count = count(e FOR e IN evidence IF e.evidence_type == "INFERRED")
+  if inferred_count / len(evidence) > 0.5 AND sci_score.dimensions.EVID.score > 7:
+    WARN("EVID score may be inflated — majority of claims are INFERRED")</code></pre>
+  </section>
+
+  <!-- PIPELINE SCRIPT -->
+  <section id="pipeline">
+    <h2>Pipeline Script</h2>
+    <p>The full pipeline lives at <code>scripts/pipeline.py</code> (~250 lines, zero dependencies beyond Python 3.8 stdlib).</p>
+
+    <h3>Key Functions</h3>
+    <table>
+      <tr><th>Function</th><th>Produces</th></tr>
+      <tr><td class="mono">build_evidence_json()</td><td>evidence.json from claims list</td></tr>
+      <tr><td class="mono">build_sci_score_json()</td><td>sci_score.json with HCI + verdict</td></tr>
+      <tr><td class="mono">build_report_html()</td><td>styled single-file HTML report</td></tr>
+      <tr><td class="mono">build_audit_json()</td><td>humanklu_audit.json with SHA-256 hashes</td></tr>
+      <tr><td class="mono">build_ledger_entry()</td><td>appends one line to ledger.jsonl</td></tr>
+      <tr><td class="mono">compute_hci()</td><td>float: average of 5 dimension scores</td></tr>
+      <tr><td class="mono">determine_verdict()</td><td>VERIFIED / REVIEWED / REJECTED string</td></tr>
+      <tr><td class="mono">sha256_file()</td><td>hex digest for artifact integrity</td></tr>
+    </table>
+
+    <h3>Input JSON Format</h3>
+    <pre><code>{
+  "title":   "Your report title",
+  "topic":   "Domain / sector",
+  "summary": "2-3 sentence executive summary",
+  "author": { "name": "...", "model_version": "...", "human_reviewed": false },
+  "claims": [
+    {
+      "claim_id":      "CLM-001",         // optional — auto-assigned if missing
+      "text":          "The claim text",
+      "evidence_type": "VERIFIED",        // or "INFERRED"
+      "source": { "type": "URL", "uri": "...", "title": "...", "excerpt": "..." },
+      "confidence":    0.85,
+      "flags":         [],
+      "notes":         ""
+    }
+  ],
+  "dimensions": {
+    "EVID": { "score": 7.5, "rationale": "..." },
+    "MECH": { "score": 8.0, "rationale": "..." },
+    "INC":  { "score": 7.0, "rationale": "..." },
+    "RISK": { "score": 6.5, "rationale": "..." },
+    "SPEC": { "score": 8.5, "rationale": "..." }
+  },
+  "hallucination_flags": []
+}</code></pre>
+  </section>
+
+  <!-- SAMPLE RUN -->
+  <section id="sample">
+    <h2>Sample Run — EV Battery Supply Chain</h2>
+    <p>Topic: <em>Hidden Cost of Cheap Lithium — EV Battery Supply Chain Fragility</em></p>
+
+    <h3>Input Dimensions</h3>
+    <div class="score-row"><span class="score-label">EVID</span>
+      <div class="score-bar-wrap"><div class="score-bar" style="width:75%;background:#2ECC71"></div></div>
+      <span class="score-val">7.5</span></div>
+    <div class="score-row"><span class="score-label">MECH</span>
+      <div class="score-bar-wrap"><div class="score-bar" style="width:80%;background:#2ECC71"></div></div>
+      <span class="score-val">8.0</span></div>
+    <div class="score-row"><span class="score-label">INC</span>
+      <div class="score-bar-wrap"><div class="score-bar" style="width:70%;background:#F39C12"></div></div>
+      <span class="score-val">7.0</span></div>
+    <div class="score-row"><span class="score-label">RISK</span>
+      <div class="score-bar-wrap"><div class="score-bar" style="width:65%;background:#F39C12"></div></div>
+      <span class="score-val">6.5</span></div>
+    <div class="score-row"><span class="score-label">SPEC</span>
+      <div class="score-bar-wrap"><div class="score-bar" style="width:85%;background:#2ECC71"></div></div>
+      <span class="score-val">8.5</span></div>
+    <div class="score-row" style="border-top:1px solid var(--border);padding-top:0.6rem;margin-top:0.25rem;">
+      <span class="score-label" style="color:var(--green);font-size:0.9rem">HCI</span>
+      <div class="score-bar-wrap"><div class="score-bar" style="width:75%;background:#6C63FF"></div></div>
+      <span class="score-val" style="color:var(--green)">7.5</span>
+    </div>
+
+    <br>
+    <p><strong>Verdict:</strong> <span class="chip chip-v">VERIFIED</span> — EVID (7.5) ≥ 7 AND HCI (7.5) ≥ 7. Zero hallucination flags.</p>
+
+    <h3>Claims Summary</h3>
+    <table>
+      <tr><th>ID</th><th>Type</th><th>Confidence</th><th>Flags</th></tr>
+      <tr><td class="mono">CLM-001</td><td><span class="chip chip-v">VERIFIED</span></td><td>0.82</td><td>—</td></tr>
+      <tr><td class="mono">CLM-002</td><td><span class="chip chip-v">VERIFIED</span></td><td>0.91</td><td>—</td></tr>
+      <tr><td class="mono">CLM-003</td><td><span class="chip chip-r">INFERRED</span></td><td>0.61</td><td>SINGLE_SOURCE</td></tr>
+      <tr><td class="mono">CLM-004</td><td><span class="chip chip-r">INFERRED</span></td><td>0.74</td><td>—</td></tr>
+      <tr><td class="mono">CLM-005</td><td><span class="chip chip-r">INFERRED</span></td><td>0.55</td><td>SINGLE_SOURCE</td></tr>
+    </table>
+
+    <h3>Generated Artifacts</h3>
+    <pre><code>runs/sample_run_001/
+  report.html           ← open in any browser
+  evidence.json
+  sci_score.json
+  humanklu_audit.json
+
+ledger.jsonl            ← appended with 1 new entry</code></pre>
+
+    <div class="callout good">
+      ✅ All 5 artifacts generated in one <code>pipeline.py</code> call.
+      Run time: &lt;1 second. Zero network calls. Zero external dependencies.
+    </div>
+  </section>
+
+  <!-- BADGE -->
+  <section id="badge">
+    <h2>Badge Rendering</h2>
+    <p>Three visual variants. Full examples + copy-paste HTML in <code>badges/badge.html</code>.</p>
+
+    <table>
+      <tr><th>Verdict</th><th>Standard Badge</th><th>Pill Badge</th></tr>
+      <tr>
+        <td><span class="chip chip-v">VERIFIED</span></td>
+        <td>
+          <a class="badge-demo" href="#" style="display:inline-flex;">
+            <span class="bd-l">HumanKlu™</span>
+            <span class="bd-m" style="background:#2ECC71;color:#0a2e1a">VERIFIED</span>
+            <span class="bd-r" style="background:#27AE60;color:#d4f5e2">7.5 / 10</span>
+          </a>
+        </td>
+        <td>
+          <a href="#" style="display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;
+                              border-radius:999px;background:#2ECC7122;color:#2ECC71;
+                              border:1px solid #2ECC7144;font-size:.8rem;font-weight:700;text-decoration:none;">
+            <span style="width:8px;height:8px;border-radius:50%;background:#2ECC71;display:inline-block;"></span>
+            HumanKlu™ VERIFIED · 7.5
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="chip chip-r">REVIEWED</span></td>
+        <td>
+          <a class="badge-demo" href="#" style="display:inline-flex;">
+            <span class="bd-l">HumanKlu™</span>
+            <span class="bd-m" style="background:#F39C12;color:#2d1e00">REVIEWED</span>
+            <span class="bd-r" style="background:#D68910;color:#fdebd0">6.2 / 10</span>
+          </a>
+        </td>
+        <td>
+          <a href="#" style="display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;
+                              border-radius:999px;background:#F39C1222;color:#F39C12;
+                              border:1px solid #F39C1244;font-size:.8rem;font-weight:700;text-decoration:none;">
+            <span style="width:8px;height:8px;border-radius:50%;background:#F39C12;display:inline-block;"></span>
+            HumanKlu™ REVIEWED · 6.2
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="chip chip-x">REJECTED</span></td>
+        <td>
+          <a class="badge-demo" href="#" style="display:inline-flex;">
+            <span class="bd-l">HumanKlu™</span>
+            <span class="bd-m" style="background:#E74C3C;color:#2e0a07">REJECTED</span>
+            <span class="bd-r" style="background:#C0392B;color:#fadbd8">4.1 / 10</span>
+          </a>
+        </td>
+        <td>
+          <a href="#" style="display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;
+                              border-radius:999px;background:#E74C3C22;color:#E74C3C;
+                              border:1px solid #E74C3C44;font-size:.8rem;font-weight:700;text-decoration:none;">
+            <span style="width:8px;height:8px;border-radius:50%;background:#E74C3C;display:inline-block;"></span>
+            HumanKlu™ REJECTED · 4.1
+          </a>
+        </td>
+      </tr>
+    </table>
+
+    <h3>Embeddable Snippet</h3>
+    <pre><code>&lt;!-- HumanKlu™ Badge — copy, paste, replace values --&gt;
+&lt;a href="https://your-domain/report/HK-2026-EV7LX2"
+   title="HumanKlu™ VERIFIED — HCI 7.5/10"
+   style="display:inline-flex;align-items:center;font-family:system-ui;
+          font-size:.78rem;font-weight:700;border-radius:6px;overflow:hidden;
+          text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.4);"&gt;
+  &lt;span style="background:#1A1D27;color:#8B8FA8;padding:.35rem .7rem;"&gt;HumanKlu™&lt;/span&gt;
+  &lt;span style="background:#2ECC71;color:#0a2e1a;padding:.35rem .75rem;"&gt;VERIFIED&lt;/span&gt;
+  &lt;span style="background:#27AE60;color:#d4f5e2;padding:.35rem .6rem;"&gt;7.5 / 10&lt;/span&gt;
+&lt;/a&gt;</code></pre>
+  </section>
+
+  <!-- RUN INSTRUCTIONS -->
+  <section id="run">
+    <h2>Run Instructions</h2>
+
+    <h3>Prerequisites</h3>
+    <pre><code>Python 3.8+          # only stdlib used (json, hashlib, argparse, pathlib)
+No pip installs required.</code></pre>
+
+    <h3>1. Clone / copy the project folder</h3>
+    <pre><code>cp -r humanklu/ ~/my-project/humanklu/
+cd ~/my-project/humanklu/</code></pre>
+
+    <h3>2. Create your input file</h3>
+    <p>Copy <code>runs/sample_input.json</code> as a template. Fill in:</p>
+    <ul style="margin-left:1.5rem;margin-bottom:1rem;font-size:0.9rem;line-height:2">
+      <li><code>title</code>, <code>topic</code>, <code>summary</code></li>
+      <li><code>claims[]</code> — each with <code>evidence_type: "VERIFIED" | "INFERRED"</code></li>
+      <li><code>dimensions</code> — score each of the 5 dimensions 0–10 with a rationale</li>
+      <li><code>hallucination_flags: []</code> — add any detected flag objects</li>
+    </ul>
+
+    <h3>3. Run the pipeline</h3>
+    <pre><code>python3 scripts/pipeline.py \
+  --input  runs/my_input.json \
+  --output runs/run_001</code></pre>
+
+    <h3>4. View output</h3>
+    <pre><code># Open the report in your browser
+open runs/run_001/report.html        # macOS
+xdg-open runs/run_001/report.html   # Linux
+start runs/run_001/report.html      # Windows
+
+# Inspect scores
+cat runs/run_001/sci_score.json | python3 -m json.tool
+
+# Check ledger
+tail -n 5 ledger.jsonl | python3 -m json.tool</code></pre>
+
+    <h3>5. Verify artifact integrity</h3>
+    <pre><code>python3 - &lt;&lt;'EOF'
+import json, hashlib, pathlib
+
+run = pathlib.Path("runs/run_001")
+audit = json.loads((run / "humanklu_audit.json").read_text())
+
+for key, expected in audit["artifact_hashes"].items():
+    fname = key.replace("_", ".").replace("json", "json").replace("html", "html")
+    # map key → filename
+    fmap = {"report_html":"report.html","evidence_json":"evidence.json","sci_score_json":"sci_score.json"}
+    actual = hashlib.sha256((run / fmap[key]).read_bytes()).hexdigest()
+    status = "✅ OK" if actual == expected else "❌ TAMPERED"
+    print(f"{fmap[key]:20s} {status}")
+EOF</code></pre>
+
+    <h3>6. Human reviewer override (optional)</h3>
+    <pre><code># Edit humanklu_audit.json — add the human_reviewer block:
+{
+  "human_reviewer": {
+    "name":            "Jane Doe",
+    "timestamp":       "2026-02-28T22:00:00Z",
+    "override_verdict": "VERIFIED",   // or null to accept machine verdict
+    "notes":           "Spot-checked CLM-001 and CLM-002. Sources confirmed."
+  }
+}
+
+# Then append a new ledger entry using event_type "REVIEWED_HUMAN"</code></pre>
+
+    <div class="callout good" style="margin-top:2rem;">
+      <strong>You're running HumanKlu™.</strong> Every report now has a verifiable identity,
+      a scored epistemic backbone, and a permanent reputation record.
+    </div>
+  </section>
+
+  <footer>
+    <span>HumanKlu™ · HKP v1.0 · Human Calibration Standard for AI-Generated Intelligence</span>
+    <span>Generated by Tasklet · 2026-02-28</span>
+  </footer>
+
+</main>
+</div>
+</body>
+</html>

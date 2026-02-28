@@ -1,0 +1,37 @@
+{
+  "audit_id": "AUD-2026-67DTVWS5",
+  "report_id": "HK-2026-ESWK1N",
+  "created_at": "2026-02-28T21:19:56.645635Z",
+  "hkp_version": "1.1",
+  "pipeline_version": "HKP-1.1",
+  "artifact_hashes": {
+    "report_html": "d690fe4a0ac3a1859de10b30263e4ca38dd34015296e2d41276609f2c78ed109",
+    "evidence_json": "f6e9b33a43bbbc8bac2e8c1e657511ac58bdc159370529f4838d8774bd97ff48",
+    "sci_score_json": "e67928ca6bbe275ae2a201bf1062d794c5fa502bdf3b3d32a792152ea534fe80"
+  },
+  "sci_summary": {
+    "EVID": 8.5,
+    "MECH": 8.6,
+    "INC": 8.3,
+    "RISK": 8.7,
+    "SPEC": 8.8,
+    "HCI": 8.58
+  },
+  "evid_raw": 8.5,
+  "evid_effective": 8.5,
+  "inferred_ratio": 0.0,
+  "certification_level": "HK-INSTITUTIONAL",
+  "evid_ceiling_applied": null,
+  "flags": [],
+  "absence_assertion_flags": [],
+  "hallucination_flags": [],
+  "human_reviewer": null,
+  "badge": {
+    "label": "HK-INSTITUTIONAL",
+    "border_color": "#D4AF37",
+    "text_color": "#D4AF37",
+    "icon": "\ud83c\udfdb",
+    "hci_display": "8.58/10"
+  },
+  "institutional_requires_two_reviews": true
+}

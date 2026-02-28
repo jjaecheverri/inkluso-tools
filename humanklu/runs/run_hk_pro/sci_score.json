@@ -1,0 +1,34 @@
+{
+  "report_id": "HK-2026-PRO001",
+  "generated_at": "2026-02-28T20:20:21.856371Z",
+  "pipeline_version": "HKP-2.0",
+  "dimensions": {
+    "EVID": {
+      "score": 8.0,
+      "rationale": "Fed H.4.1 releases, FRBNY data, and primary dealer survey data cited directly."
+    },
+    "MECH": {
+      "score": 7.8,
+      "rationale": "Mechanism of RRP drain explained with T-bill issuance link and SOFR spread analysis."
+    },
+    "INC": {
+      "score": 7.6,
+      "rationale": "Primary dealer and MMF incentive structures quantified with rate differentials."
+    },
+    "RISK": {
+      "score": 7.5,
+      "rationale": "Systemic liquidity risk framed with reference to 2019 repo spike."
+    },
+    "SPEC": {
+      "score": 7.5,
+      "rationale": "Specific dates, volumes, and rates cited from FRBNY public data."
+    }
+  },
+  "hci": 7.68,
+  "verdict": "VERIFIED",
+  "certification_level": "HK-PRO",
+  "inferred_ratio": 0.25,
+  "evid_ceiling_applied": null,
+  "hallucination_flags": [],
+  "absence_assertion_flags": []
+}

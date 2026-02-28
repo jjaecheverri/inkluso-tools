@@ -1,0 +1,58 @@
+{
+  "title": "AI Chip Export Controls: Mechanism and Market Impact",
+  "topic": "Semiconductor Policy / Geopolitics",
+  "summary": "Analysis of U.S. export control rules on advanced AI chips, their enforcement mechanisms, and downstream effects on China-based model training capacity.",
+  "author": { "model_version": "gpt-4o-2024-05", "org": "HumanKlu Research" },
+  "hallucination_flags": [],
+  "dimensions": {
+    "EVID": { "score": 7.5, "rationale": "Multiple government documents and industry filings cited." },
+    "MECH": { "score": 7.2, "rationale": "Export licensing mechanism clearly described with BIS rule references." },
+    "INC":  { "score": 7.0, "rationale": "Incentives for circumvention documented via court filings." },
+    "RISK": { "score": 7.1, "rationale": "Supply chain disruption risks quantified in analyst reports." },
+    "SPEC": { "score": 7.0, "rationale": "Specific chip models (H100, A100), companies, and dates referenced." }
+  },
+  "claims": [
+    {
+      "claim_id": "CLM-001",
+      "text": "The October 2023 BIS rule update restricted export of chips with total processing performance above 4800 TOPS.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "GOVERNMENT_DOCUMENT",
+        "uri": "https://bis.doc.gov/index.php/documents/federal-register-notices/3353",
+        "title": "BIS Export Control Rule Oct 2023",
+        "retrieved_at": "2026-01-15T00:00:00Z",
+        "excerpt": "...any integrated circuit with TPP exceeding 4800 TOPS is subject to license requirement..."
+      },
+      "confidence": 0.95,
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-002",
+      "text": "NVIDIA shipped approximately $2.5B in H100 chips to Middle Eastern distributors in Q3 2023 before the rule change.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "SEC_FILING",
+        "uri": "https://sec.gov/nvidia-10q-q3-2023",
+        "title": "NVIDIA 10-Q Q3 2023",
+        "retrieved_at": "2026-01-15T00:00:00Z",
+        "excerpt": "Data center revenue of $14.5B included significant international shipments..."
+      },
+      "confidence": 0.85,
+      "notes": "Regional breakdown inferred from analyst commentary."
+    },
+    {
+      "claim_id": "CLM-003",
+      "text": "Some Chinese firms have begun acquiring restricted chips through third-party shell entities in Southeast Asia.",
+      "evidence_type": "INFERRED",
+      "confidence": 0.65,
+      "notes": "Reuters reporting referenced but no named entities per publication policy."
+    },
+    {
+      "claim_id": "CLM-004",
+      "text": "Model training throughput at major Chinese AI labs is estimated to have declined 18–22% following the 2023 rule.",
+      "evidence_type": "INFERRED",
+      "confidence": 0.60,
+      "notes": "Analyst estimate from SemiAnalysis; not independently verified."
+    }
+  ]
+}

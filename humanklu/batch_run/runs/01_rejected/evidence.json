@@ -1,0 +1,70 @@
+{
+  "report_id": "HK-2026-NKT1H9",
+  "generated_at": "2026-02-28T21:19:42.742392Z",
+  "pipeline_version": "HKP-1.1",
+  "inferred_ratio": 1.0,
+  "entries": [
+    {
+      "claim_id": "CLM-001",
+      "claim_text": "Factory X paid workers $1.20/hour in 2024.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "AI-generated inference",
+        "retrieved_at": "2026-02-28T21:19:42.742392Z",
+        "excerpt": "Factory X paid workers $1.20/hour in 2024."
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-002",
+      "claim_text": "No audit has been conducted at any tier-2 supplier.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "AI-generated inference",
+        "retrieved_at": "2026-02-28T21:19:42.742392Z",
+        "excerpt": "No audit has been conducted at any tier-2 supplier."
+      },
+      "confidence": 0.5,
+      "claim_flags": [
+        "ABSENCE_ASSERTION"
+      ],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-003",
+      "claim_text": "Carbon offsets were fabricated.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "AI-generated inference",
+        "retrieved_at": "2026-02-28T21:19:42.742392Z",
+        "excerpt": "Carbon offsets were fabricated."
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-004",
+      "claim_text": "Worker injury rate exceeded 12%.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "AI-generated inference",
+        "retrieved_at": "2026-02-28T21:19:42.742392Z",
+        "excerpt": "Worker injury rate exceeded 12%."
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    }
+  ]
+}

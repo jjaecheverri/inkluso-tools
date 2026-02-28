@@ -1,0 +1,71 @@
+{
+  "total_runs": 5,
+  "counts_by_level": {
+    "HK-REJECTED": 1,
+    "HK-REVIEWED": 2,
+    "HK-VERIFIED": 1,
+    "HK-INSTITUTIONAL": 1
+  },
+  "avg_hci": 6.924,
+  "avg_evid_effective": 7.08,
+  "avg_inferred_ratio": 0.4133,
+  "runs": [
+    {
+      "run_id": "01_rejected",
+      "input_file": "01_rejected.json",
+      "title": "Unverified Supply Chain Claims in Fast Fashion",
+      "report_id": "HK-2026-NKT1H9",
+      "certification_level": "HK-REJECTED",
+      "hci": 4.88,
+      "evid_effective": 5.2,
+      "inferred_ratio": 1.0,
+      "flags": [
+        "ABSENCE_ASSERTION"
+      ]
+    },
+    {
+      "run_id": "02_reviewed",
+      "input_file": "02_reviewed.json",
+      "title": "AI in Radiology: Cautious Adoption Trends",
+      "report_id": "HK-2026-S61IWS",
+      "certification_level": "HK-REVIEWED",
+      "hci": 6.2,
+      "evid_effective": 6.4,
+      "inferred_ratio": 0.6667,
+      "flags": []
+    },
+    {
+      "run_id": "03_verified",
+      "input_file": "03_verified.json",
+      "title": "EV Battery Mineral Sourcing: DRC Cobalt Audit Findings",
+      "report_id": "HK-2026-PUSHRZ",
+      "certification_level": "HK-REVIEWED",
+      "hci": 7.24,
+      "evid_effective": 7.4,
+      "inferred_ratio": 0.4,
+      "flags": []
+    },
+    {
+      "run_id": "04_pro",
+      "input_file": "04_pro.json",
+      "title": "Federal Reserve Forward Guidance: Rate Path Analysis Q3 2024",
+      "report_id": "HK-2026-BINBRM",
+      "certification_level": "HK-VERIFIED",
+      "hci": 7.72,
+      "evid_effective": 7.9,
+      "inferred_ratio": 0.0,
+      "flags": []
+    },
+    {
+      "run_id": "05_institutional",
+      "input_file": "05_institutional.json",
+      "title": "Global Semiconductor Capacity 2024: TSMC Node-Level Production Data",
+      "report_id": "HK-2026-ESWK1N",
+      "certification_level": "HK-INSTITUTIONAL",
+      "hci": 8.58,
+      "evid_effective": 8.5,
+      "inferred_ratio": 0.0,
+      "flags": []
+    }
+  ]
+}

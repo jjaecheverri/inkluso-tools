@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Hidden Cost of Cheap Lithium: Why EV Battery Supply Chains Are More Fragile Than Analysts Admit — HumanKlu™</title>
+  <style>
+    :root {
+      --bg: #0F1117; --surface: #1A1D27; --border: #2A2D3E;
+      --text: #E8EAF0; --muted: #8B8FA8; --accent: #6C63FF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text);
+           line-height: 1.65; padding: 2rem; max-width: 860px; margin: 0 auto; }
+    header { border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+    .klu-badge {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 999px; padding: 0.4rem 1rem; font-size: 0.8rem;
+      font-weight: 700; letter-spacing: 0.08em; margin-bottom: 1rem;
+    }
+    .klu-dot { width: 10px; height: 10px; border-radius: 50%; background: #2ECC71; }
+    h1 { font-size: 1.8rem; font-weight: 800; line-height: 1.25; margin-bottom: 0.5rem; }
+    .meta { color: var(--muted); font-size: 0.85rem; }
+    .meta span { margin-right: 1.5rem; }
+    section { margin: 2rem 0; }
+    h2 { font-size: 1.1rem; font-weight: 700; color: var(--accent);
+          text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .summary-box { background: var(--surface); border-left: 3px solid var(--accent);
+                    padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; }
+    /* SCI Score Card */
+    .sci-card { background: var(--surface); border: 1px solid var(--border);
+                 border-radius: 12px; padding: 1.5rem; }
+    .sci-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+    .sci-hci { font-size: 2.5rem; font-weight: 900; color: #2ECC71; }
+    .sci-verdict { background: #2ECC7122; color: #2ECC71; border: 1px solid #2ECC7144;
+                    padding: 0.4rem 1rem; border-radius: 999px; font-weight: 700;
+                    font-size: 0.9rem; letter-spacing: 0.1em; }
+    table.dims { width: 100%; border-collapse: collapse; }
+    table.dims td { padding: 0.5rem 0.75rem; vertical-align: middle; }
+    .dim-name { font-weight: 700; font-size: 0.85rem; width: 12rem; white-space: nowrap; }
+    .dim-label { font-weight: 400; color: var(--muted); margin-left: 0.4rem; font-size: 0.78rem; }
+    .bar { height: 8px; border-radius: 4px; min-width: 4px; transition: width 0.3s; }
+    .dim-score { font-weight: 700; font-size: 0.9rem; text-align: right; width: 2.5rem; }
+    /* Claims */
+    .claim { background: var(--surface); border: 1px solid var(--border);
+               border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; }
+    .claim p { margin-top: 0.5rem; font-size: 0.93rem; }
+    .claim-id { font-size: 0.75rem; font-weight: 700; color: var(--muted);
+                 font-family: monospace; margin-right: 0.5rem; }
+    .claim-badge { font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.6rem;
+                    border-radius: 999px; color: #0F1117; letter-spacing: 0.05em; }
+    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+              color: var(--muted); font-size: 0.8rem; display: flex;
+              justify-content: space-between; }
+    code { font-family: monospace; font-size: 0.82rem; color: var(--accent);
+            background: var(--surface); padding: 0.15rem 0.4rem; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="klu-badge">
+      <div class="klu-dot"></div>
+      HumanKlu™ · VERIFIED · HCI 7.5/10
+    </div>
+    <h1>The Hidden Cost of Cheap Lithium: Why EV Battery Supply Chains Are More Fragile Than Analysts Admit</h1>
+    <div class="meta">
+      <span>📋 HK-2026-EV7LX2</span>
+      <span>🕒 2026-02-28</span>
+      <span>🏷 Electric Vehicles / Supply Chain Risk</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <div class="summary-box"><p>Mainstream projections for electric vehicle adoption systematically underestimate the geopolitical and physical constraints on lithium carbonate supply. Three converging pressures—Chilean water litigation, Chinese refining concentration, and geological grade decline in major deposits—create a 2027–2029 supply window that could slow EV rollout by 18–24 months in key Western markets. This report examines each mechanism, decodes the incentives suppressing public risk disclosure, and quantifies the realistic downside scenarios.</p></div>
+  </section>
+
+  <section>
+    <h2>Signal Confidence Index</h2>
+    <div class="sci-card">
+      <div class="sci-header">
+        <div>
+          <div style="color:var(--muted);font-size:0.8rem;margin-bottom:0.25rem">Human Calibration Index</div>
+          <div class="sci-hci">7.5<span style="font-size:1.2rem;color:var(--muted)">/10</span></div>
+        </div>
+        <div class="sci-verdict">VERIFIED</div>
+      </div>
+      <table class="dims">
+        
+        <tr>
+          <td class="dim-name">EVID<span class="dim-label">Evidence Integrity</span></td>
+          <td><div class="bar" style="width:75%;background:#2ECC71"></div></td>
+          <td class="dim-score">7.5</td>
+        </tr>
+        <tr>
+          <td class="dim-name">MECH<span class="dim-label">Mechanism Clarity</span></td>
+          <td><div class="bar" style="width:80%;background:#2ECC71"></div></td>
+          <td class="dim-score">8.0</td>
+        </tr>
+        <tr>
+          <td class="dim-name">INC<span class="dim-label">Incentive Decode</span></td>
+          <td><div class="bar" style="width:70%;background:#2ECC71"></div></td>
+          <td class="dim-score">7.0</td>
+        </tr>
+        <tr>
+          <td class="dim-name">RISK<span class="dim-label">Risk Realism</span></td>
+          <td><div class="bar" style="width:65%;background:#2ECC71"></div></td>
+          <td class="dim-score">6.5</td>
+        </tr>
+        <tr>
+          <td class="dim-name">SPEC<span class="dim-label">Specificity</span></td>
+          <td><div class="bar" style="width:85%;background:#2ECC71"></div></td>
+          <td class="dim-score">8.5</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Claim Ledger</h2>
+    
+        <div class="claim">
+          <span class="claim-id">CLM-001</span>
+          <span class="claim-badge" style="background:#2ECC71">VERIFIED</span>
+          <p>Chile's Atacama lithium operations face 3 active water-rights lawsuits that could curtail output by up to 30% between 2027-2029.</p>
+        </div>
+        <div class="claim">
+          <span class="claim-id">CLM-002</span>
+          <span class="claim-badge" style="background:#2ECC71">VERIFIED</span>
+          <p>China controls approximately 68% of global lithium refining capacity as of 2025, a figure that has increased from 58% in 2020.</p>
+        </div>
+        <div class="claim">
+          <span class="claim-id">CLM-003</span>
+          <span class="claim-badge" style="background:#F39C12">INFERRED</span>
+          <p>Average lithium carbonate equivalent (LCE) grade at Greenbushes (world's largest hard-rock deposit) has declined ~12% since 2019 as high-grade zones are exhausted.</p>
+        </div>
+        <div class="claim">
+          <span class="claim-id">CLM-004</span>
+          <span class="claim-badge" style="background:#F39C12">INFERRED</span>
+          <p>Major automotive OEMs have financial incentives to understate supply risk in investor communications to protect capex commitments and stock valuations.</p>
+        </div>
+        <div class="claim">
+          <span class="claim-id">CLM-005</span>
+          <span class="claim-badge" style="background:#F39C12">INFERRED</span>
+          <p>A 12-18 month supply shock would delay Western EV sales targets by 18-24 months, adding $800–$1,200 to average battery pack costs.</p>
+        </div>
+  </section>
+
+  <footer>
+    <span>HumanKlu™ HKP v1.0 · Pipeline HKP-1.0</span>
+    <span>Audit: <code>HK-2026-EV7LX2</code></span>
+  </footer>
+</body>
+</html>

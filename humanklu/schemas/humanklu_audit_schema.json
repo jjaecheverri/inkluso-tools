@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "humanklu/humanklu_audit/v2",
+  "title": "HumanKlu Audit — HKP v2.0",
+  "description": "Immutable calibration artifact binding all pipeline outputs. Adds certification_level, inferred_ratio, evid_ceiling_applied, and absence_assertion_flags.",
+  "type": "object",
+  "required": [
+    "audit_id","report_id","created_at","pipeline_version",
+    "artifact_hashes","sci_summary","inferred_ratio",
+    "verdict","certification_level","badge"
+  ],
+  "properties": {
+    "audit_id":         { "type": "string", "pattern": "^AUD-[0-9]{4}-[A-Z0-9]{8}$" },
+    "report_id":        { "type": "string", "pattern": "^HK-[0-9]{4}-[A-Z0-9]{6}$" },
+    "created_at":       { "type": "string", "format": "date-time" },
+    "pipeline_version": { "type": "string", "enum": ["HKP-2.0"] },
+
+    "artifact_hashes": {
+      "type": "object",
+      "required": ["report_html","evidence_json","sci_score_json"],
+      "properties": {
+        "report_html":    { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "evidence_json":  { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "sci_score_json": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+
+    "sci_summary": {
+      "type": "object",
+      "required": ["EVID","MECH","INC","RISK","SPEC","HCI"],
+      "properties": {
+        "EVID": { "type": "number", "minimum": 0, "maximum": 10 },
+        "MECH": { "type": "number", "minimum": 0, "maximum": 10 },
+        "INC":  { "type": "number", "minimum": 0, "maximum": 10 },
+        "RISK": { "type": "number", "minimum": 0, "maximum": 10 },
+        "SPEC": { "type": "number", "minimum": 0, "maximum": 10 },
+        "HCI":  { "type": "number", "minimum": 0, "maximum": 10 }
+      }
+    },
+
+    "inferred_ratio": {
+      "description": "Fraction of INFERRED claims at time of audit.",
+      "type": "number", "minimum": 0, "maximum": 1
+    },
+
+    "evid_ceiling_applied": {
+      "description": "Ceiling note if EVID was capped, else null.",
+      "type": ["string","null"]
+    },
+
+    "verdict": {
+      "enum": ["VERIFIED","REVIEWED","REJECTED"]
+    },
+
+    "certification_level": {
+      "enum": ["HK-INSTITUTIONAL","HK-PRO","HK-VERIFIED","HK-REVIEWED","NOT-CERTIFIED"]
+    },
+
+    "absence_assertion_flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim_id","flag_type","matched_phrase","detail"],
+        "properties": {
+          "claim_id":       { "type": "string" },
+          "flag_type":      { "type": "string", "enum": ["ABSENCE_ASSERTION"] },
+          "matched_phrase": { "type": "string" },
+          "detail":         { "type": "string" }
+        }
+      }
+    },
+
+    "hallucination_flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim_id","flag_type","detail"],
+        "properties": {
+          "claim_id":  { "type": "string" },
+          "flag_type": {
+            "enum": [
+              "FABRICATED_SOURCE","CONTRADICTS_EVIDENCE",
+              "IMPOSSIBLE_DATE","CIRCULAR_REASONING","NUMERIC_DRIFT"
+            ]
+          },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+
+    "human_reviewer": {
+      "description": "Set by a human auditor post-run. null until reviewed.",
+      "type": ["object","null"],
+      "properties": {
+        "reviewer_id": { "type": "string" },
+        "name":        { "type": "string" },
+        "reviewed_at": { "type": "string", "format": "date-time" },
+        "override_verdict": {
+          "enum": ["VERIFIED","REVIEWED","REJECTED","UPHELD"]
+        },
+        "notes": { "type": "string" }
+      }
+    },
+
+    "badge": {
+      "type": "object",
+      "required": ["label","color","icon","hci_display"],
+      "properties": {
+        "label":       { "type": "string" },
+        "color":       { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "icon":        { "type": "string" },
+        "hci_display": { "type": "string" }
+      }
+    }
+  }
+}

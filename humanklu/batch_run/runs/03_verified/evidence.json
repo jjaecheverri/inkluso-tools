@@ -1,0 +1,77 @@
+{
+  "report_id": "HK-2026-PUSHRZ",
+  "generated_at": "2026-02-28T21:19:49.200917Z",
+  "pipeline_version": "HKP-1.1",
+  "inferred_ratio": 0.4,
+  "entries": [
+    {
+      "claim_id": "CLM-001",
+      "claim_text": "CMOC reported 42,000 MT cobalt output from Tenke Fungurume in 2023.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "CORPORATE_REPORT",
+        "uri": "https://cmoc.com/annual-report-2023",
+        "title": "CMOC Annual Report 2023"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-002",
+      "claim_text": "RCS Global audit found 78% traceability compliance among tier-1 DRC suppliers.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "AUDIT_REPORT",
+        "uri": "https://rcsglobal.com/drc-audit-2023",
+        "title": "RCS Global DRC Audit 2023"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-003",
+      "claim_text": "Child labour incidents at ASM sites decreased 18% following OECD programme rollout.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "NGO_REPORT",
+        "uri": "https://oecd.org/dac/asm-drc-2023",
+        "title": "OECD ASM Programme Impact 2023"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-004",
+      "claim_text": "Battery-grade cobalt spot price averaged $33,500/MT in H1 2024.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "AI-generated inference",
+        "retrieved_at": "2026-02-28T21:19:49.200917Z",
+        "excerpt": "Battery-grade cobalt spot price averaged $33,500/MT in H1 2024."
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-005",
+      "claim_text": "Three top-5 OEMs are projected to require blockchain traceability by 2026.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "AI-generated inference",
+        "retrieved_at": "2026-02-28T21:19:49.200917Z",
+        "excerpt": "Three top-5 OEMs are projected to require blockchain traceability by 2026."
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    }
+  ]
+}

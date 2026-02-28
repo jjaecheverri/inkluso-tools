@@ -1,0 +1,37 @@
+{
+  "report_id": "HK-2026-ESWK1N",
+  "generated_at": "2026-02-28T21:19:56.645635Z",
+  "pipeline_version": "HKP-1.1",
+  "dimensions": {
+    "EVID": {
+      "score": 8.5,
+      "rationale": "All claims sourced from SEC filings, earnings calls, and peer-reviewed journals."
+    },
+    "MECH": {
+      "score": 8.6,
+      "rationale": "Lithography mechanism and yield physics documented at process node level."
+    },
+    "INC": {
+      "score": 8.3,
+      "rationale": "Customer concentration risk and capex incentive fully traced."
+    },
+    "RISK": {
+      "score": 8.7,
+      "rationale": "Geopolitical and yield risk quantified by scenario."
+    },
+    "SPEC": {
+      "score": 8.8,
+      "rationale": "All figures node-stamped, quarter-stamped, and source-attributed."
+    }
+  },
+  "evid_raw": 8.5,
+  "evid_effective": 8.5,
+  "hci": 8.58,
+  "inferred_ratio": 0.0,
+  "certification_level": "HK-INSTITUTIONAL",
+  "evid_ceiling_applied": null,
+  "flags": [],
+  "hallucination_flags": [],
+  "absence_assertion_flags": [],
+  "institutional_requires_two_reviews": true
+}

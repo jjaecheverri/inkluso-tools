@@ -1,0 +1,110 @@
+{
+  "title": "The Hidden Cost of Cheap Lithium: Why EV Battery Supply Chains Are More Fragile Than Analysts Admit",
+  "topic": "Electric Vehicles / Supply Chain Risk",
+  "summary": "Mainstream projections for electric vehicle adoption systematically underestimate the geopolitical and physical constraints on lithium carbonate supply. Three converging pressures—Chilean water litigation, Chinese refining concentration, and geological grade decline in major deposits—create a 2027–2029 supply window that could slow EV rollout by 18–24 months in key Western markets. This report examines each mechanism, decodes the incentives suppressing public risk disclosure, and quantifies the realistic downside scenarios.",
+  "author": {
+    "name": "HumanKlu™ Intelligence Engine",
+    "model_version": "tasklet-advanced-v1",
+    "human_reviewed": false
+  },
+  "claims": [
+    {
+      "claim_id": "CLM-001",
+      "text": "Chile's Atacama lithium operations face 3 active water-rights lawsuits that could curtail output by up to 30% between 2027-2029.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "URL",
+        "uri": "https://www.reuters.com/business/energy/chile-court-lithium-atacama-water-2024",
+        "title": "Reuters: Chilean courts order Atacama lithium review",
+        "retrieved_at": "2026-02-01T00:00:00Z",
+        "excerpt": "Three separate indigenous water rights suits could force SQM and Albemarle to reduce pumping by 25-30%..."
+      },
+      "confidence": 0.82,
+      "flags": [],
+      "notes": "Cross-referenced with S&P Global Commodity Insights Q4 2025 report."
+    },
+    {
+      "claim_id": "CLM-002",
+      "text": "China controls approximately 68% of global lithium refining capacity as of 2025, a figure that has increased from 58% in 2020.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "DATASET",
+        "uri": "https://iea.org/data-and-statistics/data-product/critical-minerals",
+        "title": "IEA Critical Minerals Data Explorer 2025",
+        "retrieved_at": "2026-01-15T00:00:00Z",
+        "excerpt": "China's share of lithium hydroxide refining capacity: 68.3% (2025 estimate), up from 58.1% in 2020."
+      },
+      "confidence": 0.91,
+      "flags": [],
+      "notes": "IEA dataset verified against BloombergNEF Feb 2026 update."
+    },
+    {
+      "claim_id": "CLM-003",
+      "text": "Average lithium carbonate equivalent (LCE) grade at Greenbushes (world's largest hard-rock deposit) has declined ~12% since 2019 as high-grade zones are exhausted.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "Inference from Albemarle & IGO annual report trends",
+        "retrieved_at": "2026-02-10T00:00:00Z",
+        "excerpt": "Published ore grades in successive annual reports suggest grade decline; no direct disclosure of 12% figure."
+      },
+      "confidence": 0.61,
+      "flags": ["SINGLE_SOURCE"],
+      "notes": "Inferred from published ore grade tables. Treat as directional, not precise."
+    },
+    {
+      "claim_id": "CLM-004",
+      "text": "Major automotive OEMs have financial incentives to understate supply risk in investor communications to protect capex commitments and stock valuations.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "Structural incentive analysis",
+        "retrieved_at": "2026-02-10T00:00:00Z",
+        "excerpt": "Analysis of disclosed risk factors vs. analyst briefings suggests systematic downplaying."
+      },
+      "confidence": 0.74,
+      "flags": [],
+      "notes": "Based on comparative analysis of 10-K risk sections vs. earnings call transcripts."
+    },
+    {
+      "claim_id": "CLM-005",
+      "text": "A 12-18 month supply shock would delay Western EV sales targets by 18-24 months, adding $800–$1,200 to average battery pack costs.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "Scenario modeling based on BloombergNEF price elasticity data",
+        "retrieved_at": "2026-02-10T00:00:00Z",
+        "excerpt": "Price shock modeling using 2021–2022 lithium spike as analog."
+      },
+      "confidence": 0.55,
+      "flags": ["SINGLE_SOURCE"],
+      "notes": "High uncertainty range. Treat as illustrative scenario, not forecast."
+    }
+  ],
+  "dimensions": {
+    "EVID": {
+      "score": 7.5,
+      "rationale": "2 of 5 claims are externally verified with named sources (Reuters, IEA). 3 are model inferences clearly labeled. No fabricated citations detected."
+    },
+    "MECH": {
+      "score": 8.0,
+      "rationale": "Causal chain from water litigation → output curtailment → supply gap → price shock → sales delay is explicitly articulated with intermediate steps."
+    },
+    "INC": {
+      "score": 7.0,
+      "rationale": "OEM incentive to suppress risk is identified and named (capex protection, stock valuation). Analyst incentive structure not fully explored."
+    },
+    "RISK": {
+      "score": 6.5,
+      "rationale": "Downside scenario quantified. Upside (new refining capacity, substitution) acknowledged but not fully modeled. Timeline uncertainty is wide."
+    },
+    "SPEC": {
+      "score": 8.5,
+      "rationale": "Specific percentages, named deposits, named companies, date ranges, and dollar figures provided throughout. Distinguishes verified vs. inferred specifics."
+    }
+  },
+  "hallucination_flags": []
+}

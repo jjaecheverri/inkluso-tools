@@ -1,0 +1,94 @@
+{
+  "report_id": "HK-2026-S61IWS",
+  "generated_at": "2026-02-28T21:19:45.886452Z",
+  "pipeline_version": "HKP-1.1",
+  "inferred_ratio": 0.6667,
+  "entries": [
+    {
+      "claim_id": "CLM-001",
+      "claim_text": "A 2023 NEJM study found AI flagged 94% of critical findings.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "JOURNAL",
+        "uri": "https://nejm.org/doi/10.1056/NEJMoa2300123",
+        "title": "AI Radiology Trial 2023"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-002",
+      "claim_text": "Hospital adoption grew 38% YoY across 12 US states.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "AI-generated inference",
+        "retrieved_at": "2026-02-28T21:19:45.886452Z",
+        "excerpt": "Hospital adoption grew 38% YoY across 12 US states."
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-003",
+      "claim_text": "Radiologist overtime fell by 15% at pilot sites.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "AI-generated inference",
+        "retrieved_at": "2026-02-28T21:19:45.886452Z",
+        "excerpt": "Radiologist overtime fell by 15% at pilot sites."
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-004",
+      "claim_text": "FDA cleared three new AI radiology devices in Q1 2024.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "REGULATORY",
+        "uri": "https://fda.gov/medical-devices/ai-radiology-2024",
+        "title": "FDA Clearance Log"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-005",
+      "claim_text": "Liability insurance costs dropped at AI-adopting hospitals.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "AI-generated inference",
+        "retrieved_at": "2026-02-28T21:19:45.886452Z",
+        "excerpt": "Liability insurance costs dropped at AI-adopting hospitals."
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-006",
+      "claim_text": "Diagnostic error rate improvement averaged 8.2%.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "AI-generated inference",
+        "retrieved_at": "2026-02-28T21:19:45.886452Z",
+        "excerpt": "Diagnostic error rate improvement averaged 8.2%."
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    }
+  ]
+}

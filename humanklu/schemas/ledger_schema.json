@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "humanklu/ledger_entry",
+  "title": "HumanKlu Ledger Entry",
+  "description": "Single line in append-only JSONL reputation ledger",
+  "type": "object",
+  "required": ["entry_id", "timestamp", "report_id", "audit_id", "event_type", "verdict", "hci", "author_model"],
+  "properties": {
+    "entry_id": { "type": "string", "pattern": "^LED-[0-9]{13}-[A-Z0-9]{4}$" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "report_id": { "type": "string" },
+    "audit_id": { "type": "string" },
+    "event_type": { "enum": ["CREATED", "REVIEWED_HUMAN", "VERDICT_OVERRIDE", "RETRACTED", "AMENDED"] },
+    "verdict": { "enum": ["VERIFIED", "REVIEWED", "REJECTED"] },
+    "hci": { "type": "number", "minimum": 0, "maximum": 10 },
+    "author_model": { "type": "string" },
+    "human_reviewer": { "type": ["string", "null"] },
+    "notes": { "type": "string" },
+    "prev_entry_id": { "type": ["string", "null"], "description": "Chain pointer for immutability verification" }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "title": "AI in Radiology: Cautious Adoption Trends",
+  "topic": "AI / Healthcare",
+  "summary": "A moderately supported review of AI-assisted radiology tools, mixing verified studies with model inference.",
+  "author": {"model_version": "gpt-4o", "organization": "HumanKlu QA"},
+  "dimensions": {
+    "EVID": {"score": 6.4, "rationale": "Mix of cited papers and model inference."},
+    "MECH": {"score": 6.2, "rationale": "Mechanism described at high level."},
+    "INC":  {"score": 6.0, "rationale": "Incentive logic present but thin."},
+    "RISK": {"score": 6.3, "rationale": "Risks noted without quantification."},
+    "SPEC": {"score": 6.1, "rationale": "Some specificity but not claim-level."}
+  },
+  "hallucination_flags": [],
+  "claims": [
+    {
+      "text": "A 2023 NEJM study found AI flagged 94% of critical findings.",
+      "evidence_type": "VERIFIED",
+      "source": {"type": "JOURNAL", "uri": "https://nejm.org/doi/10.1056/NEJMoa2300123", "title": "AI Radiology Trial 2023"}
+    },
+    {"text": "Hospital adoption grew 38% YoY across 12 US states.", "evidence_type": "INFERRED"},
+    {"text": "Radiologist overtime fell by 15% at pilot sites.", "evidence_type": "INFERRED"},
+    {
+      "text": "FDA cleared three new AI radiology devices in Q1 2024.",
+      "evidence_type": "VERIFIED",
+      "source": {"type": "REGULATORY", "uri": "https://fda.gov/medical-devices/ai-radiology-2024", "title": "FDA Clearance Log"}
+    },
+    {"text": "Liability insurance costs dropped at AI-adopting hospitals.", "evidence_type": "INFERRED"},
+    {"text": "Diagnostic error rate improvement averaged 8.2%.", "evidence_type": "INFERRED"}
+  ]
+}

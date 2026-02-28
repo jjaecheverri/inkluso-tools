@@ -1,0 +1,86 @@
+{
+  "report_id": "HK-2026-ESWK1N",
+  "generated_at": "2026-02-28T21:19:56.645635Z",
+  "pipeline_version": "HKP-1.1",
+  "inferred_ratio": 0.0,
+  "entries": [
+    {
+      "claim_id": "CLM-001",
+      "claim_text": "TSMC reported N3 (3nm) wafer capacity of 55,000 WPM in Q1 2024 (20-F filing).",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "SEC_FILING",
+        "uri": "https://sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=tsm&type=20-F",
+        "title": "TSMC 20-F Q1 2024"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-002",
+      "claim_text": "N5 yield rate reached 92% per TSMC Q2 2024 earnings call (July 18 2024).",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "EARNINGS_CALL",
+        "uri": "https://tsmc.com/investors/earnings/2024-q2-transcript",
+        "title": "TSMC Q2 2024 Earnings Call"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-003",
+      "claim_text": "SEMI reported global foundry capacity grew 4.1% YoY to 31.2M 200mm-eq WPM in Q1 2024.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "INDUSTRY_REPORT",
+        "uri": "https://semi.org/en/foundry-capacity-q1-2024",
+        "title": "SEMI Foundry Capacity Report Q1 2024"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-004",
+      "claim_text": "Arizona Fab 21 Phase 1 (N4P) entered risk production in Q4 2024 per TSMC investor day.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "INVESTOR_DAY",
+        "uri": "https://tsmc.com/investors/investor-day-2024-presentation",
+        "title": "TSMC Investor Day 2024"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-005",
+      "claim_text": "MIT Lincoln Lab benchmark confirmed N3E gate density at 160MT/mm\u00b2 (Nature Electronics, 2024).",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "PEER_REVIEWED",
+        "uri": "https://nature.com/articles/s41928-024-00112-x",
+        "title": "Nature Electronics: N3E Node Benchmark 2024"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-006",
+      "claim_text": "Apple accounted for ~26% of TSMC advanced node revenue in FY2023 (Bloomberg Intelligence).",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "RESEARCH",
+        "uri": "https://bloomberg.com/intelligence/tsmc-customer-concentration-2023",
+        "title": "Bloomberg Intelligence TSMC FY2023"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    }
+  ]
+}

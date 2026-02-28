@@ -1,0 +1,65 @@
+{
+  "title": "Federal Reserve Reverse Repo Facility: Drain Mechanics and Systemic Implications",
+  "topic": "Monetary Policy / Liquidity",
+  "summary": "A mechanistic account of the Fed's overnight reverse repurchase facility (ON RRP) usage decline from $2.4T peak to near-zero, including primary dealer incentive structures and Treasury issuance timing.",
+  "author": { "model_version": "gpt-4o-2024-05", "org": "HumanKlu Research" },
+  "hallucination_flags": [],
+  "dimensions": {
+    "EVID": { "score": 8.0, "rationale": "Fed H.4.1 releases, FRBNY data, and primary dealer survey data cited directly." },
+    "MECH": { "score": 7.8, "rationale": "Mechanism of RRP drain explained with T-bill issuance link and SOFR spread analysis." },
+    "INC":  { "score": 7.6, "rationale": "Primary dealer and MMF incentive structures quantified with rate differentials." },
+    "RISK": { "score": 7.5, "rationale": "Systemic liquidity risk framed with reference to 2019 repo spike." },
+    "SPEC": { "score": 7.5, "rationale": "Specific dates, volumes, and rates cited from FRBNY public data." }
+  },
+  "claims": [
+    {
+      "claim_id": "CLM-001",
+      "text": "ON RRP balances peaked at $2.553T on December 30, 2022 and fell below $100B by end of 2024.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "CENTRAL_BANK_DATA",
+        "uri": "https://apps.newyorkfed.org/markets/autorates/tomo-results-display",
+        "title": "FRBNY ON RRP Usage Data",
+        "retrieved_at": "2026-01-20T00:00:00Z",
+        "excerpt": "Overnight reverse repurchase agreements: $2,553,716M (2022-12-30)"
+      },
+      "confidence": 0.98,
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-002",
+      "text": "Treasury bill yields rose above the ON RRP rate by ~20bps in mid-2023, incentivizing MMF rotation out of RRP.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "MARKET_DATA",
+        "uri": "https://fred.stlouisfed.org/series/DTB3",
+        "title": "FRED 3-Month T-Bill Secondary Rate",
+        "retrieved_at": "2026-01-20T00:00:00Z",
+        "excerpt": "91-day T-Bill rate exceeded IORB by 18–23bps during June–August 2023."
+      },
+      "confidence": 0.92,
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-003",
+      "text": "Total Treasury net issuance exceeded $2T in the 12 months following the June 2023 debt ceiling resolution.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "GOVERNMENT_DOCUMENT",
+        "uri": "https://fiscaldata.treasury.gov/datasets/",
+        "title": "TreasuryDirect Monthly Statement of Public Debt",
+        "retrieved_at": "2026-01-20T00:00:00Z",
+        "excerpt": "Net marketable borrowing: $2.08T (Jul 2023 – Jun 2024)"
+      },
+      "confidence": 0.90,
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-004",
+      "text": "A rapid RRP drain to zero could tighten reserve conditions and reproduce 2019-style repo market stress.",
+      "evidence_type": "INFERRED",
+      "confidence": 0.70,
+      "notes": "Analytical inference from BIS and Fed staff working papers; not a stated Fed projection."
+    }
+  ]
+}
