@@ -1,0 +1,70 @@
+{
+  "report_id": "HK-2026-REVIEW1",
+  "generated_at": "2026-02-28T20:20:13.604835Z",
+  "entries": [
+    {
+      "claim_id": "CLM-001",
+      "claim_text": "Many large corporations are purchasing offsets instead of reducing operational emissions.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "AI-generated inference",
+        "retrieved_at": "2026-02-28T20:20:13.604835Z",
+        "excerpt": "Many large corporations are purchasing offsets instead of reducing operational emissions."
+      },
+      "confidence": 0.65,
+      "flags": [],
+      "notes": "Based on industry trend reporting, no named entities."
+    },
+    {
+      "claim_id": "CLM-002",
+      "claim_text": "Carbon offset quality verification varies widely across registries.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "PUBLISHED_REPORT",
+        "uri": "https://carbonmarketwatch.org/2023/registry-review",
+        "title": "Registry Quality Review 2023",
+        "retrieved_at": "2026-02-01T00:00:00Z",
+        "excerpt": "Verification standards differ significantly across the four major registries."
+      },
+      "confidence": 0.8,
+      "flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-003",
+      "claim_text": "There is no audit trail linking offset purchases to measurable emissions reductions at source.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "AI-generated inference",
+        "retrieved_at": "2026-02-28T20:20:13.604835Z",
+        "excerpt": "There is no audit trail linking offset purchases to measurable emissions reductions at source."
+      },
+      "confidence": 0.55,
+      "flags": [
+        "ABSENCE_ASSERTION"
+      ],
+      "notes": "Absence claim \u2014 no source URI provided."
+    },
+    {
+      "claim_id": "CLM-004",
+      "claim_text": "No evidence found that voluntary offset programs have been independently assessed in 2024.",
+      "evidence_type": "INFERRED",
+      "source": {
+        "type": "MODEL_REASONING",
+        "uri": null,
+        "title": "AI-generated inference",
+        "retrieved_at": "2026-02-28T20:20:13.604835Z",
+        "excerpt": "No evidence found that voluntary offset programs have been independently assessed in 2024."
+      },
+      "confidence": 0.5,
+      "flags": [
+        "ABSENCE_ASSERTION"
+      ],
+      "notes": "Absence assertion without documentation."
+    }
+  ]
+}

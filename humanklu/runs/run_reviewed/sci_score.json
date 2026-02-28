@@ -1,0 +1,48 @@
+{
+  "report_id": "HK-2026-REVIEW1",
+  "generated_at": "2026-02-28T20:20:13.604835Z",
+  "pipeline_version": "HKP-2.0",
+  "dimensions": {
+    "EVID": {
+      "score": 6.2,
+      "rationale": "Mostly secondary sources; no primary audit data.",
+      "evid_ceiling_note": "EVID capped at 7.2 (inferred_ratio=0.75 > 0.60)"
+    },
+    "MECH": {
+      "score": 6.5,
+      "rationale": "Offset accounting mechanism explained at surface level."
+    },
+    "INC": {
+      "score": 6.0,
+      "rationale": "Corporate incentive structure referenced but not quantified."
+    },
+    "RISK": {
+      "score": 6.1,
+      "rationale": "Risk framed qualitatively; no scenario modeling."
+    },
+    "SPEC": {
+      "score": 6.0,
+      "rationale": "Claims reference industry trends without specific companies or figures."
+    }
+  },
+  "hci": 6.16,
+  "verdict": "REVIEWED",
+  "certification_level": "HK-REVIEWED",
+  "inferred_ratio": 0.75,
+  "evid_ceiling_applied": "EVID capped at 7.2 (inferred_ratio=0.75 > 0.60)",
+  "hallucination_flags": [],
+  "absence_assertion_flags": [
+    {
+      "claim_id": "CLM-003",
+      "flag_type": "ABSENCE_ASSERTION",
+      "matched_phrase": "no audit",
+      "detail": "Claim asserts absence of evidence but provides no source URI."
+    },
+    {
+      "claim_id": "CLM-004",
+      "flag_type": "ABSENCE_ASSERTION",
+      "matched_phrase": "no evidence found",
+      "detail": "Claim asserts absence of evidence but provides no source URI."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "humanklu/report",
+  "title": "HumanKlu Report Metadata",
+  "description": "Metadata block embedded in or alongside report.html",
+  "type": "object",
+  "required": ["report_id", "title", "generated_at", "author", "topic", "summary", "claims"],
+  "properties": {
+    "report_id": { "type": "string", "pattern": "^HK-[0-9]{4}-[A-Z0-9]{6}$" },
+    "title": { "type": "string", "minLength": 5 },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "author": {
+      "type": "object",
+      "required": ["name", "model_version"],
+      "properties": {
+        "name": { "type": "string" },
+        "model_version": { "type": "string" },
+        "human_reviewed": { "type": "boolean" }
+      }
+    },
+    "topic": { "type": "string" },
+    "summary": { "type": "string", "minLength": 20 },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["claim_id", "text", "status"],
+        "properties": {
+          "claim_id": { "type": "string", "pattern": "^CLM-[0-9]+$" },
+          "text": { "type": "string" },
+          "status": { "enum": ["VERIFIED", "INFERRED", "DISPUTED", "UNRESOLVED"] }
+        }
+      }
+    }
+  }
+}

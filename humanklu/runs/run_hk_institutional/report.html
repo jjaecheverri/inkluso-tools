@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PFAS Contamination in U.S. Municipal Water Systems: Verified Exposure Pathways — HumanKlu™</title>
+  <style>
+    :root {
+      --bg:#0F1117; --surface:#1A1D27; --border:#2A2D3E;
+      --text:#E8EAF0; --muted:#8B8FA8; --accent:#6C63FF;
+      --cert:#A78BFA;
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text);
+           line-height:1.65; padding:2rem; max-width:860px; margin:0 auto; }
+
+    /* ── Cert Badge ── */
+    .cert-badge{
+      display:inline-flex; align-items:center; gap:0.55rem;
+      background:var(--surface); border:2px solid var(--cert);
+      border-radius:999px; padding:0.45rem 1.1rem;
+      font-size:0.82rem; font-weight:800; letter-spacing:0.09em;
+      color:var(--cert); margin-bottom:1rem;
+      box-shadow:0 0 12px color-mix(in srgb, var(--cert) 30%, transparent);
+    }
+
+    header{ border-bottom:1px solid var(--border); padding-bottom:1.5rem; margin-bottom:2rem; }
+    h1{ font-size:1.8rem; font-weight:800; line-height:1.25; margin-bottom:0.5rem; }
+    .meta{ color:var(--muted); font-size:0.85rem; }
+    .meta span{ margin-right:1.5rem; }
+    section{ margin:2rem 0; }
+    h2{ font-size:1.05rem; font-weight:700; color:var(--accent);
+          text-transform:uppercase; letter-spacing:0.1em; margin-bottom:1rem; }
+    .summary-box{ background:var(--surface); border-left:3px solid var(--accent);
+                   padding:1rem 1.25rem; border-radius:0 8px 8px 0; }
+
+    /* ── SCI Card ── */
+    .sci-card{ background:var(--surface); border:1px solid var(--border);
+                border-radius:12px; padding:1.5rem; }
+    .sci-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:0.75rem; }
+    .sci-hci{ font-size:2.5rem; font-weight:900; color:var(--cert); }
+    .sci-verdict{ background:color-mix(in srgb,var(--cert) 18%,transparent);
+                   color:var(--cert); border:1px solid color-mix(in srgb,var(--cert) 40%,transparent);
+                   padding:0.4rem 1rem; border-radius:999px; font-weight:700;
+                   font-size:0.9rem; letter-spacing:0.08em; }
+    .sci-ratio{ font-size:0.78rem; color:var(--muted); margin-top:0.25rem; }
+
+    table.dims{ width:100%; border-collapse:collapse; }
+    table.dims td{ padding:0.5rem 0.75rem; vertical-align:middle; }
+    .dim-name{ font-weight:700; font-size:0.85rem; width:12rem; white-space:nowrap; }
+    .dim-label{ font-weight:400; color:var(--muted); margin-left:0.4rem; font-size:0.78rem; }
+    .bar{ height:8px; border-radius:4px; min-width:4px; }
+    .dim-score{ font-weight:700; font-size:0.9rem; text-align:right; width:2.5rem; }
+
+    /* ── Claims ── */
+    .claim{ background:var(--surface); border:1px solid var(--border);
+             border-radius:8px; padding:1rem; margin-bottom:0.75rem; }
+    .claim p{ margin-top:0.5rem; font-size:0.93rem; }
+    .claim-id{ font-size:0.75rem; font-weight:700; color:var(--muted);
+                font-family:monospace; margin-right:0.5rem; }
+    .claim-badge{ font-size:0.72rem; font-weight:700; padding:0.15rem 0.6rem;
+                   border-radius:999px; color:#0F1117; letter-spacing:0.05em; }
+
+    /* ── Notices ── */
+    .notice{ background:color-mix(in srgb,#FBBF24 12%,transparent);
+              border:1px solid color-mix(in srgb,#FBBF24 35%,transparent);
+              border-radius:8px; padding:0.75rem 1rem; margin-bottom:0.75rem;
+              font-size:0.88rem; }
+    .notice-warn{ background:color-mix(in srgb,#F87171 12%,transparent);
+                   border-color:color-mix(in srgb,#F87171 35%,transparent); }
+
+    footer{ margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--border);
+             color:var(--muted); font-size:0.8rem; display:flex;
+             justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
+    code{ font-family:monospace; font-size:0.82rem; color:var(--accent);
+           background:var(--surface); padding:0.15rem 0.4rem; border-radius:4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="cert-badge">🏛 HumanKlu™ · HK-INSTITUTIONAL</div>
+    <h1>PFAS Contamination in U.S. Municipal Water Systems: Verified Exposure Pathways</h1>
+    <div class="meta">
+      <span>📋 HK-2026-INST01</span>
+      <span>🕒 2026-02-28</span>
+      <span>🏷 Environmental Health / Regulatory Science</span>
+      <span>⚗️ HKP-2.0</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <div class="summary-box"><p>A mechanistic, evidence-grounded review of per- and polyfluoroalkyl substance (PFAS) contamination pathways in U.S. municipal water systems, drawing on EPA enforcement data, peer-reviewed toxicology, and state-level compliance filings.</p></div>
+  </section>
+
+  <section>
+    <h2>Signal Confidence Index</h2>
+    <div class="sci-card">
+      <div class="sci-header">
+        <div>
+          <div style="color:var(--muted);font-size:0.8rem;margin-bottom:0.25rem">Human Calibration Index</div>
+          <div class="sci-hci">8.4<span style="font-size:1.2rem;color:var(--muted)">/10</span></div>
+          <div class="sci-ratio">Inferred ratio: 0% of claims</div>
+        </div>
+        <div style="text-align:right">
+          <div class="sci-verdict" style="margin-bottom:0.5rem">HK-INSTITUTIONAL</div>
+          <div style="font-size:0.78rem;color:var(--muted)">Legacy verdict: VERIFIED</div>
+        </div>
+      </div>
+      
+      
+      <table class="dims">
+        
+        <tr>
+          <td class="dim-name">EVID<span class="dim-label">Evidence Integrity</span></td>
+          <td><div class="bar" style="width:88%;background:#A78BFA"></div></td>
+          <td class="dim-score">8.8</td>
+        </tr>
+        <tr>
+          <td class="dim-name">MECH<span class="dim-label">Mechanism Clarity</span></td>
+          <td><div class="bar" style="width:84%;background:#A78BFA"></div></td>
+          <td class="dim-score">8.4</td>
+        </tr>
+        <tr>
+          <td class="dim-name">INC<span class="dim-label">Incentive Decode</span></td>
+          <td><div class="bar" style="width:80%;background:#A78BFA"></div></td>
+          <td class="dim-score">8.0</td>
+        </tr>
+        <tr>
+          <td class="dim-name">RISK<span class="dim-label">Risk Realism</span></td>
+          <td><div class="bar" style="width:83%;background:#A78BFA"></div></td>
+          <td class="dim-score">8.3</td>
+        </tr>
+        <tr>
+          <td class="dim-name">SPEC<span class="dim-label">Specificity</span></td>
+          <td><div class="bar" style="width:85%;background:#A78BFA"></div></td>
+          <td class="dim-score">8.5</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Claim Ledger</h2>
+    
+        <div class="claim">
+          <span class="claim-id">CLM-001</span>
+          <span class="claim-badge" style="background:#34D399">VERIFIED</span>
+          
+          <p>EPA UCMR5 data (2023–2025) found PFAS detections in 45% of U.S. public water systems tested, representing ~200M people.</p>
+        </div>
+        <div class="claim">
+          <span class="claim-id">CLM-002</span>
+          <span class="claim-badge" style="background:#34D399">VERIFIED</span>
+          
+          <p>PFOA and PFOS serum half-lives in humans range from 3.5 to 8.5 years, enabling multi-decade bioaccumulation.</p>
+        </div>
+        <div class="claim">
+          <span class="claim-id">CLM-003</span>
+          <span class="claim-badge" style="background:#34D399">VERIFIED</span>
+          
+          <p>3M and DuPont suppressed internal PFAS toxicology findings from EPA for over a decade, as documented in 2021 Senate PFAS hearings.</p>
+        </div>
+        <div class="claim">
+          <span class="claim-id">CLM-004</span>
+          <span class="claim-badge" style="background:#34D399">VERIFIED</span>
+          
+          <p>The April 2024 EPA MCL rule set enforceable PFOA and PFOS limits at 4 ppt each, the first legally binding PFAS drinking water standards.</p>
+        </div>
+  </section>
+
+  <footer>
+    <span>HumanKlu™ HKP-2.0 · © 2026 HumanKlu</span>
+    <span>Audit: <code>HK-2026-INST01</code></span>
+  </footer>
+</body>
+</html>

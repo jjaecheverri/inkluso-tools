@@ -1,0 +1,36 @@
+{
+  "report_id": "HK-2026-BINBRM",
+  "generated_at": "2026-02-28T21:19:53.486381Z",
+  "pipeline_version": "HKP-1.1",
+  "dimensions": {
+    "EVID": {
+      "score": 7.9,
+      "rationale": "Primary sources: FOMC minutes, BLS releases, Fed H.15."
+    },
+    "MECH": {
+      "score": 7.8,
+      "rationale": "Transmission mechanism traced through Taylor Rule model."
+    },
+    "INC": {
+      "score": 7.7,
+      "rationale": "Fed member incentive constraints documented by mandate."
+    },
+    "RISK": {
+      "score": 7.9,
+      "rationale": "Tail risk scenarios quantified via probability-weighted paths."
+    },
+    "SPEC": {
+      "score": 7.3,
+      "rationale": "Claim-level specificity high; date-stamped data throughout."
+    }
+  },
+  "evid_raw": 7.9,
+  "evid_effective": 7.9,
+  "hci": 7.72,
+  "inferred_ratio": 0.0,
+  "certification_level": "HK-VERIFIED",
+  "evid_ceiling_applied": null,
+  "flags": [],
+  "hallucination_flags": [],
+  "absence_assertion_flags": []
+}

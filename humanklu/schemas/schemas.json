@@ -1,0 +1,264 @@
+{
+  "$comment": "HumanKlu™ Consolidated Schema File — HKP v1.1",
+  "hkp_version": "1.1",
+  "schemas": {
+
+    "evidence": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$id": "humanklu:evidence:1.1",
+      "title": "HumanKlu Evidence Log",
+      "type": "object",
+      "required": ["report_id", "generated_at", "pipeline_version", "inferred_ratio", "entries"],
+      "properties": {
+        "report_id":        { "type": "string" },
+        "generated_at":     { "type": "string", "format": "date-time" },
+        "pipeline_version": { "type": "string" },
+        "inferred_ratio":   { "type": "number", "minimum": 0, "maximum": 1 },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["claim_id", "claim_text", "evidence_type", "source", "confidence", "claim_flags"],
+            "properties": {
+              "claim_id":      { "type": "string" },
+              "claim_text":    { "type": "string" },
+              "evidence_type": { "type": "string", "enum": ["VERIFIED", "INFERRED"] },
+              "source": {
+                "type": "object",
+                "properties": {
+                  "type":         { "type": "string" },
+                  "uri":          { "type": ["string", "null"] },
+                  "title":        { "type": ["string", "null"] },
+                  "retrieved_at": { "type": ["string", "null"] },
+                  "excerpt":      { "type": ["string", "null"] }
+                }
+              },
+              "confidence":  { "type": "number", "minimum": 0, "maximum": 1 },
+              "claim_flags": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Per-claim flags, e.g. ABSENCE_ASSERTION"
+              },
+              "notes": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+
+    "sci_score": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$id": "humanklu:sci_score:1.1",
+      "title": "HumanKlu Signal Confidence Index Score",
+      "type": "object",
+      "required": [
+        "report_id", "generated_at", "pipeline_version",
+        "dimensions", "evid_raw", "evid_effective", "hci",
+        "inferred_ratio", "certification_level", "flags"
+      ],
+      "properties": {
+        "report_id":           { "type": "string" },
+        "generated_at":        { "type": "string", "format": "date-time" },
+        "pipeline_version":    { "type": "string" },
+        "dimensions": {
+          "type": "object",
+          "required": ["EVID", "MECH", "INC", "RISK", "SPEC"],
+          "properties": {
+            "EVID": { "$ref": "#/schemas/sci_score/$defs/dimension" },
+            "MECH": { "$ref": "#/schemas/sci_score/$defs/dimension" },
+            "INC":  { "$ref": "#/schemas/sci_score/$defs/dimension" },
+            "RISK": { "$ref": "#/schemas/sci_score/$defs/dimension" },
+            "SPEC": { "$ref": "#/schemas/sci_score/$defs/dimension" }
+          }
+        },
+        "evid_raw":            { "type": "number", "minimum": 0, "maximum": 10 },
+        "evid_effective":      { "type": "number", "minimum": 0, "maximum": 10 },
+        "hci":                 { "type": "number", "minimum": 0, "maximum": 10 },
+        "inferred_ratio":      { "type": "number", "minimum": 0, "maximum": 1 },
+        "certification_level": {
+          "type": "string",
+          "enum": ["HK-INSTITUTIONAL", "HK-PRO", "HK-VERIFIED", "HK-REVIEWED", "HK-REJECTED"]
+        },
+        "evid_ceiling_applied": { "type": ["string", "null"] },
+        "flags":               { "type": "array", "items": { "type": "string" } },
+        "hallucination_flags": { "type": "array" },
+        "absence_assertion_flags": { "type": "array" },
+        "pro_requires_second_review":         { "type": "boolean" },
+        "institutional_requires_two_reviews": { "type": "boolean" }
+      },
+      "$defs": {
+        "dimension": {
+          "type": "object",
+          "required": ["score"],
+          "properties": {
+            "score":     { "type": "number", "minimum": 0, "maximum": 10 },
+            "rationale": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "humanklu_audit": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$id": "humanklu:audit:1.1",
+      "title": "HumanKlu Audit Artifact",
+      "type": "object",
+      "required": [
+        "audit_id", "report_id", "created_at", "hkp_version",
+        "pipeline_version", "artifact_hashes", "sci_summary",
+        "evid_raw", "evid_effective", "inferred_ratio",
+        "certification_level", "flags"
+      ],
+      "properties": {
+        "audit_id":           { "type": "string" },
+        "report_id":          { "type": "string" },
+        "created_at":         { "type": "string", "format": "date-time" },
+        "hkp_version":        { "type": "string", "const": "1.1" },
+        "pipeline_version":   { "type": "string" },
+        "artifact_hashes": {
+          "type": "object",
+          "properties": {
+            "report_html":    { "type": "string" },
+            "evidence_json":  { "type": "string" },
+            "sci_score_json": { "type": "string" }
+          }
+        },
+        "sci_summary": {
+          "type": "object",
+          "required": ["EVID", "MECH", "INC", "RISK", "SPEC", "HCI"],
+          "properties": {
+            "EVID": { "type": "number" },
+            "MECH": { "type": "number" },
+            "INC":  { "type": "number" },
+            "RISK": { "type": "number" },
+            "SPEC": { "type": "number" },
+            "HCI":  { "type": "number" }
+          }
+        },
+        "evid_raw":           { "type": "number" },
+        "evid_effective":     { "type": "number" },
+        "inferred_ratio":     { "type": "number" },
+        "certification_level": {
+          "type": "string",
+          "enum": ["HK-INSTITUTIONAL", "HK-PRO", "HK-VERIFIED", "HK-REVIEWED", "HK-REJECTED"]
+        },
+        "evid_ceiling_applied": { "type": ["string", "null"] },
+        "flags":              { "type": "array", "items": { "type": "string" } },
+        "absence_assertion_flags": { "type": "array" },
+        "hallucination_flags": { "type": "array" },
+        "human_reviewer":     { "type": ["string", "null"] },
+        "badge": {
+          "type": "object",
+          "properties": {
+            "label":        { "type": "string" },
+            "border_color": { "type": "string" },
+            "text_color":   { "type": "string" },
+            "icon":         { "type": "string" },
+            "hci_display":  { "type": "string" }
+          }
+        },
+        "pro_requires_second_review":         { "type": "boolean" },
+        "institutional_requires_two_reviews": { "type": "boolean" }
+      }
+    },
+
+    "ledger_entry": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$id": "humanklu:ledger_entry:1.1",
+      "title": "HumanKlu Ledger Entry (JSONL row)",
+      "type": "object",
+      "required": [
+        "entry_id", "timestamp", "report_id", "audit_id",
+        "event_type", "certification_level", "hci",
+        "evid_effective", "inferred_ratio"
+      ],
+      "properties": {
+        "entry_id":            { "type": "string" },
+        "timestamp":           { "type": "string", "format": "date-time" },
+        "report_id":           { "type": "string" },
+        "audit_id":            { "type": "string" },
+        "event_type":          { "type": "string", "enum": ["CREATED", "UPDATED", "REVIEWED"] },
+        "certification_level": {
+          "type": "string",
+          "enum": ["HK-INSTITUTIONAL", "HK-PRO", "HK-VERIFIED", "HK-REVIEWED", "HK-REJECTED"]
+        },
+        "hci":                 { "type": "number" },
+        "evid_effective":      { "type": "number" },
+        "inferred_ratio":      { "type": "number" },
+        "author_model":        { "type": "string" },
+        "human_reviewer":      { "type": ["string", "null"] },
+        "notes":               { "type": "string" },
+        "prev_entry_id":       { "type": ["string", "null"] }
+      }
+    },
+
+    "report_input": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$id": "humanklu:report_input:1.1",
+      "title": "HumanKlu Pipeline Input",
+      "type": "object",
+      "required": ["title", "topic", "summary", "dimensions", "claims"],
+      "properties": {
+        "title":   { "type": "string" },
+        "topic":   { "type": "string" },
+        "summary": { "type": "string" },
+        "author": {
+          "type": "object",
+          "properties": {
+            "model_version": { "type": "string" },
+            "organization":  { "type": "string" }
+          }
+        },
+        "dimensions": {
+          "type": "object",
+          "required": ["EVID", "MECH", "INC", "RISK", "SPEC"],
+          "properties": {
+            "EVID": { "$ref": "#/schemas/report_input/$defs/dim_input" },
+            "MECH": { "$ref": "#/schemas/report_input/$defs/dim_input" },
+            "INC":  { "$ref": "#/schemas/report_input/$defs/dim_input" },
+            "RISK": { "$ref": "#/schemas/report_input/$defs/dim_input" },
+            "SPEC": { "$ref": "#/schemas/report_input/$defs/dim_input" }
+          }
+        },
+        "hallucination_flags": { "type": "array" },
+        "claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["text", "evidence_type"],
+            "properties": {
+              "claim_id":      { "type": "string" },
+              "text":          { "type": "string" },
+              "evidence_type": { "type": "string", "enum": ["VERIFIED", "INFERRED"] },
+              "source": {
+                "type": "object",
+                "properties": {
+                  "type":         { "type": "string" },
+                  "uri":          { "type": ["string", "null"] },
+                  "title":        { "type": ["string", "null"] },
+                  "retrieved_at": { "type": ["string", "null"] },
+                  "excerpt":      { "type": ["string", "null"] }
+                }
+              },
+              "source_url":  { "type": ["string", "null"] },
+              "confidence":  { "type": "number" },
+              "claim_flags": { "type": "array", "items": { "type": "string" } },
+              "notes":       { "type": "string" }
+            }
+          }
+        }
+      },
+      "$defs": {
+        "dim_input": {
+          "type": "object",
+          "required": ["score"],
+          "properties": {
+            "score":     { "type": "number", "minimum": 0, "maximum": 10 },
+            "rationale": { "type": "string" }
+          }
+        }
+      }
+    }
+
+  }
+}

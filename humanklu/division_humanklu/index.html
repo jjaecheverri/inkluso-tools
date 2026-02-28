@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HumanKlu™ — Human Calibration Standard</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d0d0d;
+    color: #e8e0d4;
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 4rem 1rem 3rem;
+  }
+  .hero h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 span { color: #e87a2e; }
+  .hero .subtitle {
+    color: #a09888;
+    font-size: 1.15rem;
+    margin-bottom: 1.2rem;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(232,122,46,0.15);
+    color: #e87a2e;
+    border: 1px solid #e87a2e;
+    border-radius: 999px;
+    padding: 0.3rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Sections */
+  section {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  section h2 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+    color: #e8e0d4;
+  }
+  section p, section li {
+    color: #a09888;
+    font-size: 0.95rem;
+  }
+
+  /* Certification Levels */
+  .cert-list { list-style: none; }
+  .cert-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #2a2a2a;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .cert-list li:last-child { border-bottom: none; }
+  .cert-list .emoji { font-size: 1.1rem; flex-shrink: 0; }
+  .cert-list .level-name { font-weight: 700; color: #e8e0d4; white-space: nowrap; }
+  .level-rejected .level-name { color: #ef4444; }
+  .level-reviewed .level-name { color: #fbbf24; }
+  .level-verified .level-name { color: #4ade80; }
+  .level-pro .level-name { color: #e87a2e; }
+  .level-institutional .level-name { color: #d4a017; }
+
+  /* Distribution Bars */
+  .dist-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+  }
+  .dist-label {
+    width: 150px;
+    text-align: right;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+  .dist-bar-track {
+    flex: 1;
+    background: #2a2a2a;
+    border-radius: 6px;
+    height: 24px;
+    overflow: hidden;
+  }
+  .dist-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #0d0d0d;
+  }
+
+  /* Stat Cards */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .stat-card {
+    background: #0d0d0d;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .stat-card .value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    color: #e87a2e;
+  }
+  .stat-card .label {
+    font-size: 0.8rem;
+    color: #a09888;
+    margin-top: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Navigation */
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    display: inline-block;
+    background: rgba(232,122,46,0.15);
+    color: #e87a2e;
+    text-decoration: none;
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    border: 1px solid rgba(232,122,46,0.3);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+  }
+  .nav-links a:hover {
+    background: rgba(232,122,46,0.25);
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #a09888;
+    font-size: 0.8rem;
+    border-top: 1px solid #2a2a2a;
+    margin-top: 1rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Human<span>Klu</span>™</h1>
+    <p class="subtitle">AI drafted. Human calibrated. Confidence assigned.</p>
+    <span class="badge">Inkluso Division</span>
+  </div>
+
+  <!-- What is HumanKlu? -->
+  <section>
+    <h2>What is HumanKlu?</h2>
+    <p>HumanKlu is a deterministic pipeline that evaluates AI-generated intelligence reports, assigns certification levels based on evidence integrity and analytical quality, and produces fully auditable artifacts. Every claim is traced, every score is explainable, and every certification can be independently reproduced from the same inputs.</p>
+  </section>
+
+  <!-- Certification Levels -->
+  <section>
+    <h2>Certification Levels</h2>
+    <ul class="cert-list">
+      <li class="level-rejected">
+        <span class="emoji">❌</span>
+        <span class="level-name">HK-REJECTED</span>
+        <span>— Content failed minimum evidence or confidence thresholds</span>
+      </li>
+      <li class="level-reviewed">
+        <span class="emoji">🔍</span>
+        <span class="level-name">HK-REVIEWED</span>
+        <span>— Meets baseline calibration; suitable for internal review</span>
+      </li>
+      <li class="level-verified">
+        <span class="emoji">✅</span>
+        <span class="level-name">HK-VERIFIED</span>
+        <span>— Strong evidence integrity; publishable with attribution</span>
+      </li>
+      <li class="level-pro">
+        <span class="emoji">⭐</span>
+        <span class="level-name">HK-PRO</span>
+        <span>— Professional-grade; requires second-pass review</span>
+      </li>
+      <li class="level-institutional">
+        <span class="emoji">🏛</span>
+        <span class="level-name">HK-INSTITUTIONAL</span>
+        <span>— Institutional-grade; requires two independent reviews</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Current Calibration Distribution -->
+  <section>
+    <h2>Current Calibration Distribution</h2>
+
+    <div class="dist-row">
+      <span class="dist-label" style="color:#ef4444;">HK-REJECTED</span>
+      <div class="dist-bar-track">
+        <div class="dist-bar-fill" style="width:20%; background:#ef4444;">1</div>
+      </div>
+    </div>
+    <div class="dist-row">
+      <span class="dist-label" style="color:#fbbf24;">HK-REVIEWED</span>
+      <div class="dist-bar-track">
+        <div class="dist-bar-fill" style="width:40%; background:#fbbf24;">2</div>
+      </div>
+    </div>
+    <div class="dist-row">
+      <span class="dist-label" style="color:#4ade80;">HK-VERIFIED</span>
+      <div class="dist-bar-track">
+        <div class="dist-bar-fill" style="width:20%; background:#4ade80;">1</div>
+      </div>
+    </div>
+    <div class="dist-row">
+      <span class="dist-label" style="color:#d4a017;">HK-INSTITUTIONAL</span>
+      <div class="dist-bar-track">
+        <div class="dist-bar-fill" style="width:20%; background:#d4a017;">1</div>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="value">6.924</div>
+        <div class="label">Avg HCI</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">7.08</div>
+        <div class="label">Avg EVID Effective</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">41.33%</div>
+        <div class="label">Avg Inferred Ratio</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section>
+    <h2>Explore</h2>
+    <div class="nav-links">
+      <a href="methodology.html">📐 Methodology</a>
+      <a href="case-studies/index.html">📊 Case Studies</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>© 2026 HumanKlu™ · HKP v1.1 · Inkluso Division</footer>
+
+</body>
+</html>

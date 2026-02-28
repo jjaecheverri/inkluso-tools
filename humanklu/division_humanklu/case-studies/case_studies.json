@@ -1,0 +1,7 @@
+[
+  {"run_id":"01_rejected","title":"Unverified Supply Chain Claims in Fast Fashion","report_rel_path":"../../batch_run/runs/01_rejected/report.html","certification_level":"HK-REJECTED","hci":4.88,"evid_effective":5.2,"inferred_ratio":1.0,"flags":["ABSENCE_ASSERTION"]},
+  {"run_id":"02_reviewed","title":"AI in Radiology: Cautious Adoption Trends","report_rel_path":"../../batch_run/runs/02_reviewed/report.html","certification_level":"HK-REVIEWED","hci":6.2,"evid_effective":6.4,"inferred_ratio":0.6667,"flags":[]},
+  {"run_id":"03_verified","title":"EV Battery Mineral Sourcing: DRC Cobalt Audit Findings","report_rel_path":"../../batch_run/runs/03_verified/report.html","certification_level":"HK-REVIEWED","hci":7.24,"evid_effective":7.4,"inferred_ratio":0.4,"flags":[]},
+  {"run_id":"04_pro","title":"Federal Reserve Forward Guidance: Rate Path Analysis Q3 2024","report_rel_path":"../../batch_run/runs/04_pro/report.html","certification_level":"HK-VERIFIED","hci":7.72,"evid_effective":7.9,"inferred_ratio":0.0,"flags":[]},
+  {"run_id":"05_institutional","title":"Global Semiconductor Capacity 2024: TSMC Node-Level Production Data","report_rel_path":"../../batch_run/runs/05_institutional/report.html","certification_level":"HK-INSTITUTIONAL","hci":8.58,"evid_effective":8.5,"inferred_ratio":0.0,"flags":[]}
+]

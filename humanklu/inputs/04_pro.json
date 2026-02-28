@@ -1,0 +1,41 @@
+{
+  "title": "Federal Reserve Forward Guidance: Rate Path Analysis Q3 2024",
+  "topic": "Monetary Policy / Macroeconomics",
+  "summary": "A high-specificity analysis of Fed forward guidance signals drawn from official FOMC transcripts, economic data releases, and independent econometric models.",
+  "author": {"model_version": "gpt-4o", "organization": "HumanKlu QA"},
+  "dimensions": {
+    "EVID": {"score": 7.9, "rationale": "Primary sources: FOMC minutes, BLS releases, Fed H.15."},
+    "MECH": {"score": 7.8, "rationale": "Transmission mechanism traced through Taylor Rule model."},
+    "INC":  {"score": 7.7, "rationale": "Fed member incentive constraints documented by mandate."},
+    "RISK": {"score": 7.9, "rationale": "Tail risk scenarios quantified via probability-weighted paths."},
+    "SPEC": {"score": 7.3, "rationale": "Claim-level specificity high; date-stamped data throughout."}
+  },
+  "hallucination_flags": [],
+  "claims": [
+    {
+      "text": "FOMC June 2024 minutes indicate median projection of 1 cut in 2024 (dot plot median: 5.125%).",
+      "evidence_type": "VERIFIED",
+      "source": {"type": "GOVERNMENT", "uri": "https://federalreserve.gov/monetarypolicy/fomcminutes20240612.htm", "title": "FOMC Minutes June 2024"}
+    },
+    {
+      "text": "CPI YoY fell to 3.0% in June 2024 per BLS release dated July 11 2024.",
+      "evidence_type": "VERIFIED",
+      "source": {"type": "GOVERNMENT", "uri": "https://bls.gov/news.release/cpi.nr0.htm", "title": "BLS CPI July 2024"}
+    },
+    {
+      "text": "PCE core (Fed's preferred gauge) printed 2.6% for May 2024 per BEA.",
+      "evidence_type": "VERIFIED",
+      "source": {"type": "GOVERNMENT", "uri": "https://bea.gov/data/personal-consumption-expenditures-price-index", "title": "BEA PCE May 2024"}
+    },
+    {
+      "text": "CME FedWatch showed 72% probability of September cut as of July 15 2024.",
+      "evidence_type": "VERIFIED",
+      "source": {"type": "MARKET_DATA", "uri": "https://cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html", "title": "CME FedWatch Jul 15 2024"}
+    },
+    {
+      "text": "Goldman Sachs macro model forecasts 2 cuts in 2024 with 68% confidence.",
+      "evidence_type": "VERIFIED",
+      "source": {"type": "RESEARCH", "uri": "https://gs.com/macro-research/rate-outlook-jul2024", "title": "GS Macro Outlook Jul 2024"}
+    }
+  ]
+}

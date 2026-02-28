@@ -1,0 +1,20 @@
+{
+  "title": "Unverified Supply Chain Claims in Fast Fashion",
+  "topic": "Fast Fashion / Supply Chain",
+  "summary": "A weakly sourced analysis claiming labour violations with no audit trail or verified primary sources.",
+  "author": {"model_version": "gpt-4o", "organization": "HumanKlu QA"},
+  "dimensions": {
+    "EVID": {"score": 5.2, "rationale": "No primary source documents; all model inference."},
+    "MECH": {"score": 5.0, "rationale": "Mechanism is plausible but undocumented."},
+    "INC":  {"score": 4.8, "rationale": "Incentive logic unsupported."},
+    "RISK": {"score": 4.5, "rationale": "Risk framing is speculative."},
+    "SPEC": {"score": 4.9, "rationale": "Figures lack specificity."}
+  },
+  "hallucination_flags": [],
+  "claims": [
+    {"text": "Factory X paid workers $1.20/hour in 2024.", "evidence_type": "INFERRED"},
+    {"text": "No audit has been conducted at any tier-2 supplier.", "evidence_type": "INFERRED", "source_url": null},
+    {"text": "Carbon offsets were fabricated.", "evidence_type": "INFERRED"},
+    {"text": "Worker injury rate exceeded 12%.", "evidence_type": "INFERRED"}
+  ]
+}

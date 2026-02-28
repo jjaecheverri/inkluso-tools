@@ -1,0 +1,45 @@
+{
+  "report_id": "HK-2026-NKT1H9",
+  "generated_at": "2026-02-28T21:19:42.742392Z",
+  "pipeline_version": "HKP-1.1",
+  "dimensions": {
+    "EVID": {
+      "score": 5.2,
+      "rationale": "No primary source documents; all model inference."
+    },
+    "MECH": {
+      "score": 5.0,
+      "rationale": "Mechanism is plausible but undocumented."
+    },
+    "INC": {
+      "score": 4.8,
+      "rationale": "Incentive logic unsupported."
+    },
+    "RISK": {
+      "score": 4.5,
+      "rationale": "Risk framing is speculative."
+    },
+    "SPEC": {
+      "score": 4.9,
+      "rationale": "Figures lack specificity."
+    }
+  },
+  "evid_raw": 5.2,
+  "evid_effective": 5.2,
+  "hci": 4.88,
+  "inferred_ratio": 1.0,
+  "certification_level": "HK-REJECTED",
+  "evid_ceiling_applied": "EVID capped at 6.5 (inferred_ratio=1.0000 > 0.75)",
+  "flags": [
+    "ABSENCE_ASSERTION"
+  ],
+  "hallucination_flags": [],
+  "absence_assertion_flags": [
+    {
+      "claim_id": "CLM-002",
+      "flag_type": "ABSENCE_ASSERTION",
+      "matched_phrase": "no audit",
+      "detail": "Claim asserts absence of evidence but provides no source URI."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "report_id": "HK-2026-S61IWS",
+  "generated_at": "2026-02-28T21:19:45.886452Z",
+  "pipeline_version": "HKP-1.1",
+  "dimensions": {
+    "EVID": {
+      "score": 6.4,
+      "rationale": "Mix of cited papers and model inference."
+    },
+    "MECH": {
+      "score": 6.2,
+      "rationale": "Mechanism described at high level."
+    },
+    "INC": {
+      "score": 6.0,
+      "rationale": "Incentive logic present but thin."
+    },
+    "RISK": {
+      "score": 6.3,
+      "rationale": "Risks noted without quantification."
+    },
+    "SPEC": {
+      "score": 6.1,
+      "rationale": "Some specificity but not claim-level."
+    }
+  },
+  "evid_raw": 6.4,
+  "evid_effective": 6.4,
+  "hci": 6.2,
+  "inferred_ratio": 0.6667,
+  "certification_level": "HK-REVIEWED",
+  "evid_ceiling_applied": "EVID capped at 7.2 (inferred_ratio=0.6667 > 0.60)",
+  "flags": [],
+  "hallucination_flags": [],
+  "absence_assertion_flags": []
+}

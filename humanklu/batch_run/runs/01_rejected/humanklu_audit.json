@@ -1,0 +1,45 @@
+{
+  "audit_id": "AUD-2026-PQQZOLJD",
+  "report_id": "HK-2026-NKT1H9",
+  "created_at": "2026-02-28T21:19:42.742392Z",
+  "hkp_version": "1.1",
+  "pipeline_version": "HKP-1.1",
+  "artifact_hashes": {
+    "report_html": "4c52c204b16909f9e45dfb3aa853af1e0faa6dfc8d03e01080dce1655c544a4d",
+    "evidence_json": "3d72995f0ee1dbbbd39284caa6737d6e9d78f35788f319e0d6f3c425b85d7e56",
+    "sci_score_json": "ea15c43ab6e3b4202f2b583182f056f002e7653e540fd84a3c1020fbfe0b4ee7"
+  },
+  "sci_summary": {
+    "EVID": 5.2,
+    "MECH": 5.0,
+    "INC": 4.8,
+    "RISK": 4.5,
+    "SPEC": 4.9,
+    "HCI": 4.88
+  },
+  "evid_raw": 5.2,
+  "evid_effective": 5.2,
+  "inferred_ratio": 1.0,
+  "certification_level": "HK-REJECTED",
+  "evid_ceiling_applied": "EVID capped at 6.5 (inferred_ratio=1.0000 > 0.75)",
+  "flags": [
+    "ABSENCE_ASSERTION"
+  ],
+  "absence_assertion_flags": [
+    {
+      "claim_id": "CLM-002",
+      "flag_type": "ABSENCE_ASSERTION",
+      "matched_phrase": "no audit",
+      "detail": "Claim asserts absence of evidence but provides no source URI."
+    }
+  ],
+  "hallucination_flags": [],
+  "human_reviewer": null,
+  "badge": {
+    "label": "HK-REJECTED",
+    "border_color": "#F87171",
+    "text_color": "#F87171",
+    "icon": "\u274c",
+    "hci_display": "4.88/10"
+  }
+}

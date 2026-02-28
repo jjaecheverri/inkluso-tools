@@ -1,0 +1,32 @@
+{
+  "audit_id": "AUD-2026-BCXJU51X",
+  "report_id": "HK-2026-VERIF1",
+  "created_at": "2026-02-28T20:20:17.760815Z",
+  "pipeline_version": "HKP-2.0",
+  "artifact_hashes": {
+    "report_html": "ed2a2ca06a0504994628432ab0fdec1e85bb1a7c8cfbf832268001e9885d4073",
+    "evidence_json": "99868e7d4eb51ac8e2f680c02623eb8fb44d33e4a3fcc470835b60d4ebb54f8d",
+    "sci_score_json": "08676631fea74adab5b3b49ea1f0c62767da1781b12237defa52586108a2e254"
+  },
+  "sci_summary": {
+    "EVID": 7.5,
+    "MECH": 7.2,
+    "INC": 7.0,
+    "RISK": 7.1,
+    "SPEC": 7.0,
+    "HCI": 7.16
+  },
+  "inferred_ratio": 0.5,
+  "evid_ceiling_applied": null,
+  "verdict": "VERIFIED",
+  "certification_level": "HK-VERIFIED",
+  "absence_assertion_flags": [],
+  "hallucination_flags": [],
+  "human_reviewer": null,
+  "badge": {
+    "label": "HK-VERIFIED",
+    "color": "#34D399",
+    "icon": "\u2705",
+    "hci_display": "7.16/10"
+  }
+}

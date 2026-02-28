@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies — Calibrated Intelligence Reports</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d0d0d;
+    color: #e8e0d4;
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.3rem;
+  }
+  h1 span { color: #e87a2e; }
+  .page-subtitle {
+    color: #a09888;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: #e87a2e;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  /* Filter Buttons */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .filter-btn {
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    border: 1px solid #2a2a2a;
+    background: #1a1a1a;
+    color: #a09888;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, sans-serif;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { border-color: #a09888; }
+  .filter-btn.active-all { background: #e87a2e; color: #0d0d0d; border-color: #e87a2e; }
+  .filter-btn.active-rejected { background: #ef4444; color: #0d0d0d; border-color: #ef4444; }
+  .filter-btn.active-reviewed { background: #fbbf24; color: #0d0d0d; border-color: #fbbf24; }
+  .filter-btn.active-verified { background: #4ade80; color: #0d0d0d; border-color: #4ade80; }
+  .filter-btn.active-institutional { background: #d4a017; color: #0d0d0d; border-color: #d4a017; }
+
+  /* Card Grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: #3a3a3a; }
+  .card.hidden { display: none; }
+
+  .card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    color: #e8e0d4;
+  }
+
+  .cert-pill {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    margin-bottom: 0.8rem;
+  }
+  .cert-rejected { background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+  .cert-reviewed { background: rgba(251,191,36,0.15); color: #fbbf24; border: 1px solid rgba(251,191,36,0.3); }
+  .cert-verified { background: rgba(74,222,128,0.15); color: #4ade80; border: 1px solid rgba(74,222,128,0.3); }
+  .cert-institutional { background: rgba(212,160,23,0.15); color: #d4a017; border: 1px solid rgba(212,160,23,0.3); }
+
+  .stat-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.6rem;
+  }
+  .stat-item {
+    font-size: 0.82rem;
+    color: #a09888;
+  }
+  .stat-item strong {
+    color: #e8e0d4;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+
+  .flag-pill {
+    display: inline-block;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    background: rgba(239,68,68,0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239,68,68,0.3);
+    margin-right: 0.3rem;
+  }
+
+  .view-link {
+    display: inline-block;
+    margin-top: 0.6rem;
+    color: #e87a2e;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .view-link:hover { text-decoration: underline; }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #a09888;
+    font-size: 0.8rem;
+    border-top: 1px solid #2a2a2a;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <a href="../index.html" class="back-link">← Back to Home</a>
+
+  <h1>Case <span>Studies</span></h1>
+  <p class="page-subtitle">Calibrated Intelligence Reports</p>
+
+  <!-- Filter Buttons -->
+  <div class="filters">
+    <button class="filter-btn active-all" data-filter="ALL" onclick="filterCards('ALL', this)">ALL</button>
+    <button class="filter-btn" data-filter="HK-REJECTED" onclick="filterCards('HK-REJECTED', this)">HK-REJECTED</button>
+    <button class="filter-btn" data-filter="HK-REVIEWED" onclick="filterCards('HK-REVIEWED', this)">HK-REVIEWED</button>
+    <button class="filter-btn" data-filter="HK-VERIFIED" onclick="filterCards('HK-VERIFIED', this)">HK-VERIFIED</button>
+    <button class="filter-btn" data-filter="HK-INSTITUTIONAL" onclick="filterCards('HK-INSTITUTIONAL', this)">HK-INSTITUTIONAL</button>
+  </div>
+
+  <!-- Card Grid -->
+  <div class="card-grid">
+
+    <!-- 01 Rejected -->
+    <div class="card" data-cert="HK-REJECTED">
+      <div class="card-title">Unverified Supply Chain Claims in Fast Fashion</div>
+      <span class="cert-pill cert-rejected">HK-REJECTED</span>
+      <div class="stat-row">
+        <span class="stat-item">HCI: <strong>4.88</strong></span>
+        <span class="stat-item">EVID_eff: <strong>5.2</strong></span>
+        <span class="stat-item">Inferred: <strong>100%</strong></span>
+      </div>
+      <div><span class="flag-pill">ABSENCE_ASSERTION</span></div>
+      <a href="../../batch_run/runs/01_rejected/report.html" class="view-link">View Report →</a>
+    </div>
+
+    <!-- 02 Reviewed -->
+    <div class="card" data-cert="HK-REVIEWED">
+      <div class="card-title">AI in Radiology: Cautious Adoption Trends</div>
+      <span class="cert-pill cert-reviewed">HK-REVIEWED</span>
+      <div class="stat-row">
+        <span class="stat-item">HCI: <strong>6.2</strong></span>
+        <span class="stat-item">EVID_eff: <strong>6.4</strong></span>
+        <span class="stat-item">Inferred: <strong>66.67%</strong></span>
+      </div>
+      <a href="../../batch_run/runs/02_reviewed/report.html" class="view-link">View Report →</a>
+    </div>
+
+    <!-- 03 Reviewed (EV Battery) -->
+    <div class="card" data-cert="HK-REVIEWED">
+      <div class="card-title">EV Battery Mineral Sourcing: DRC Cobalt Audit Findings</div>
+      <span class="cert-pill cert-reviewed">HK-REVIEWED</span>
+      <div class="stat-row">
+        <span class="stat-item">HCI: <strong>7.24</strong></span>
+        <span class="stat-item">EVID_eff: <strong>7.4</strong></span>
+        <span class="stat-item">Inferred: <strong>40%</strong></span>
+      </div>
+      <a href="../../batch_run/runs/03_verified/report.html" class="view-link">View Report →</a>
+    </div>
+
+    <!-- 04 Verified -->
+    <div class="card" data-cert="HK-VERIFIED">
+      <div class="card-title">Federal Reserve Forward Guidance: Rate Path Analysis Q3 2024</div>
+      <span class="cert-pill cert-verified">HK-VERIFIED</span>
+      <div class="stat-row">
+        <span class="stat-item">HCI: <strong>7.72</strong></span>
+        <span class="stat-item">EVID_eff: <strong>7.9</strong></span>
+        <span class="stat-item">Inferred: <strong>0%</strong></span>
+      </div>
+      <a href="../../batch_run/runs/04_pro/report.html" class="view-link">View Report →</a>
+    </div>
+
+    <!-- 05 Institutional -->
+    <div class="card" data-cert="HK-INSTITUTIONAL">
+      <div class="card-title">Global Semiconductor Capacity 2024: TSMC Node-Level Production Data</div>
+      <span class="cert-pill cert-institutional">HK-INSTITUTIONAL</span>
+      <div class="stat-row">
+        <span class="stat-item">HCI: <strong>8.58</strong></span>
+        <span class="stat-item">EVID_eff: <strong>8.5</strong></span>
+        <span class="stat-item">Inferred: <strong>0%</strong></span>
+      </div>
+      <a href="../../batch_run/runs/05_institutional/report.html" class="view-link">View Report →</a>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>© 2026 HumanKlu™ · HKP v1.1 · Inkluso Division</footer>
+
+<script>
+  const activeClassMap = {
+    'ALL': 'active-all',
+    'HK-REJECTED': 'active-rejected',
+    'HK-REVIEWED': 'active-reviewed',
+    'HK-VERIFIED': 'active-verified',
+    'HK-INSTITUTIONAL': 'active-institutional'
+  };
+
+  function filterCards(level, btnEl) {
+    // Update button states
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.className = 'filter-btn';
+    });
+    btnEl.classList.add(activeClassMap[level] || 'active-all');
+
+    // Show/hide cards
+    document.querySelectorAll('.card').forEach(card => {
+      if (level === 'ALL' || card.dataset.cert === level) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

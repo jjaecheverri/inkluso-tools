@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HKP v1.1 — Methodology</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d0d0d;
+    color: #e8e0d4;
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.3rem;
+  }
+  h1 span { color: #e87a2e; }
+  .page-subtitle {
+    color: #a09888;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  section {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: #e87a2e;
+  }
+  section p, section li {
+    color: #a09888;
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+  }
+  section p:last-child, section li:last-child { margin-bottom: 0; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.8rem;
+    font-size: 0.88rem;
+  }
+  th, td {
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  th {
+    color: #e87a2e;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: #0d0d0d;
+  }
+  td {
+    color: #a09888;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.82rem;
+  }
+  td.text-cell {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.88rem;
+  }
+
+  code {
+    background: #0d0d0d;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: #e87a2e;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: #e87a2e;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #a09888;
+    font-size: 0.8rem;
+    border-top: 1px solid #2a2a2a;
+    margin-top: 1rem;
+  }
+
+  .level-rejected { color: #ef4444; }
+  .level-reviewed { color: #fbbf24; }
+  .level-verified { color: #4ade80; }
+  .level-pro { color: #e87a2e; }
+  .level-institutional { color: #d4a017; }
+
+  @media (max-width: 700px) {
+    table { font-size: 0.75rem; }
+    th, td { padding: 0.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <a href="index.html" class="back-link">← Back to Home</a>
+
+  <h1>HKP v1.1 — <span>Methodology</span></h1>
+  <p class="page-subtitle">How HumanKlu certifies AI-generated intelligence</p>
+
+  <!-- 1. What Gets Certified -->
+  <section>
+    <h2>1. What Gets Certified</h2>
+    <p>We certify AI-generated intelligence reports. Each report contains claims. Each claim is labeled <strong style="color:#e8e0d4;">VERIFIED</strong> (has a source URL that can be independently checked) or <strong style="color:#e8e0d4;">INFERRED</strong> (no source URL — the claim is derived from reasoning, synthesis, or general knowledge).</p>
+    <p>The ratio of inferred claims to total claims is the <code>inferred_ratio</code>. A report where 3 out of 5 claims are inferred has an inferred_ratio of 0.60. This ratio directly affects certification eligibility.</p>
+  </section>
+
+  <!-- 2. Five Scoring Dimensions -->
+  <section>
+    <h2>2. Five Scoring Dimensions</h2>
+    <p>Every report is scored across five dimensions, each on a 0–10 scale:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>Code</th>
+          <th>What It Measures</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-cell">Evidence Integrity</td>
+          <td>EVID</td>
+          <td class="text-cell">Are claims supported by traceable, credible sources?</td>
+        </tr>
+        <tr>
+          <td class="text-cell">Mechanism Clarity</td>
+          <td>MECH</td>
+          <td class="text-cell">Does the report explain <em>how</em> and <em>why</em> things happen, not just <em>what</em>?</td>
+        </tr>
+        <tr>
+          <td class="text-cell">Incentive Decode</td>
+          <td>INC</td>
+          <td class="text-cell">Does the report identify who benefits, who pays, and what motivates the actors?</td>
+        </tr>
+        <tr>
+          <td class="text-cell">Risk Realism</td>
+          <td>RISK</td>
+          <td class="text-cell">Are risks presented with proportion and probability, not just worst-case scenarios?</td>
+        </tr>
+        <tr>
+          <td class="text-cell">Specificity</td>
+          <td>SPEC</td>
+          <td class="text-cell">Does the report contain concrete numbers, dates, names, and falsifiable predictions?</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 3. EVID Ceiling Rule -->
+  <section>
+    <h2>3. EVID Ceiling Rule</h2>
+    <p>If a report has too many inferred claims, the Evidence score gets capped to reflect the reduced verifiability:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Inferred Ratio</th>
+          <th>EVID Cap</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>&gt; 75%</td><td>max 6.5</td></tr>
+        <tr><td>&gt; 60%</td><td>max 7.2</td></tr>
+        <tr><td>≤ 60%</td><td>no cap</td></tr>
+      </tbody>
+    </table>
+    <p>We store both <code>evid_raw</code> (the original score) and <code>evid_effective</code> (the score after ceiling is applied). The effective score is what feeds into HCI calculation and certification thresholds.</p>
+  </section>
+
+  <!-- 4. Absence Assertion Detection -->
+  <section>
+    <h2>4. Absence Assertion Detection</h2>
+    <p>If a claim contains phrases like "no third-party audit", "no audit", "no evidence found", or "no public audit" <strong style="color:#e8e0d4;">AND</strong> has no source URL, it is flagged as <code>ABSENCE_ASSERTION</code>.</p>
+    <p>An absence assertion is a claim that something does <em>not</em> exist — but without a source to prove the absence. These flags are significant: they block certification above HK-REVIEWED, because asserting the non-existence of evidence without sourcing that assertion is itself an evidence integrity failure.</p>
+  </section>
+
+  <!-- 5. HCI Calculation -->
+  <section>
+    <h2>5. HCI Calculation</h2>
+    <p>The Human Calibration Index (HCI) is the simple average of the five effective dimension scores:</p>
+    <p style="text-align:center; color:#e8e0d4; font-family:'SF Mono','Fira Code',monospace; font-size:1rem; padding:0.8rem; background:#0d0d0d; border-radius:8px; margin:0.8rem 0;">
+      HCI = average(EVID_effective, MECH, INC, RISK, SPEC)
+    </p>
+    <p>This single number summarizes overall report quality, but it is never the sole determinant of certification level. Individual dimension thresholds and flags also apply.</p>
+  </section>
+
+  <!-- 6. Certification Thresholds -->
+  <section>
+    <h2>6. Certification Thresholds</h2>
+    <p>Each certification level requires meeting <em>all</em> of the following constraints:</p>
+    <div style="overflow-x:auto;">
+    <table>
+      <thead>
+        <tr>
+          <th>Level</th>
+          <th>HCI ≥</th>
+          <th>EVID_eff ≥</th>
+          <th>Inferred Ratio ≤</th>
+          <th>SPEC ≥</th>
+          <th>Extra Constraints</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="level-rejected">HK-REJECTED</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td class="text-cell">Assigned when any higher level's minimum is not met</td>
+        </tr>
+        <tr>
+          <td><span class="level-reviewed">HK-REVIEWED</span></td>
+          <td>5.5</td>
+          <td>5.0</td>
+          <td>1.0</td>
+          <td>—</td>
+          <td class="text-cell">None</td>
+        </tr>
+        <tr>
+          <td><span class="level-verified">HK-VERIFIED</span></td>
+          <td>7.0</td>
+          <td>7.0</td>
+          <td>0.40</td>
+          <td>6.5</td>
+          <td class="text-cell">No ABSENCE_ASSERTION flags</td>
+        </tr>
+        <tr>
+          <td><span class="level-pro">HK-PRO</span></td>
+          <td>7.8</td>
+          <td>7.5</td>
+          <td>0.25</td>
+          <td>7.0</td>
+          <td class="text-cell">No ABSENCE_ASSERTION flags; second-pass review required</td>
+        </tr>
+        <tr>
+          <td><span class="level-institutional">HK-INSTITUTIONAL</span></td>
+          <td>8.2</td>
+          <td>8.0</td>
+          <td>0.15</td>
+          <td>7.5</td>
+          <td class="text-cell">No ABSENCE_ASSERTION flags; two independent reviews required</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- 7. Why We Sometimes Downgrade -->
+  <section>
+    <h2>7. Why We Sometimes Downgrade</h2>
+    <p>A report with excellent scores can still be downgraded if too many claims lack sources or if absence assertions are present. This is by design. Reputation-grade certification must reflect actual evidence availability, not just analytical quality. A brilliantly written report that relies heavily on inferred claims cannot receive the same trust mark as one backed by verifiable sources — no matter how insightful the analysis.</p>
+  </section>
+
+</div>
+
+<footer>© 2026 HumanKlu™ · HKP v1.1 · Inkluso Division</footer>
+
+</body>
+</html>

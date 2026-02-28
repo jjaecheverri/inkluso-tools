@@ -1,0 +1,213 @@
+<!--
+  HumanKlu™ Badge Rendering — HKP v2.0
+  Four certification levels, each with distinct color + icon.
+  Copy any .hk-badge block + the <style> block to embed anywhere.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HumanKlu™ Badge Library — HKP v2.0</title>
+  <style>
+    /* ── Base ── */
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #0F1117; color: #E8EAF0;
+      padding: 2.5rem; max-width: 720px; margin: 0 auto;
+    }
+    h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.4rem; }
+    p  { color: #8B8FA8; font-size: 0.9rem; margin-bottom: 2rem; }
+    h2 { font-size: 0.85rem; font-weight: 700; color: #8B8FA8;
+         text-transform: uppercase; letter-spacing: 0.12em; margin: 2rem 0 0.75rem; }
+
+    /* ── Shared badge shell ── */
+    .hk-badge {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      border-radius: 999px; border: 2px solid;
+      padding: 0.5rem 1.2rem;
+      font-weight: 800; font-size: 0.82rem; letter-spacing: 0.09em;
+      text-decoration: none; cursor: default;
+      transition: box-shadow 0.2s;
+      background: #1A1D27;
+      margin-bottom: 0.5rem;
+    }
+    .hk-badge:hover {
+      box-shadow: 0 0 18px currentColor;
+    }
+    .hk-badge .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: currentColor; flex-shrink: 0;
+    }
+    .hk-badge .hci {
+      font-size: 0.73rem; font-weight: 500;
+      opacity: 0.75; margin-left: 0.2rem;
+    }
+
+    /* ── Level-specific colors ── */
+    .hk-institutional {
+      color: #A78BFA;          /* violet */
+      border-color: #A78BFA;
+      box-shadow: 0 0 8px #A78BFA33;
+    }
+    .hk-pro {
+      color: #60A5FA;          /* blue */
+      border-color: #60A5FA;
+      box-shadow: 0 0 8px #60A5FA33;
+    }
+    .hk-verified {
+      color: #34D399;          /* green */
+      border-color: #34D399;
+      box-shadow: 0 0 8px #34D39933;
+    }
+    .hk-reviewed {
+      color: #FBBF24;          /* amber */
+      border-color: #FBBF24;
+      box-shadow: 0 0 8px #FBBF2433;
+    }
+    .hk-not-certified {
+      color: #F87171;          /* red */
+      border-color: #F87171;
+      box-shadow: 0 0 8px #F8717133;
+    }
+
+    /* ── Variant: compact (no HCI) ── */
+    .hk-badge.compact { padding: 0.3rem 0.85rem; font-size: 0.75rem; }
+
+    /* ── Demo grid ── */
+    .demo-row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 0.5rem; }
+
+    /* ── Code snippet ── */
+    pre {
+      background: #1A1D27; border: 1px solid #2A2D3E;
+      border-radius: 8px; padding: 1rem; overflow-x: auto;
+      font-size: 0.78rem; color: #a0c4ff; margin-top: 1rem;
+    }
+    code { font-family: 'Fira Code', monospace; }
+
+    /* ── Level table ── */
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.85rem; }
+    th { text-align: left; padding: 0.5rem 0.75rem; color: #8B8FA8;
+         font-weight: 600; border-bottom: 1px solid #2A2D3E; }
+    td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #1E2132; vertical-align: top; }
+  </style>
+</head>
+<body>
+
+<h1>🏷 HumanKlu™ Badge Library</h1>
+<p>HKP v2.0 · Four certification tiers · Copy any badge snippet below.</p>
+
+<!-- ─── Level reference table ─────────────────────────────────── -->
+<h2>Certification Levels</h2>
+<table>
+  <thead>
+    <tr><th>Level</th><th>Color</th><th>Requirements</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="hk-badge hk-institutional" style="display:inline-flex">🏛 HK-INSTITUTIONAL</span></td>
+      <td>#A78BFA</td>
+      <td>HCI ≥ 8.0 · EVID ≥ 8.0 · inferred &lt; 40% · no hallucinations</td>
+    </tr>
+    <tr>
+      <td><span class="hk-badge hk-pro" style="display:inline-flex">⭐ HK-PRO</span></td>
+      <td>#60A5FA</td>
+      <td>HCI ≥ 7.5 · EVID ≥ 7.5 · inferred &lt; 50%</td>
+    </tr>
+    <tr>
+      <td><span class="hk-badge hk-verified" style="display:inline-flex">✅ HK-VERIFIED</span></td>
+      <td>#34D399</td>
+      <td>HCI ≥ 7.0 · EVID ≥ 7.0 · inferred &lt; 60%</td>
+    </tr>
+    <tr>
+      <td><span class="hk-badge hk-reviewed" style="display:inline-flex">🔍 HK-REVIEWED</span></td>
+      <td>#FBBF24</td>
+      <td>HCI ≥ 6.0 · EVID ≥ 6.0</td>
+    </tr>
+    <tr>
+      <td><span class="hk-badge hk-not-certified" style="display:inline-flex">❌ NOT-CERTIFIED</span></td>
+      <td>#F87171</td>
+      <td>All other cases</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ─── Live badge demos ───────────────────────────────────────── -->
+<h2>Live Badge Demos</h2>
+
+<h2 style="margin-top:1.5rem">🏛 HK-INSTITUTIONAL</h2>
+<div class="demo-row">
+  <a class="hk-badge hk-institutional" href="#">
+    <span class="dot"></span>HumanKlu™ · HK-INSTITUTIONAL<span class="hci">HCI 8.4/10</span>
+  </a>
+  <a class="hk-badge hk-institutional compact" href="#">
+    <span class="dot"></span>HK-INSTITUTIONAL
+  </a>
+</div>
+
+<h2>⭐ HK-PRO</h2>
+<div class="demo-row">
+  <a class="hk-badge hk-pro" href="#">
+    <span class="dot"></span>HumanKlu™ · HK-PRO<span class="hci">HCI 7.7/10</span>
+  </a>
+  <a class="hk-badge hk-pro compact" href="#">
+    <span class="dot"></span>HK-PRO
+  </a>
+</div>
+
+<h2>✅ HK-VERIFIED</h2>
+<div class="demo-row">
+  <a class="hk-badge hk-verified" href="#">
+    <span class="dot"></span>HumanKlu™ · HK-VERIFIED<span class="hci">HCI 7.2/10</span>
+  </a>
+  <a class="hk-badge hk-verified compact" href="#">
+    <span class="dot"></span>HK-VERIFIED
+  </a>
+</div>
+
+<h2>🔍 HK-REVIEWED</h2>
+<div class="demo-row">
+  <a class="hk-badge hk-reviewed" href="#">
+    <span class="dot"></span>HumanKlu™ · HK-REVIEWED<span class="hci">HCI 6.2/10</span>
+  </a>
+  <a class="hk-badge hk-reviewed compact" href="#">
+    <span class="dot"></span>HK-REVIEWED
+  </a>
+</div>
+
+<h2>❌ NOT-CERTIFIED</h2>
+<div class="demo-row">
+  <a class="hk-badge hk-not-certified" href="#">
+    <span class="dot"></span>HumanKlu™ · NOT-CERTIFIED<span class="hci">HCI 5.1/10</span>
+  </a>
+</div>
+
+<!-- ─── Copy-paste embed snippet ──────────────────────────────── -->
+<h2>Copy-Paste Embed Snippet</h2>
+<p style="margin-bottom:0.75rem">Replace CLASS and HCI values. Link href to your report.html.</p>
+<pre><code>&lt;!-- HumanKlu™ badge — paste after your article title --&gt;
+&lt;style&gt;
+.hk-badge {
+  display:inline-flex; align-items:center; gap:0.6rem;
+  border-radius:999px; border:2px solid; padding:0.5rem 1.2rem;
+  font-family:system-ui,sans-serif; font-weight:800;
+  font-size:0.82rem; letter-spacing:0.09em;
+  text-decoration:none; background:#1A1D27;
+}
+/* Level colors: swap the hex pair below */
+.hk-institutional { color:#A78BFA; border-color:#A78BFA; }
+.hk-pro           { color:#60A5FA; border-color:#60A5FA; }
+.hk-verified      { color:#34D399; border-color:#34D399; }
+.hk-reviewed      { color:#FBBF24; border-color:#FBBF24; }
+.hk-not-certified { color:#F87171; border-color:#F87171; }
+.hk-badge .dot { width:10px;height:10px;border-radius:50%;background:currentColor; }
+&lt;/style&gt;
+
+&lt;!-- Change class to match your certification level --&gt;
+&lt;a class="hk-badge hk-verified" href="report.html"&gt;
+  &lt;span class="dot"&gt;&lt;/span&gt;
+  HumanKlu™ · HK-VERIFIED · HCI 7.2/10
+&lt;/a&gt;</code></pre>
+
+</body>
+</html>

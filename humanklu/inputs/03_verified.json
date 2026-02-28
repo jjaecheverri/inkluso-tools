@@ -1,0 +1,33 @@
+{
+  "title": "EV Battery Mineral Sourcing: DRC Cobalt Audit Findings",
+  "topic": "EV Supply Chain / Critical Minerals",
+  "summary": "A well-sourced investigation into cobalt sourcing practices in the DRC, drawing on auditor reports and verified mine data.",
+  "author": {"model_version": "gpt-4o", "organization": "HumanKlu QA"},
+  "dimensions": {
+    "EVID": {"score": 7.4, "rationale": "Multiple auditor reports and public datasets cited."},
+    "MECH": {"score": 7.5, "rationale": "Mechanism from mine to battery cell clearly traced."},
+    "INC":  {"score": 7.2, "rationale": "OEM incentive alignment documented."},
+    "RISK": {"score": 7.3, "rationale": "ESG regulatory risk quantified by jurisdiction."},
+    "SPEC": {"score": 6.8, "rationale": "Claim-level specificity moderate; some aggregate figures."}
+  },
+  "hallucination_flags": [],
+  "claims": [
+    {
+      "text": "CMOC reported 42,000 MT cobalt output from Tenke Fungurume in 2023.",
+      "evidence_type": "VERIFIED",
+      "source": {"type": "CORPORATE_REPORT", "uri": "https://cmoc.com/annual-report-2023", "title": "CMOC Annual Report 2023"}
+    },
+    {
+      "text": "RCS Global audit found 78% traceability compliance among tier-1 DRC suppliers.",
+      "evidence_type": "VERIFIED",
+      "source": {"type": "AUDIT_REPORT", "uri": "https://rcsglobal.com/drc-audit-2023", "title": "RCS Global DRC Audit 2023"}
+    },
+    {
+      "text": "Child labour incidents at ASM sites decreased 18% following OECD programme rollout.",
+      "evidence_type": "VERIFIED",
+      "source": {"type": "NGO_REPORT", "uri": "https://oecd.org/dac/asm-drc-2023", "title": "OECD ASM Programme Impact 2023"}
+    },
+    {"text": "Battery-grade cobalt spot price averaged $33,500/MT in H1 2024.", "evidence_type": "INFERRED"},
+    {"text": "Three top-5 OEMs are projected to require blockchain traceability by 2026.", "evidence_type": "INFERRED"}
+  ]
+}

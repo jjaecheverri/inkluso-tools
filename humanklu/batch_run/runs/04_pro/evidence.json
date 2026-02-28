@@ -1,0 +1,73 @@
+{
+  "report_id": "HK-2026-BINBRM",
+  "generated_at": "2026-02-28T21:19:53.486381Z",
+  "pipeline_version": "HKP-1.1",
+  "inferred_ratio": 0.0,
+  "entries": [
+    {
+      "claim_id": "CLM-001",
+      "claim_text": "FOMC June 2024 minutes indicate median projection of 1 cut in 2024 (dot plot median: 5.125%).",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "GOVERNMENT",
+        "uri": "https://federalreserve.gov/monetarypolicy/fomcminutes20240612.htm",
+        "title": "FOMC Minutes June 2024"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-002",
+      "claim_text": "CPI YoY fell to 3.0% in June 2024 per BLS release dated July 11 2024.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "GOVERNMENT",
+        "uri": "https://bls.gov/news.release/cpi.nr0.htm",
+        "title": "BLS CPI July 2024"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-003",
+      "claim_text": "PCE core (Fed's preferred gauge) printed 2.6% for May 2024 per BEA.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "GOVERNMENT",
+        "uri": "https://bea.gov/data/personal-consumption-expenditures-price-index",
+        "title": "BEA PCE May 2024"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-004",
+      "claim_text": "CME FedWatch showed 72% probability of September cut as of July 15 2024.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "MARKET_DATA",
+        "uri": "https://cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html",
+        "title": "CME FedWatch Jul 15 2024"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-005",
+      "claim_text": "Goldman Sachs macro model forecasts 2 cuts in 2024 with 68% confidence.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "RESEARCH",
+        "uri": "https://gs.com/macro-research/rate-outlook-jul2024",
+        "title": "GS Macro Outlook Jul 2024"
+      },
+      "confidence": 0.5,
+      "claim_flags": [],
+      "notes": ""
+    }
+  ]
+}

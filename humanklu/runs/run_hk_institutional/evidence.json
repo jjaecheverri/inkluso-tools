@@ -1,0 +1,66 @@
+{
+  "report_id": "HK-2026-INST01",
+  "generated_at": "2026-02-28T20:20:26.077781Z",
+  "entries": [
+    {
+      "claim_id": "CLM-001",
+      "claim_text": "EPA UCMR5 data (2023\u20132025) found PFAS detections in 45% of U.S. public water systems tested, representing ~200M people.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "GOVERNMENT_DATASET",
+        "uri": "https://www.epa.gov/dwucmr/occurrence-data-unregulated-contaminant-monitoring-rule",
+        "title": "UCMR5 Occurrence Data 2023\u20132025",
+        "retrieved_at": "2026-01-28T00:00:00Z",
+        "excerpt": "PFAS detected in 44.8% of sampled public water systems; est. exposure 198M persons."
+      },
+      "confidence": 0.97,
+      "flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-002",
+      "claim_text": "PFOA and PFOS serum half-lives in humans range from 3.5 to 8.5 years, enabling multi-decade bioaccumulation.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "PEER_REVIEWED",
+        "uri": "https://doi.org/10.1289/ehp.8653",
+        "title": "Olsen et al. (2007) EHP \u2014 Serum half-lives of PFOA and PFOS",
+        "retrieved_at": "2026-01-28T00:00:00Z",
+        "excerpt": "Median serum half-life: PFOA 3.8y (95% CI 3.1\u20134.4), PFOS 5.4y (95% CI 4.9\u20136.2)."
+      },
+      "confidence": 0.96,
+      "flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-003",
+      "claim_text": "3M and DuPont suppressed internal PFAS toxicology findings from EPA for over a decade, as documented in 2021 Senate PFAS hearings.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "CONGRESSIONAL_RECORD",
+        "uri": "https://www.congress.gov/event/117th-congress/senate-event/LC66607",
+        "title": "Senate PFAS Hearing Transcript 2021-06-10",
+        "retrieved_at": "2026-01-28T00:00:00Z",
+        "excerpt": "Internal 3M documents dated 1983 showed awareness of PFOS bioaccumulation; withheld from EPA until 2000."
+      },
+      "confidence": 0.94,
+      "flags": [],
+      "notes": ""
+    },
+    {
+      "claim_id": "CLM-004",
+      "claim_text": "The April 2024 EPA MCL rule set enforceable PFOA and PFOS limits at 4 ppt each, the first legally binding PFAS drinking water standards.",
+      "evidence_type": "VERIFIED",
+      "source": {
+        "type": "FEDERAL_REGISTER",
+        "uri": "https://www.federalregister.gov/documents/2024/04/26/2024-07773/pfas-national-primary-drinking-water-regulation",
+        "title": "EPA PFAS NPDWR Final Rule \u2014 Federal Register 2024-04-26",
+        "retrieved_at": "2026-01-28T00:00:00Z",
+        "excerpt": "Maximum Contaminant Levels: PFOA 4.0 ppt, PFOS 4.0 ppt, effective April 2026."
+      },
+      "confidence": 0.99,
+      "flags": [],
+      "notes": ""
+    }
+  ]
+}

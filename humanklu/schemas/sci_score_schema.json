@@ -1,0 +1,135 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "humanklu/sci_score/v2",
+  "title": "Signal Confidence Index (SCI) Score — HKP v2.0",
+  "description": "Structural scoring artifact. Adds certification_level, inferred_ratio, and EVID ceiling fields.",
+  "type": "object",
+  "required": [
+    "report_id", "generated_at", "pipeline_version",
+    "dimensions", "hci", "verdict", "certification_level",
+    "inferred_ratio"
+  ],
+  "properties": {
+    "report_id":         { "type": "string", "pattern": "^HK-[0-9]{4}-[A-Z0-9]{6}$" },
+    "generated_at":      { "type": "string", "format": "date-time" },
+    "pipeline_version":  { "type": "string", "enum": ["HKP-2.0"] },
+
+    "dimensions": {
+      "type": "object",
+      "required": ["EVID","MECH","INC","RISK","SPEC"],
+      "properties": {
+        "EVID": {
+          "description": "Evidence Integrity (0-10). May be lowered by EVID ceiling.",
+          "type": "object",
+          "required": ["score","rationale"],
+          "properties": {
+            "score":            { "type": "number", "minimum": 0, "maximum": 10 },
+            "rationale":        { "type": "string" },
+            "evid_ceiling_note":{ "type": ["string","null"] }
+          }
+        },
+        "MECH": {
+          "description": "Mechanism Clarity (0-10)",
+          "type": "object",
+          "required": ["score","rationale"],
+          "properties": {
+            "score":     { "type": "number", "minimum": 0, "maximum": 10 },
+            "rationale": { "type": "string" }
+          }
+        },
+        "INC": {
+          "description": "Incentive Decode (0-10)",
+          "type": "object",
+          "required": ["score","rationale"],
+          "properties": {
+            "score":     { "type": "number", "minimum": 0, "maximum": 10 },
+            "rationale": { "type": "string" }
+          }
+        },
+        "RISK": {
+          "description": "Risk Realism (0-10)",
+          "type": "object",
+          "required": ["score","rationale"],
+          "properties": {
+            "score":     { "type": "number", "minimum": 0, "maximum": 10 },
+            "rationale": { "type": "string" }
+          }
+        },
+        "SPEC": {
+          "description": "Specificity (0-10)",
+          "type": "object",
+          "required": ["score","rationale"],
+          "properties": {
+            "score":     { "type": "number", "minimum": 0, "maximum": 10 },
+            "rationale": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "hci": {
+      "description": "Human Calibration Index = avg(EVID_effective, MECH, INC, RISK, SPEC)",
+      "type": "number", "minimum": 0, "maximum": 10
+    },
+
+    "verdict": {
+      "description": "Legacy verdict for backward compatibility.",
+      "enum": ["VERIFIED","REVIEWED","REJECTED"]
+    },
+
+    "certification_level": {
+      "description": "HKP v2.0 four-tier certification. Evaluated highest-to-lowest.",
+      "enum": ["HK-INSTITUTIONAL","HK-PRO","HK-VERIFIED","HK-REVIEWED","NOT-CERTIFIED"],
+      "x-level-rules": {
+        "HK-INSTITUTIONAL": "HCI>=8.0 AND EVID>=8.0 AND inferred_ratio<0.40 AND no hallucinations",
+        "HK-PRO":           "HCI>=7.5 AND EVID>=7.5 AND inferred_ratio<0.50",
+        "HK-VERIFIED":      "HCI>=7.0 AND EVID>=7.0 AND inferred_ratio<0.60",
+        "HK-REVIEWED":      "HCI>=6.0 AND EVID>=6.0",
+        "NOT-CERTIFIED":    "all other cases"
+      }
+    },
+
+    "inferred_ratio": {
+      "description": "Fraction of claims whose evidence_type == 'INFERRED'. Drives EVID ceiling.",
+      "type": "number", "minimum": 0, "maximum": 1
+    },
+
+    "evid_ceiling_applied": {
+      "description": "Human-readable note when the EVID ceiling was triggered, else null.",
+      "type": ["string","null"]
+    },
+
+    "hallucination_flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim_id","flag_type","detail"],
+        "properties": {
+          "claim_id":  { "type": "string" },
+          "flag_type": {
+            "enum": [
+              "FABRICATED_SOURCE","CONTRADICTS_EVIDENCE",
+              "IMPOSSIBLE_DATE","CIRCULAR_REASONING","NUMERIC_DRIFT"
+            ]
+          },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+
+    "absence_assertion_flags": {
+      "description": "v2.0: claims that assert absence of evidence without a source URI.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim_id","flag_type","matched_phrase","detail"],
+        "properties": {
+          "claim_id":       { "type": "string" },
+          "flag_type":      { "type": "string", "enum": ["ABSENCE_ASSERTION"] },
+          "matched_phrase": { "type": "string" },
+          "detail":         { "type": "string" }
+        }
+      }
+    }
+  }
+}
